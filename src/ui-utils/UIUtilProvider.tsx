@@ -84,7 +84,8 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                                 </button>
                                 <button
                                     className={"btn btn-danger"}
-                                    onClick={() => (onNo ? onNo() : this.toggleModalInstance("confirm", false, true))}>
+                                    onClick={() => (onNo ? onNo() : this.toggleModalInstance("confirm", false, true))}
+                                >
                                     No
                                 </button>
                             </div>
@@ -104,7 +105,8 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                                         onClick={() => {
                                             onClick && onClick();
                                             closeOnClick && this.toggleModalInstance("actions", false, true);
-                                        }}>
+                                        }}
+                                    >
                                         {content}
                                     </button>
                                 ))}

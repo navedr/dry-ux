@@ -38,7 +38,8 @@ const Modal: React.FC<
                 keyboard={false}
                 className={cssClass}
                 backdropStyle={{ zIndex: 1040 }}
-                backdrop={"static"}>
+                backdrop={"static"}
+            >
                 {!!title && (
                     <BootstrapModal.Header closeButton={titleCloseBtn} onHide={hide}>
                         <BootstrapModal.Title>{title}</BootstrapModal.Title>
