@@ -1,17 +1,22 @@
 {
   "name": "dry-ux",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
-    "lint": "tslint -p tsconfig.json"
+    "update:version": "npm version minor --no-git-tag-version",
+    "prepublish": "npm run format && npm run build && npm run update:version",
+    "publish:npm": "npm run prepublish && npm publish"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/navedr/dry-ux.git"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "keywords": [],
   "author": "Naved Rangwala",
   "license": "ISC",
