@@ -8,8 +8,8 @@
     "watch": "rimraf dist/ && tsc --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "update:version": "npm version minor --no-git-tag-version",
-    "prepublish:npm": "npm run format && npm run build && npm run update:version",
-    "publish:npm": "npm run prepublish:npm && npm publish"
+    "prepub:npm": "npm run format && npm run build && npm run update:version",
+    "publish:npm": "npm run prepub:npm && npm publish"
   },
   "repository": {
     "type": "git",
