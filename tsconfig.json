@@ -1,14 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["es5", "es6", "dom"],
-    "outDir": "./dist/",
-    "sourceMap": true,
+    "target": "ES2015",
+    "module": "commonjs",
+    "declaration": true,
     "allowJs": true,
-    "noImplicitAny": false,
-    "module": "esnext",
-    "target": "es6",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
+    "outDir": "./dist",
     "jsx": "react"
   },
   "include": ["src"],

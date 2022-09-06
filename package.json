@@ -1,11 +1,11 @@
 {
   "name": "dry-ux",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch",
+    "build": "rimraf dist/ && tsc",
+    "watch": "rimraf dist/ && tsc --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "update:version": "npm version minor --no-git-tag-version",
     "prepublish:npm": "npm run format && npm run build && npm run update:version",
@@ -22,15 +22,27 @@
   "author": "Naved Rangwala",
   "license": "ISC",
   "devDependencies": {
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
     "@types/react": "^17.0.0",
     "@types/react-bootstrap": "^0.32.25",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "typescript": "*"
   },
   "dependencies": {
-    "react": "^16.8.2",
     "react-bootstrap": "^0.33.1",
-    "react-dom": "^16.8.2"
+    "jquery": "^3.6.1"
+  },
+  "peerDependencies": {
+    "@types/react": ">=16.14.8",
+    "react": ">=16.14.0",
+    "react-dom": ">=16.14.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   },
   "bugs": {
     "url": "https://github.com/navedr/dry-ux/issues"
