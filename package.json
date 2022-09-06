@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "watch": "tsc --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "update:version": "npm version minor --no-git-tag-version",
-    "prepublish": "npm run format && npm run build && npm run update:version",
-    "publish:npm": "npm run prepublish && npm publish"
+    "prepublish:npm": "npm run format && npm run build && npm run update:version",
+    "publish:npm": "npm run prepublish:npm && npm publish"
   },
   "repository": {
     "type": "git",
