@@ -17,6 +17,7 @@ const Modal: React.FC<
         React.useEffect(() => {
             if (shown) {
                 $(".modal-dialog").css("width", width);
+                $("[role=dialog]").css("opacity", 1);
                 $(".modal-backdrop").css("height", $(document).height());
             }
         }, [shown, width]);
@@ -37,7 +38,7 @@ const Modal: React.FC<
                 autoFocus
                 keyboard={false}
                 className={cssClass}
-                backdropStyle={{ zIndex: 1040 }}
+                backdropStyle={{ zIndex: 1040, opacity: 0.5 }}
                 backdrop={"static"}
             >
                 {!!title && (
