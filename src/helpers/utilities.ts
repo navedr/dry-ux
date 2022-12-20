@@ -50,3 +50,17 @@ export const useCountdown = (seconds: number, onExpiry: () => void) => {
     React.useEffect(() => () => clearInterval(interval));
     return secondsRemaining;
 };
+
+export const formatDollar = (num, decimal_places) => {
+    const p = num.toFixed(2).split(".");
+    let result = p[0]
+        .split("")
+        .reverse()
+        .reduce(function (acc, num, i, orig) {
+            return num + (i && !(i % 3) ? "," : "") + acc;
+        }, "");
+    if (decimal_places) {
+        result += "." + p[1];
+    }
+    return result;
+};
