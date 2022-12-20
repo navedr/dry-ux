@@ -51,8 +51,8 @@ export const useCountdown = (seconds: number, onExpiry: () => void) => {
     return secondsRemaining;
 };
 
-export const formatDollar = (num, decimal_places) => {
-    const p = num.toFixed(2).split(".");
+export const formatDollar = (amount: number, decimal_places?: boolean) => {
+    const p = amount.toFixed(2).split(".");
     let result = p[0]
         .split("")
         .reverse()
