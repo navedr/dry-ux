@@ -64,3 +64,22 @@ export const formatDollar = (amount: number, decimal_places?: boolean) => {
     }
     return result;
 };
+
+/**
+ * Calls the authCheckUrl to check if the user is authenticated. The URL should return a JSON response with
+ * just `true` or `false` to indicate if the user is authenticated. If user is authenticated, it will call the
+ * function (fn), otherwise it will redirect to `authRedirectUrl`.
+ * @param fn
+ * @param authCheckUrl
+ * @param authRedirectUrl
+ */
+export const fnWithAuthCheck = (fn: Function, authCheckUrl: string, authRedirectUrl: string) =>
+    fetch(authCheckUrl)
+        .then(response => response.json())
+        .then(isAuthenticated => {
+            if (isAuthenticated) {
+                fn();
+            } else {
+                location.href = `${authRedirectUrl}?next=${encodeURIComponent(window.location.pathname)}`;
+            }
+        });
