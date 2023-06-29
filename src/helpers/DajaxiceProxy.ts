@@ -1,22 +1,27 @@
 import { fnWithAuthCheck } from "./utilities";
 
-export type DajaxiceFnArgs<T> = {
+type DajaxiceFnArgs<T> = {
     args?: T;
     skipAuthCheck?: boolean;
 };
 
 export type DajaxiceFn<T> = (args?: DajaxiceFnArgs<T>) => Promise<any>;
 
+/**
+ * This function is used to create a type safe proxy for the Dajaxice functions.
+ * @param modules: The modules object from the Dajaxice generated file.
+ * @param authCheck The auth check object. If undefined, it will not check for authentication.
+ * @returns A type safe proxy for calling Dajaxice functions.
+ */
 export const DajaxiceProxy = <TModule>({
-    authCheckUrl,
-    authRedirectUrl,
     modules,
-    skipAuthCheck: skipAuthCheckGlobally = false,
+    authCheck,
 }: {
     modules: TModule;
-    authCheckUrl: string;
-    authRedirectUrl: string;
-    skipAuthCheck?: boolean;
+    authCheck?: {
+        url: string;
+        redirectUrl: string;
+    };
 }): TModule =>
     new Proxy(modules as any, {
         get(target, module: string) {
@@ -32,10 +37,10 @@ export const DajaxiceProxy = <TModule>({
                                         methodName(resolve, args, {
                                             error_callback: reject,
                                         });
-                                    if (skipAuthCheck || skipAuthCheckGlobally) {
+                                    if (skipAuthCheck || !authCheck) {
                                         fn();
                                     } else {
-                                        fnWithAuthCheck(fn, authCheckUrl, authRedirectUrl).catch(reject);
+                                        fnWithAuthCheck(fn, authCheck.url, authCheck.redirectUrl).catch(reject);
                                     }
                                 } else {
                                     reject(new Error(`The method ${method} does not exist in the module ${module}`));

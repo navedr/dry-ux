@@ -8,6 +8,11 @@ function keyIdentity(key) {
 
 type FlattenOptions = { delimiter?: string; maxDepth?: number; transformKey?: (key) => any; safe?: boolean };
 
+/**
+ * Flattens an object with the paths for keys.
+ * @param target The object to flatten.
+ * @param opts Options for flattening the object.
+ */
 export function flatten(target, opts?: FlattenOptions): { [key: string]: any } {
     opts = opts || {};
 
@@ -48,6 +53,11 @@ export function flatten(target, opts?: FlattenOptions): { [key: string]: any } {
 
 type UnflattenOptions = Pick<FlattenOptions, "delimiter" | "transformKey"> & { overwrite?: boolean; object?: boolean };
 
+/**
+ * Unflattens an object with the paths for keys.
+ * @param target The object to unflatten.
+ * @param opts Options for unflattening the object.
+ */
 export function unflatten(target, opts?: UnflattenOptions) {
     opts = opts || {};
 

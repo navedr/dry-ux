@@ -1,6 +1,9 @@
 import * as React from "react";
 import { formatDollar } from "../helpers/utilities";
 
+/**
+ * Renders a formatted dollar amount with a dollar sign and parentheses if the amount is negative.
+ */
 export const Money: React.FC<{ amount: number; decimal_places?: boolean; currency?: string }> = React.memo(
     ({ amount, decimal_places = false, currency = "$" }) => {
         const isNegative = amount < 0;
