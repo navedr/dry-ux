@@ -7,3 +7,4 @@ export * from "./helpers/utilities";
 export { classSet } from "./helpers/classSet";
 export { flatten, unflatten } from "./helpers/flat";
 export { DajaxiceFn, DajaxiceProxy } from "./helpers/DajaxiceProxy";
+export { ErrorBoundary } from "./ErrorBoundary";
