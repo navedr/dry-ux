@@ -1,7 +1,8 @@
 import * as React from "react";
+import { ErrorScreen } from "./ErrorScreen";
 
 export class ErrorBoundary extends React.Component<
-    { fallback: JSX.Element; children: JSX.Element },
+    { fallback?: JSX.Element; children: JSX.Element },
     { hasError: boolean }
 > {
     constructor(props) {
@@ -15,7 +16,7 @@ export class ErrorBoundary extends React.Component<
 
     render() {
         if (this.state.hasError) {
-            return this.props.fallback;
+            return this.props.fallback || <ErrorScreen />;
         }
 
         return this.props.children;
