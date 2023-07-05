@@ -1,11 +1,11 @@
 import { fnWithAuthCheck } from "./utilities";
 
-type DajaxiceFnArgs<T> = {
+type Args<T> = {
     args?: T;
     skipAuthCheck?: boolean;
 };
-
-export type DajaxiceFn<T> = (args?: DajaxiceFnArgs<T>) => Promise<any>;
+type Result<T = void> = T extends void ? Promise<any> : Promise<T>;
+export declare type DajaxiceFn<TArgs> = <TResult = void>(args?: Args<TArgs>) => Result<TResult>;
 
 /**
  * This function is used to create a type safe proxy for the Dajaxice functions.
@@ -29,7 +29,7 @@ export const DajaxiceProxy = <TModule>({
                 {},
                 {
                     get(target, method: string): DajaxiceFn<any> {
-                        return function ({ args, skipAuthCheck }: DajaxiceFnArgs<any> = {}): Promise<any> {
+                        return function <T>({ args, skipAuthCheck }: Args<any> = {}): Result<T> {
                             return new Promise((resolve, reject) => {
                                 const methodName = window["Dajaxice"][module][method];
                                 if (methodName) {
@@ -45,7 +45,7 @@ export const DajaxiceProxy = <TModule>({
                                 } else {
                                     reject(new Error(`The method ${method} does not exist in the module ${module}`));
                                 }
-                            });
+                            }) as Result<T>;
                         };
                     },
                 },
