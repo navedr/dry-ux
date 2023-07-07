@@ -19,6 +19,10 @@ export type ModalOptions = {
      */
     content: JSX.Element | string;
     /**
+     * Footer content of the modal.
+     */
+    footerContent?: JSX.Element | string;
+    /**
      * The class to apply to the modal.
      */
     cssClass?: string;

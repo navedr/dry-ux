@@ -9,6 +9,7 @@ import {
     ModalOptions,
 } from "./uiUtil.interface";
 import "../types";
+import { Button } from "react-bootstrap";
 
 export interface IUIUtilProviderState {
     modal: IUIUtilModal;
@@ -75,43 +76,39 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
             showConfirm: (options: ModalOptions, onYes: () => void, onNo?: () => void) =>
                 this.createModal("confirm", {
                     ...options,
-                    content: (
-                        <div>
-                            {options.content}
-                            <div className={"text-center mtop"}>
-                                <button className={"btn btn-success mright"} onClick={onYes}>
-                                    Yes
-                                </button>
-                                <button
-                                    className={"btn btn-danger"}
-                                    onClick={() => (onNo ? onNo() : this.toggleModalInstance("confirm", false, true))}
-                                >
-                                    No
-                                </button>
-                            </div>
-                        </div>
+                    footerContent: (
+                        <>
+                            {options.footerContent}
+                            <Button bsClass={"btn btn-success mright"} onClick={onYes}>
+                                Yes
+                            </Button>
+                            <Button
+                                bsClass={"btn btn-danger"}
+                                onClick={() => (onNo ? onNo() : this.toggleModalInstance("confirm", false, true))}
+                            >
+                                No
+                            </Button>
+                        </>
                     ),
                 }),
             showActions: (options: ModalOptions, actions: IUtilModalAction[]) =>
                 this.createModal("actions", {
                     ...options,
-                    content: (
-                        <div>
-                            {options.content}
-                            <div className={"text-center mtop"}>
-                                {actions.map(({ content, type = "success", closeOnClick, onClick }, index) => (
-                                    <button
-                                        className={`btn btn-${type} mright`}
-                                        onClick={() => {
-                                            onClick && onClick();
-                                            closeOnClick && this.toggleModalInstance("actions", false, true);
-                                        }}
-                                    >
-                                        {content}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
+                    footerContent: (
+                        <>
+                            {options.footerContent}
+                            {actions.map(({ content, type = "success", closeOnClick, onClick }, index) => (
+                                <Button
+                                    bsClass={`btn btn-${type} mright`}
+                                    onClick={() => {
+                                        onClick && onClick();
+                                        closeOnClick && this.toggleModalInstance("actions", false, true);
+                                    }}
+                                >
+                                    {content}
+                                </Button>
+                            ))}
+                        </>
                     ),
                 }),
         };

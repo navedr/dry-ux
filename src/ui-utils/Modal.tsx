@@ -13,7 +13,11 @@ const Modal: React.FC<
         handleClose: () => void;
     }
 > = React.memo(
-    ({ handleClose, shown, options: { content, cssClass, closeBtn, title, width, onClose, titleCloseBtn = true } }) => {
+    ({
+        handleClose,
+        shown,
+        options: { content, footerContent, cssClass, closeBtn, title, width, onClose, titleCloseBtn = true },
+    }) => {
         React.useEffect(() => {
             if (shown) {
                 $(".modal-dialog").css("width", width);
@@ -29,6 +33,7 @@ const Modal: React.FC<
 
         const contentToRender =
             typeof content == "string" ? <div dangerouslySetInnerHTML={{ __html: content }} /> : content;
+        const showFooter = closeBtn || footerContent;
 
         return (
             <BootstrapModal
@@ -47,13 +52,16 @@ const Modal: React.FC<
                     </BootstrapModal.Header>
                 )}
                 <BootstrapModal.Body>{contentToRender}</BootstrapModal.Body>
-                <BootstrapModal.Footer>
-                    {closeBtn && (
-                        <Button bsClass={"btn btn-danger"} onClick={hide}>
-                            Close
-                        </Button>
-                    )}
-                </BootstrapModal.Footer>
+                {showFooter && (
+                    <BootstrapModal.Footer>
+                        {footerContent}
+                        {closeBtn && (
+                            <Button bsClass={"btn btn-danger"} onClick={hide}>
+                                Close
+                            </Button>
+                        )}
+                    </BootstrapModal.Footer>
+                )}
             </BootstrapModal>
         );
     },
