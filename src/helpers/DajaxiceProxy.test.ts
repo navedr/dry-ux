@@ -8,7 +8,8 @@ export type DajaxiceModules = {
     };
     organization?: {
         setName: DajaxiceFn<{ name: string }>;
-        getName: DajaxiceFn<{}>;
+        getName: DajaxiceFn;
+        getCity: DajaxiceFn<void>;
     };
 };
 
@@ -25,5 +26,9 @@ Api.organization.setName({ args: { name: "test" } }).then(res => {
 });
 
 Api.organization.getName<string>().then(res => {
+    console.log(res);
+});
+
+Api.organization.getCity<string>().then(res => {
     console.log(res);
 });
