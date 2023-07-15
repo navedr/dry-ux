@@ -22,7 +22,7 @@ Api.employee.getDetails<{ name: string; id: number }>({ args: { id: 1 } }).then(
 });
 
 Api.organization.setName({ args: { name: "test" } }).then(res => {
-    console.log(res);
+    console.log(res.status);
 });
 
 Api.organization.getName<string>().then(res => {
