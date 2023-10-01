@@ -33,7 +33,7 @@ export type ModalOptions = {
     /**
      * The title of the modal.
      */
-    title?: string;
+    title?: JSX.Element | string;
     /**
      * If true, the modal will have a close button in the title bar.
      */
