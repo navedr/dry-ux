@@ -58,7 +58,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         return {
             ...defaultState.modal,
             create: this.createModal.bind(this),
-            show: options => this.createModal(null, options),
+            show: (options: ModalOptions) => this.createModal(null, options),
             getCurrent: () => {
                 const {
                     modal: { instances },
@@ -66,9 +66,9 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                 const id = Object.keys(instances).find(id => instances[id].shown);
                 return this.getCurrentModal(id);
             },
-            showAlert: content =>
+            showAlert: (content: ModalOptions["content"]) =>
                 this.createModal(null, {
-                    content: <h4 className="text-center mtop">{content}</h4>,
+                    content: typeof content == "string" ? <h4 className="text-center mtop">{content}</h4> : content,
                     destroyOnClose: true,
                     closeBtn: true,
                     width: 400,

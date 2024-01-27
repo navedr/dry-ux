@@ -104,7 +104,7 @@ export interface IUIUtilModal {
      * Shows an alert style modal.
      * @param content The content to display in the modal.
      */
-    showAlert: (content: string) => IModalCreate;
+    showAlert: (content: ModalOptions["content"]) => IModalCreate;
     /**
      * Shows a confirm style modal.
      * @param options The options for the modal.
