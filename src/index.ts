@@ -9,3 +9,4 @@ export { flatten, unflatten } from "./helpers/flat";
 export { DajaxiceFn, DajaxiceProxy } from "./helpers/DajaxiceProxy";
 export { ErrorBoundary } from "./error/ErrorBoundary";
 export { ErrorScreen } from "./error/ErrorScreen";
+export { Loader } from "./ui-utils/Loader";
