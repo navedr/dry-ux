@@ -127,6 +127,17 @@ export class SpinnerStyles {
         }
 `;
     private readonly id = "dry-ux-loader-styles";
+    private static instance: SpinnerStyles;
+
+    private constructor() {}
+
+    public static getInstance() {
+        if (!SpinnerStyles.instance) {
+            SpinnerStyles.instance = new SpinnerStyles();
+        }
+        return SpinnerStyles.instance;
+    }
+
     public add() {
         if (!document.getElementById(this.id)) {
             let el = document.createElement("style");

@@ -1,8 +1,19 @@
 import { SpinnerStyles } from "./SpinnerStyles";
 
 export class Loader {
-    private readonly spinnerStyles = new SpinnerStyles();
+    private readonly spinnerStyles = SpinnerStyles.getInstance();
     private readonly elementId = "dry-ux-loader";
+    private static instance: Loader;
+
+    private constructor() {}
+
+    public static getInstance() {
+        if (!Loader.instance) {
+            Loader.instance = new Loader();
+        }
+        return Loader.instance;
+    }
+
     get element() {
         return document.getElementById(this.elementId);
     }

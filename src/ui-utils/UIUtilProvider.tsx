@@ -10,11 +10,13 @@ import {
 } from "./uiUtil.interface";
 import "../types";
 import { Button } from "react-bootstrap";
+import { Loader } from "./Loader";
 
 export interface IUIUtilProviderState {
     modal: IUIUtilModal;
     alert: IUIUtilAlert;
-    loader: IUIUtilLoader;
+    customLoader: IUIUtilLoader;
+    loader: Pick<IUIUtilLoader, "show" | "hide">;
 }
 
 const defaultState: IUIUtilProviderState = {
@@ -31,8 +33,12 @@ const defaultState: IUIUtilProviderState = {
         show: null,
         showNoty: null,
     },
-    loader: {
+    customLoader: {
         shown: false,
+        show: null,
+        hide: null,
+    },
+    loader: {
         show: null,
         hide: null,
     },
@@ -43,6 +49,7 @@ export const UIUtilContext = React.createContext<IUIUtilProviderState>(defaultSt
 export const useUIUtilContext = () => React.useContext<IUIUtilProviderState>(UIUtilContext);
 
 export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState> {
+    private readonly loader = Loader.getInstance();
     constructor(props) {
         super(props);
 
@@ -50,6 +57,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
             ...defaultState,
             modal: this.modalDefaults,
             alert: this.alertDefaults,
+            customLoader: this.customLoaderDefaults,
             loader: this.loaderDefaults,
         };
     }
@@ -121,23 +129,30 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         };
     }
 
-    get loaderDefaults() {
+    get customLoaderDefaults() {
         return {
-            ...defaultState.loader,
+            ...defaultState.customLoader,
             show: () =>
                 this.setState({
-                    loader: {
-                        ...this.state.loader,
+                    customLoader: {
+                        ...this.state.customLoader,
                         shown: true,
                     },
                 }),
             hide: () =>
                 this.setState({
-                    loader: {
-                        ...this.state.loader,
+                    customLoader: {
+                        ...this.state.customLoader,
                         shown: false,
                     },
                 }),
+        };
+    }
+    get loaderDefaults() {
+        return {
+            ...defaultState.loader,
+            show: () => this.loader.show(),
+            hide: () => this.loader.hide(),
         };
     }
 

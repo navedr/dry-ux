@@ -49,7 +49,9 @@ export const DajaxiceProxy = <TModule>({
                             return new Promise((resolve, reject) => {
                                 const methodName = window["Dajaxice"][module][method];
                                 const loader =
-                                    (showLoaderGlobal || showLoaderLocal) && !skip?.loader ? new Loader() : undefined;
+                                    (showLoaderGlobal || showLoaderLocal) && !skip?.loader
+                                        ? Loader.getInstance()
+                                        : undefined;
                                 const hideLoader = () => {
                                     try {
                                         loader?.hide();

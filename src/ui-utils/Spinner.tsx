@@ -3,7 +3,7 @@ import { SpinnerStyles } from "./SpinnerStyles";
 
 export const Spinner = React.memo(() => {
     React.useEffect(() => {
-        const spinnerStyles = new SpinnerStyles();
+        const spinnerStyles = SpinnerStyles.getInstance();
         spinnerStyles.add();
     }, []);
 
