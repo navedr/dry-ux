@@ -3,6 +3,7 @@ import { Loader } from "../ui-utils/Loader";
 
 type Args<T = void> = {
     args: T;
+    loader?: boolean;
     skip?: {
         authCheck?: boolean;
         errorHandler?: boolean;
@@ -16,13 +17,15 @@ export declare type DajaxiceFn<TArgs = void> = <TResult = any>(args: ArgType<TAr
  * This function is used to create a type safe proxy for the Dajaxice functions.
  * @param modules: The modules object from the Dajaxice generated file.
  * @param authCheck The auth check object. If undefined, it will not check for authentication.
+ * @param onError: Default handler for error
+ * @param loader: If true, it will show a loader when a Dajaxice function is called.
  * @returns A type safe proxy for calling Dajaxice functions.
  */
 export const DajaxiceProxy = <TModule>({
     modules,
     authCheck,
     onError,
-    loader: showLoader,
+    loader: showLoaderGlobal,
 }: {
     modules: TModule;
     authCheck?: {
@@ -38,10 +41,15 @@ export const DajaxiceProxy = <TModule>({
                 {},
                 {
                     get(target, method: string): DajaxiceFn {
-                        return function <T>({ args, skip }: Partial<Args<any>> = {}): Promise<T> {
+                        return function <T>({
+                            args,
+                            skip,
+                            loader: showLoaderLocal,
+                        }: Partial<Args<any>> = {}): Promise<T> {
                             return new Promise((resolve, reject) => {
                                 const methodName = window["Dajaxice"][module][method];
-                                const loader = showLoader && !skip?.loader ? new Loader() : undefined;
+                                const loader =
+                                    (showLoaderGlobal || showLoaderLocal) && !skip?.loader ? new Loader() : undefined;
                                 const hideLoader = () => {
                                     try {
                                         loader?.hide();
