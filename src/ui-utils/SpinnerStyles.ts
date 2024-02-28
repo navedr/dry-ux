@@ -28,7 +28,8 @@ export class SpinnerStyles {
         }
         
         .dry-ux-spinner:not(.fullscreen) {
-          padding: 20px
+          padding: 20px;
+          display: inline-block;
         }
         
         /* :not(:required) hides these rules from IE9 and below */
