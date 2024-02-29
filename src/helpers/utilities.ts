@@ -104,3 +104,25 @@ export const fnWithAuthCheck = (fn: Function, authCheckUrl: string, authRedirect
                 location.href = `${authRedirectUrl}?next=${encodeURIComponent(window.location.pathname)}`;
             }
         });
+
+export const StorageUtils = {
+    isStorageAvailable: function () {
+        let available = typeof Storage !== "undefined";
+        try {
+            if (available) sessionStorage.setItem("test", "test");
+        } catch (e) {
+            available = false;
+        }
+        return available;
+    },
+};
+
+export const toHashCode = (input: string): number => {
+    let hash = 0;
+    if (input.length === 0) return hash;
+    for (let i = 0, len = input.length; i < len; i++) {
+        hash = (hash << 5) - hash + input.charCodeAt(i);
+        hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+};

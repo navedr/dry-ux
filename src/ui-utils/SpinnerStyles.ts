@@ -3,7 +3,7 @@ export class SpinnerStyles {
         /* Absolute Center Spinner */
         .dry-ux-spinner.fullscreen {
           position: fixed;
-          z-index: 999;
+          z-index: 5000;
           height: 2em;
           width: 2em;
           overflow: show;

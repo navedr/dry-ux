@@ -1,12 +1,32 @@
-import { fnWithAuthCheck } from "./utilities";
+import { fnWithAuthCheck, StorageUtils, toHashCode } from "./utilities";
 import { Loader } from "../ui-utils/Loader";
 
 type Args<T = void> = {
     args: T;
+    /**
+     * If true, it will show a loader when a Dajaxice function is called. Defaults to false.
+     */
     loader?: boolean;
+    /**
+     * If true, it will cache the result of the Dajaxice function. Defaults to false.
+     */
+    cache?: boolean;
+    /**
+     * The duration in minutes to cache the result of the Dajaxice function. Defaults to 15 minutes.
+     */
+    cacheDuration?: number;
     skip?: {
+        /**
+         * If true, it will not check for authentication. Defaults to false.
+         */
         authCheck?: boolean;
+        /**
+         * If true, it will not use global error handler when a Dajaxice function is called. Defaults to false.
+         */
         errorHandler?: boolean;
+        /**
+         * If true, it will not show a loader when a Dajaxice function is called. Defaults to false.
+         */
         loader?: boolean;
     };
 };
@@ -44,12 +64,15 @@ export const DajaxiceProxy = <TModule>({
                         return function <T>({
                             args,
                             skip,
-                            loader: showLoaderLocal,
+                            loader: showLoader,
+                            cache = false,
+                            cacheDuration = 15,
                         }: Partial<Args<any>> = {}): Promise<T> {
                             return new Promise((resolve, reject) => {
                                 const methodName = window["Dajaxice"][module][method];
+                                const api = `${module}.${method}`;
                                 const loader =
-                                    (showLoaderGlobal || showLoaderLocal) && !skip?.loader
+                                    (showLoaderGlobal || showLoader) && !skip?.loader
                                         ? Loader.getInstance()
                                         : undefined;
                                 const hideLoader = () => {
@@ -67,12 +90,23 @@ export const DajaxiceProxy = <TModule>({
                                     };
                                     const handleSuccess = (result: any) => {
                                         hideLoader();
+                                        if (cache) {
+                                            storeCache(api, args, result);
+                                        }
                                         resolve(result);
                                     };
-                                    const fn = () =>
-                                        methodName(handleSuccess, args, {
+                                    const fn = () => {
+                                        if (cache) {
+                                            const cached = checkCache(api, args, cacheDuration);
+                                            if (cached.exists) {
+                                                handleSuccess(cached.data);
+                                                return;
+                                            }
+                                        }
+                                        return methodName(handleSuccess, args, {
                                             error_callback: handleError,
                                         });
+                                    };
                                     try {
                                         loader?.show();
                                     } catch (e) {}
@@ -91,3 +125,32 @@ export const DajaxiceProxy = <TModule>({
             );
         },
     });
+
+const getCacheId = (api: string, args: any) => {
+    return "dajaxice-cache-" + toHashCode(JSON.stringify({ api, args }));
+};
+
+const checkCache = (api: string, args: any, cacheDuration: number) => {
+    const cacheId = getCacheId(api, args);
+    let exists = false,
+        data = null;
+    if (StorageUtils.isStorageAvailable() && sessionStorage.getItem(cacheId)) {
+        const cacheData = JSON.parse(sessionStorage.getItem(cacheId));
+        const timeDiff = Math.floor((new Date().getTime() - new Date(cacheData.storeTime).getTime()) / 1000 / 60);
+        if (timeDiff <= cacheDuration) {
+            exists = true;
+            data = cacheData.data;
+        }
+    }
+    return { exists, data };
+};
+
+const storeCache = (api: string, args: any, data: any) => {
+    const cacheId = getCacheId(api, args);
+    if (StorageUtils.isStorageAvailable()) {
+        try {
+            const cacheData = JSON.stringify({ storeTime: new Date(), data: data });
+            sessionStorage.setItem(cacheId, cacheData);
+        } catch (e) {}
+    }
+};
