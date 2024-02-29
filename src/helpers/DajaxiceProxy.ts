@@ -89,17 +89,20 @@ export const DajaxiceProxy = <TModule>({
                                         reject(e);
                                     };
                                     const handleSuccess = (result: any) => {
-                                        hideLoader();
+                                        handleResult(result);
                                         if (cache) {
                                             storeCache(api, args, result);
                                         }
+                                    };
+                                    const handleResult = (result: any) => {
+                                        hideLoader();
                                         resolve(result);
                                     };
                                     const fn = () => {
                                         if (cache) {
                                             const cached = checkCache(api, args, cacheDuration);
                                             if (cached.exists) {
-                                                handleSuccess(cached.data);
+                                                handleResult(cached.data);
                                                 return;
                                             }
                                         }
