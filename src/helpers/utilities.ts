@@ -126,3 +126,27 @@ export const toHashCode = (input: string): number => {
     }
     return hash;
 };
+
+export const insertUrlParam = (key: string, value: any) => {
+    if (history.pushState) {
+        let searchParams = new URLSearchParams(window.location.search);
+        searchParams.set(key, value);
+        let newUrl =
+            window.location.protocol +
+            "//" +
+            window.location.host +
+            window.location.pathname +
+            "?" +
+            searchParams.toString();
+        window.history.pushState({ path: newUrl }, "", newUrl);
+    }
+};
+
+export const getUrlParams = <T>() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const params = {} as T;
+    for (const [key, value] of searchParams.entries()) {
+        params[key] = value;
+    }
+    return params;
+};
