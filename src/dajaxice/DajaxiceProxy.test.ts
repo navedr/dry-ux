@@ -1,4 +1,5 @@
-import { DajaxiceFn, DajaxiceProxy } from "./DajaxiceProxy";
+import { DajaxiceProxy } from "./DajaxiceProxy";
+import { DajaxiceFn } from "./Proxy.interface";
 
 export const modules: DajaxiceModules = {};
 
@@ -17,7 +18,7 @@ const Api = DajaxiceProxy<DajaxiceModules>({
     modules,
 });
 
-Api.employee.getDetails<{ name: string; id: number }>({ args: { id: 1 } }).then(res => {
+Api.employee.getDetails<{ name: string; id: number }>({ args: { id: 1 }, loader: true }).then(res => {
     console.log(res.name, res.id);
 });
 

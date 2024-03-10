@@ -142,6 +142,9 @@ export const insertUrlParam = (key: string, value: any) => {
     }
 };
 
+export const insertUrlParams = (params: { [key: string]: any }) =>
+    Object.keys(params).forEach(key => insertUrlParam(key, params[key]));
+
 export const getUrlParams = <T>() => {
     const searchParams = new URLSearchParams(window.location.search);
     const params = {} as T;
@@ -150,3 +153,24 @@ export const getUrlParams = <T>() => {
     }
     return params;
 };
+
+export class Deferred<T> {
+    public _resolve: (result: T) => void;
+    public _reject: (error: any) => void;
+    public readonly promise: Promise<T>;
+
+    constructor() {
+        this.promise = new Promise<T>((resolve, reject) => {
+            this._resolve = resolve;
+            this._reject = reject;
+        });
+    }
+
+    public get resolve() {
+        return this._resolve;
+    }
+
+    public get reject() {
+        return this._reject;
+    }
+}
