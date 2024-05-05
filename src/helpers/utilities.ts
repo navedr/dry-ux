@@ -13,8 +13,13 @@ export const preventDefault = (handler?: (event: any) => void) => (event: any) =
  * Imports a script and returns a promise that resolves when the script is loaded.
  * @param resourceUrl The url of the script to load.
  * @param singleton If true, the script will only be loaded once.
+ * @param placement "body" or "head" to specify where the script should be placed.
  */
-export const importScript = (resourceUrl: string, singleton: boolean = true): Promise<void> =>
+export const importScript = (
+    resourceUrl: string,
+    singleton: boolean = true,
+    placement: "body" | "head" = "body",
+): Promise<void> =>
     new Promise<void>(resolve => {
         React.useEffect(() => {
             const script = document.createElement("script");
@@ -22,7 +27,11 @@ export const importScript = (resourceUrl: string, singleton: boolean = true): Pr
                 script.src = resourceUrl;
                 script.async = true;
                 script.onload = () => resolve();
-                document.body.appendChild(script);
+                if (placement === "head") {
+                    document.head.appendChild(script);
+                } else {
+                    document.body.appendChild(script);
+                }
             } else {
                 resolve();
             }
