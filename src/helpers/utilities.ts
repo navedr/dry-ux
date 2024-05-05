@@ -183,3 +183,11 @@ export class Deferred<T> {
         return this._reject;
     }
 }
+
+export const tryParseJson = <T = any>(json: string, errorValue = {}) => {
+    try {
+        return JSON.parse(json) as T;
+    } catch (e) {
+        return errorValue;
+    }
+};
