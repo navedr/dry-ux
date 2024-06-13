@@ -4,6 +4,7 @@ export { Money as Money } from "./ui-utils/Money";
 export * from "./ui-utils/uiUtil.interface";
 export { DryUXProvider } from "./provider";
 export * from "./helpers/utilities";
+export * from "./helpers/logger";
 export { classSet } from "./helpers/classSet";
 export { flatten, unflatten } from "./helpers/flat";
 export { DajaxiceProxy } from "./dajaxice/DajaxiceProxy";
