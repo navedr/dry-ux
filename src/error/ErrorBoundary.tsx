@@ -5,7 +5,8 @@ export interface IErrorBoundaryProps {
     errorHandler?: (error?: Error, info?: React.ErrorInfo) => void;
     onErrorCallback?: (error?: Error) => void;
     rethrowError?: boolean;
-    fallbackUI?: React.ReactNode | ((error: Error, resetError: () => void) => JSX.Element);
+    fallback?: (error: Error, resetError: () => void) => JSX.Element;
+    children: JSX.Element;
 }
 
 interface IErrorBoundaryInnerState {
@@ -27,13 +28,10 @@ export class ErrorBoundary extends React.PureComponent<IErrorBoundaryProps, IErr
     }
 
     public render = () => {
-        const { children, fallbackUI = null } = this.props;
+        const { children, fallback = null } = this.props;
         const { error } = this.state;
         if (error) {
-            if (typeof fallbackUI === "function") {
-                return fallbackUI(error, this.resetError.bind(this));
-            }
-            return fallbackUI || <ErrorScreen />;
+            return fallback ? fallback(error, this.resetError.bind(this)) : <ErrorScreen />;
         }
 
         return children;
