@@ -191,3 +191,18 @@ export const tryParseJson = <T = any>(json: string, errorValue = {}) => {
         return errorValue;
     }
 };
+
+export const useIsVisible = (ref: React.MutableRefObject<any>) => {
+    const [isIntersecting, setIntersecting] = React.useState(false);
+
+    React.useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => setIntersecting(entry.isIntersecting));
+
+        observer.observe(ref.current);
+        return () => {
+            observer.disconnect();
+        };
+    }, [ref]);
+
+    return isIntersecting;
+};
