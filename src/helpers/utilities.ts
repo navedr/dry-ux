@@ -206,3 +206,37 @@ export const useIsVisible = (ref: React.MutableRefObject<any>) => {
 
     return isIntersecting;
 };
+
+const usePubSub = <T>() => {
+    const getEventName = (event: any) => `dry-ux-event-${event}`;
+
+    const usePub =
+        () =>
+        <TName extends keyof T, TPayload extends T[TName]>(event: TName, data?: TPayload) => {
+            document.dispatchEvent(
+                new CustomEvent<TPayload>(getEventName(event), {
+                    detail: data,
+                }),
+            );
+        };
+
+    const useSub = <TName extends keyof T, TPayload extends T[TName]>(
+        event: TName,
+        callback: (data: TPayload) => void,
+    ) => {
+        const controller = new AbortController();
+
+        const unsubscribe = () => controller.abort();
+
+        React.useEffect(() => {
+            document.addEventListener(getEventName(event), (event: CustomEvent<TPayload>) => callback(event.detail), {
+                signal: controller.signal,
+            });
+            return unsubscribe;
+        }, []);
+
+        return unsubscribe;
+    };
+
+    return { usePub, useSub };
+};
