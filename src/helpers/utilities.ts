@@ -207,7 +207,7 @@ export const useIsVisible = (ref: React.MutableRefObject<any>) => {
     return isIntersecting;
 };
 
-const usePubSub = <T>() => {
+export const usePubSub = <T>() => {
     const getEventName = (event: any) => `dry-ux-event-${event}`;
 
     const usePub =
