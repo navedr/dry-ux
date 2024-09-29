@@ -40,6 +40,6 @@ export interface IDajaxiceProxy<TModule> {
         url: string;
         redirectUrl: string;
     };
-    onError?: (error: any) => void;
+    onError?: (error: any, method: string, args: any) => void;
     loader?: boolean;
 }

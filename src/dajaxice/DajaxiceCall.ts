@@ -51,7 +51,7 @@ export class DajaxiceCall<TModule, TReturn> {
 
     private handleError = (e: any) => {
         try {
-            !this.methodArgs.skip?.errorHandler && this.config.onError?.(e);
+            !this.methodArgs.skip?.errorHandler && this.config.onError?.(e, this.method, this.methodArgs);
         } catch (e) {}
         this.hideLoader();
         this.deferred.reject(e);

@@ -1,15 +1,21 @@
 export interface ILogger {
-    log(...message: string[]): void;
-    error(...message: string[]): void;
-    debug(...message: string[]): void;
-    warn(...message: string[]): void;
+    log(...message: any[]): void;
+    error(...message: any[]): void;
+    debug(...message: any[]): void;
+    warn(...message: any[]): void;
 }
 
 const useLogger = (path: string, name: string): ILogger => {
-    const convertMessage = (message: string[]) =>
+    const convertMessage = (message: any[]) =>
         message
             .map(m => {
                 try {
+                    if (typeof m === "undefined") {
+                        return "undefined";
+                    }
+                    if (m === null) {
+                        return "null";
+                    }
                     if (typeof m === "string" || typeof m === "number" || typeof m === "boolean") {
                         return m.toString();
                     }
@@ -20,7 +26,7 @@ const useLogger = (path: string, name: string): ILogger => {
             })
             .join(" ");
 
-    const log = (level: "info" | "error" | "warn" | "debug", message: string[]) =>
+    const log = (level: "info" | "error" | "warn" | "debug", message: any[]) =>
         fetch(path, {
             method: "POST",
             headers: {
@@ -30,10 +36,10 @@ const useLogger = (path: string, name: string): ILogger => {
         });
 
     return {
-        log: (...message: string[]) => log("info", message),
-        error: (...message: string[]) => log("error", message),
-        debug: (...message: string[]) => log("debug", message),
-        warn: (...message: string[]) => log("warn", message),
+        log: (...message: any[]) => log("info", message),
+        error: (...message: any[]) => log("error", message),
+        debug: (...message: any[]) => log("debug", message),
+        warn: (...message: any[]) => log("warn", message),
     };
 };
 
