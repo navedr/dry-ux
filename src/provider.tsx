@@ -1,6 +1,6 @@
 import * as React from "react";
 import { UIUtilProvider } from "./ui-utils/UIUtilProvider";
-import { UIUtilRenderer } from "./ui-utils/UIUtilRenderer";
+import { UIUtilRenderer, UIUtilRendererProps } from "./ui-utils/UIUtilRenderer";
 
 interface IDryUXProviderProps {
     /**
@@ -8,12 +8,18 @@ interface IDryUXProviderProps {
      * by explicitly.
      */
     noRenderer?: boolean;
+    /**
+     * Props to pass to the renderer.
+     */
+    rendererProps?: UIUtilRendererProps;
     children: React.ReactNode;
 }
 
-export const DryUXProvider: React.FC<IDryUXProviderProps> = React.memo(({ children, noRenderer = false }) => (
-    <UIUtilProvider>
-        {children}
-        {!noRenderer && <UIUtilRenderer />}
-    </UIUtilProvider>
-));
+export const DryUXProvider: React.FC<IDryUXProviderProps> = React.memo(
+    ({ children, noRenderer = false, rendererProps }) => (
+        <UIUtilProvider>
+            {children}
+            {!noRenderer && <UIUtilRenderer {...rendererProps} />}
+        </UIUtilProvider>
+    ),
+);

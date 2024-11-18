@@ -2,10 +2,17 @@ import * as React from "react";
 import { Button, Modal as BootstrapModal } from "react-bootstrap";
 import { ModalOptions } from "./uiUtil.interface";
 
-interface IModalProps {
+export interface IModalProps {
     options: ModalOptions;
     handleClose: () => void;
     shown: boolean;
+    config: {
+        styles?: {
+            [selector: string]: React.CSSProperties;
+        };
+        defaultModalStyles?: boolean;
+        setBackdropHeight?: boolean;
+    };
 }
 
 const Modal: React.FC<
@@ -17,14 +24,38 @@ const Modal: React.FC<
         handleClose,
         shown,
         options: { content, footerContent, cssClass, closeBtn, title, width, onClose, titleCloseBtn = true },
+        config: { defaultModalStyles = false, styles = {}, setBackdropHeight = true },
     }) => {
+        const applyStyles = React.useCallback(() => {
+            document.querySelectorAll(".modal-dialog").forEach((el: HTMLDivElement) => {
+                el.style.width = typeof width == "number" ? `${width}px` : width;
+                if (defaultModalStyles) {
+                    el.style.maxWidth = "95%";
+                    el.style.marginTop = "100px";
+                    el.querySelectorAll(".modal-header").forEach((el: HTMLDivElement) => (el.style.display = "block"));
+                    el.querySelectorAll(".modal-title").forEach((el: HTMLDivElement) => (el.style.marginTop = "0"));
+                }
+            });
+            document.querySelectorAll("[role=dialog]").forEach((el: HTMLDivElement) => (el.style.opacity = "1"));
+            if (setBackdropHeight) {
+                document
+                    .querySelectorAll(".modal-backdrop")
+                    .forEach((el: HTMLDivElement) => (el.style.height = `${document.body.scrollHeight}px`));
+            }
+            Object.keys(styles).forEach(selector => {
+                document.querySelectorAll(selector).forEach((el: HTMLDivElement) => {
+                    Object.keys(styles[selector]).forEach(style => {
+                        el.style[style] = styles[selector][style];
+                    });
+                });
+            });
+        }, [width, defaultModalStyles]);
+
         React.useEffect(() => {
             if (shown) {
-                $(".modal-dialog").css("width", width);
-                $("[role=dialog]").css("opacity", 1);
-                $(".modal-backdrop").css("height", $(document).height());
+                applyStyles();
             }
-        }, [shown, width]);
+        }, [shown, width, defaultModalStyles]);
 
         const hide = () => {
             handleClose();

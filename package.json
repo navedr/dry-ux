@@ -1,6 +1,6 @@
 {
   "name": "dry-ux",
-  "version": "1.49.0",
+  "version": "1.50.0",
   "description": "",
   "main": "dist/index",
   "scripts": {
@@ -9,7 +9,8 @@
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "update:version": "npm version minor --no-git-tag-version",
     "prepub:npm": "npm run format && npm run build && npm run update:version",
-    "publish:npm": "npm run prepub:npm && npm publish"
+    "publish:npm": "npm run prepub:npm && npm publish",
+    "pack": "npm run build && npm pack --pack-destination pack/"
   },
   "repository": {
     "type": "git",
@@ -31,8 +32,7 @@
     "typescript": "*"
   },
   "dependencies": {
-    "react-bootstrap": "^0.33.1",
-    "jquery": "^3.6.1"
+    "react-bootstrap": "^0.33.1"
   },
   "peerDependencies": {
     "@types/react": ">=16.14.8",

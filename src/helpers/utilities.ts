@@ -2,7 +2,7 @@ import * as React from "react";
 
 /**
  * Returns a function that will call the given handler and prevent the default event behavior.
- * @param handler: The handler to call.
+ * @param handler The function to call when the event is triggered.
  */
 export const preventDefault = (handler?: (event: any) => void) => (event: any) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ export const importScript = (
     new Promise<void>(resolve => {
         React.useEffect(() => {
             const script = document.createElement("script");
-            if (!$(`script[src='${resourceUrl}']`).length) {
+            if (!document.querySelectorAll(`script[src='${resourceUrl}']`).length) {
                 script.src = resourceUrl;
                 script.async = true;
                 script.onload = () => resolve();
@@ -45,7 +45,7 @@ export const importScript = (
  */
 export const importStyleSheet = (resourceUrl: string) => {
     React.useEffect(() => {
-        if (!$(`link[href='${resourceUrl}']`).length) {
+        if (!document.querySelectorAll(`link[href='${resourceUrl}']`).length) {
             const link = document.createElement("link");
             link.href = resourceUrl;
             link.rel = "stylesheet";
