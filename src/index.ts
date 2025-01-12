@@ -13,3 +13,4 @@ export { ErrorBoundary } from "./error/ErrorBoundary";
 export { ErrorScreen } from "./error/ErrorScreen";
 export { Loader } from "./ui-utils/Loader";
 export { Spinner } from "./ui-utils/Spinner";
+export { RenderWhenVisible } from "./ui-utils/RenderWhenVisible";
