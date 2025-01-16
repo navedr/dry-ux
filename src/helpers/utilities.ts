@@ -164,8 +164,8 @@ export const getUrlParams = <T>() => {
 };
 
 export class Deferred<T> {
-    public _resolve: (result: T) => void;
-    public _reject: (error: any) => void;
+    private _resolve: (result: T) => void;
+    private _reject: (error: any) => void;
     public readonly promise: Promise<T>;
 
     constructor() {

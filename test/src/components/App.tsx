@@ -23,7 +23,7 @@ const Api = DajaxiceProxy<DajaxiceModules>({
 });
 
 const Content = React.memo(() => {
-    const { modal, loader, customLoader } = useDryUxContext();
+    const { modal, loader, customLoader, prompt } = useDryUxContext();
 
     React.useEffect(() => {
         window["Dajaxice"] = new Proxy(
@@ -172,6 +172,15 @@ const Content = React.memo(() => {
                             })
                     }>
                     Success call
+                </button>
+            </section>
+            <hr />
+            <section>
+                <h3>Prompts</h3>
+                <button
+                    className={"btn btn-primary"}
+                    onClick={() => prompt.showConfirm({ content: "This is a test prompt" }, () => {})}>
+                    Show Prompt
                 </button>
             </section>
         </div>

@@ -1,20 +1,12 @@
 import * as React from "react";
-import {
-    AlertType,
-    IModalCreate,
-    IUIUtilAlert,
-    IUIUtilLoader,
-    IUIUtilModal,
-    IUtilModalAction,
-    ModalOptions,
-} from "./uiUtil.interface";
+import { IUIUtilLoader, UIUtilModal, PopUp, PopUpAction, PopUpOptions, UIUtilPrompt } from "./UIUtil.interface";
 import "../types";
 import { Button } from "react-bootstrap";
 import { Loader } from "./Loader";
 
 export interface IUIUtilProviderState {
-    modal: IUIUtilModal;
-    alert: IUIUtilAlert;
+    modal: UIUtilModal;
+    prompt: UIUtilPrompt;
     customLoader: IUIUtilLoader;
     loader: Pick<IUIUtilLoader, "show" | "hide">;
 }
@@ -29,9 +21,11 @@ const defaultState: IUIUtilProviderState = {
         showConfirm: null,
         showActions: null,
     },
-    alert: {
-        show: null,
-        showNoty: null,
+    prompt: {
+        showConfirm: null,
+        showActions: null,
+        instances: {},
+        getCurrent: null,
     },
     customLoader: {
         shown: false,
@@ -56,9 +50,9 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         this.state = {
             ...defaultState,
             modal: this.modalDefaults,
-            alert: this.alertDefaults,
             customLoader: this.customLoaderDefaults,
             loader: this.loaderDefaults,
+            prompt: this.promptDefaults,
         };
     }
 
@@ -66,7 +60,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         return {
             ...defaultState.modal,
             create: this.createModal.bind(this),
-            show: (options: ModalOptions) => this.createModal(null, options),
+            show: (options: PopUpOptions) => this.createModal(null, options),
             getCurrent: () => {
                 const {
                     modal: { instances },
@@ -74,7 +68,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                 const id = Object.keys(instances).find(id => instances[id].shown);
                 return this.getCurrentModal(id);
             },
-            showAlert: (content: ModalOptions["content"], onClose?: ModalOptions["onClose"]) =>
+            showAlert: (content: PopUpOptions["content"], onClose?: PopUpOptions["onClose"]) =>
                 this.createModal(null, {
                     content: typeof content == "string" ? <h4 className="text-center mtop">{content}</h4> : content,
                     destroyOnClose: true,
@@ -82,7 +76,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                     width: 400,
                     onClose,
                 }),
-            showConfirm: (options: ModalOptions, onYes: () => void, onNo?: () => void) =>
+            showConfirm: (options: PopUpOptions, onYes: () => void, onNo?: () => void) =>
                 this.createModal("confirm", {
                     ...options,
                     footerContent: (
@@ -100,7 +94,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                         </>
                     ),
                 }),
-            showActions: (options: ModalOptions, actions: IUtilModalAction[]) =>
+            showActions: (options: PopUpOptions, actions: PopUpAction[]) =>
                 this.createModal("actions", {
                     ...options,
                     footerContent: (
@@ -123,13 +117,6 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         };
     }
 
-    get alertDefaults() {
-        return {
-            show: this.showNotifyAlert.bind(this),
-            showNoty: this.showNoty.bind(this),
-        };
-    }
-
     get customLoaderDefaults() {
         return {
             ...defaultState.customLoader,
@@ -149,6 +136,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                 }),
         };
     }
+
     get loaderDefaults() {
         return {
             ...defaultState.loader,
@@ -156,13 +144,17 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
             hide: () => this.loader.hide(),
         };
     }
-
-    showNotifyAlert(message: string, alertType: AlertType, position?: string, bindToElement?: any) {
-        alert("Starting with 1.49.1, this is deprecated. Please use Notyf package directly.");
-    }
-
-    showNoty(message: string, alertType: AlertType) {
-        alert("Starting with 1.49.1, this is deprecated. Please use Notyf package directly.");
+    get promptDefaults() {
+        return {
+            ...defaultState.prompt,
+            getCurrent: () => {
+                const {
+                    prompt: { instances },
+                } = this.state;
+                const id = Object.keys(instances).find(id => instances[id].shown);
+                return this.getCurrentModal(id);
+            },
+        };
     }
 
     toggleModalInstance(id: string, shown: boolean, destroyOnClose = false) {
@@ -204,7 +196,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         });
     }
 
-    getCurrentModal(id: string): IModalCreate {
+    getCurrentModal(id: string): PopUp {
         return {
             show: () => this.toggleModalInstance(id, true),
             hide: () => this.toggleModalInstance(id, false),
@@ -212,7 +204,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         };
     }
 
-    createModal(id: string, options: ModalOptions): IModalCreate {
+    createModal(id: string, options: PopUpOptions): PopUp {
         const {
             modal: { instances },
         } = this.state;

@@ -1,4 +1,4 @@
-export interface IModalCreate {
+export type PopUp = {
     /**
      * Hides the modal.
      */
@@ -11,9 +11,9 @@ export interface IModalCreate {
      * Removes the modal.
      */
     remove: () => void;
-}
+};
 
-export type ModalOptions = {
+export type PopUpOptions = {
     /**
      * The content of the modal.
      */
@@ -52,10 +52,9 @@ export type ModalOptions = {
     destroyOnClose?: boolean;
 };
 
-export type AlertType = "success" | "warning" | "error";
 export type ButtonType = "primary" | "info" | "success" | "warning" | "danger";
 
-export interface IUtilModalAction {
+export type PopUpAction = {
     /**
      * The content to display in the modal.
      */
@@ -72,26 +71,26 @@ export interface IUtilModalAction {
      * If true, the modal will be closed when the button is clicked.
      */
     closeOnClick?: boolean;
-}
+};
 
-export interface IUIUtilModal {
+export type UIUtilModal = {
     /**
      * Creates a non-unique modal.
      * @param options The options for the modal.
      */
-    show: (options: ModalOptions) => IModalCreate;
+    show: (options: PopUpOptions) => PopUp;
     /**
      * Creates a unique (by id) modal
      * @param id The id of the modal.
      * @param options The options for the modal.
      */
-    create: (id: string, options: ModalOptions) => IModalCreate;
+    create: (id: string, options: PopUpOptions) => PopUp;
     /**
      * Dictionary of modal instances in memory.
      */
     instances: {
         [id: string]: {
-            options: ModalOptions;
+            options: PopUpOptions;
             shown: boolean;
             handleClose: (id: string, shown: boolean, destroyOnClose: boolean) => void;
         };
@@ -99,26 +98,26 @@ export interface IUIUtilModal {
     /**
      * Gets the current modal instance.
      */
-    getCurrent: () => IModalCreate;
+    getCurrent: () => PopUp;
     /**
      * Shows an alert style modal.
      * @param content The content to display in the modal.
      */
-    showAlert: (content: ModalOptions["content"], onClose?: ModalOptions["onClose"]) => IModalCreate;
+    showAlert: (content: PopUpOptions["content"], onClose?: PopUpOptions["onClose"]) => PopUp;
     /**
      * Shows a confirm style modal.
      * @param options The options for the modal.
      * @param onYes The function to call when the yes button is clicked.
      * @param onNo The function to call when the no button is clicked.
      */
-    showConfirm: (options: ModalOptions, onYes: () => void, onNo?: () => void) => IModalCreate;
+    showConfirm: (options: PopUpOptions, onYes: () => void, onNo?: () => void) => PopUp;
     /**
      * Shows a modal with custom actions.
      * @param options The options for the modal.
      * @param actions The actions to display in the modal.
      */
-    showActions: (options: ModalOptions, actions: IUtilModalAction[]) => IModalCreate;
-}
+    showActions: (options: PopUpOptions, actions: PopUpAction[]) => PopUp;
+};
 
 export interface IUIUtilLoader {
     /**
@@ -135,19 +134,4 @@ export interface IUIUtilLoader {
     hide: () => void;
 }
 
-export interface IUIUtilAlert {
-    /**
-     * Shows an alert.
-     * @param message The message to display in the alert.
-     * @param alertType The type of alert to display.
-     * @param position The position of the alert.
-     * @param bindToElement The element to bind the alert to.
-     */
-    show: (message: string, alertType?: AlertType, position?: string, bindToElement?: any) => void;
-    /**
-     * Shows an alert using Noty library.
-     * @param message The message to display in the alert.
-     * @param alertType The type of alert to display.
-     */
-    showNoty: (message: string, alertType: AlertType) => void;
-}
+export type UIUtilPrompt = Pick<UIUtilModal, "showConfirm" | "showActions" | "instances" | "getCurrent">;

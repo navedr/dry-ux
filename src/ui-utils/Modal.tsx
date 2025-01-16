@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Button, Modal as BootstrapModal } from "react-bootstrap";
-import { ModalOptions } from "./uiUtil.interface";
+import { PopUpOptions } from "./UIUtil.interface";
 
 export interface IModalProps {
-    options: ModalOptions;
+    options: PopUpOptions;
     handleClose: () => void;
     shown: boolean;
     config: {
