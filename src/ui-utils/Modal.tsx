@@ -12,6 +12,7 @@ export interface IModalProps {
         };
         defaultModalStyles?: boolean;
         setBackdropHeight?: boolean;
+        centered?: boolean;
     };
 }
 
@@ -23,9 +24,11 @@ const Modal: React.FC<
     ({
         handleClose,
         shown,
-        options: { content, footerContent, cssClass, closeBtn, title, width, onClose, titleCloseBtn = true },
-        config: { defaultModalStyles = false, styles = {}, setBackdropHeight = true },
+        options: { content, footerContent, cssClass, closeBtn, title, width, onClose, titleCloseBtn = true, centered },
+        config: { defaultModalStyles = false, styles = {}, setBackdropHeight = true, centered: globalCentered },
     }) => {
+        const isCentered = centered ?? globalCentered;
+
         const applyStyles = React.useCallback(() => {
             document.querySelectorAll(".modal-dialog").forEach((el: HTMLDivElement) => {
                 el.style.width = typeof width == "number" ? `${width}px` : width;
@@ -34,6 +37,13 @@ const Modal: React.FC<
                     el.style.marginTop = "100px";
                     el.querySelectorAll(".modal-header").forEach((el: HTMLDivElement) => (el.style.display = "block"));
                     el.querySelectorAll(".modal-title").forEach((el: HTMLDivElement) => (el.style.marginTop = "0"));
+                }
+                if (isCentered) {
+                    el.style.position = "absolute";
+                    el.style.transform = "translate(-50%, -50%)";
+                    el.style.top = "50%";
+                    el.style.left = "50%";
+                    el.style.marginTop = "unset";
                 }
             });
             document.querySelectorAll("[role=dialog]").forEach((el: HTMLDivElement) => (el.style.opacity = "1"));
@@ -49,7 +59,7 @@ const Modal: React.FC<
                     });
                 });
             });
-        }, [width, defaultModalStyles]);
+        }, [width, defaultModalStyles, isCentered, styles, setBackdropHeight]);
 
         React.useEffect(() => {
             if (shown) {
@@ -57,7 +67,7 @@ const Modal: React.FC<
             }
         }, [shown, width, defaultModalStyles]);
 
-        const hide = () => {
+        const onHide = () => {
             handleClose();
             onClose && onClose();
         };
@@ -68,7 +78,7 @@ const Modal: React.FC<
 
         return (
             <BootstrapModal
-                onHide={hide}
+                onHide={onHide}
                 show={shown}
                 animation
                 autoFocus
@@ -78,7 +88,7 @@ const Modal: React.FC<
                 backdrop={"static"}
             >
                 {!!title && (
-                    <BootstrapModal.Header closeButton={titleCloseBtn} onHide={hide}>
+                    <BootstrapModal.Header closeButton={titleCloseBtn} onHide={onHide}>
                         <BootstrapModal.Title>{title}</BootstrapModal.Title>
                     </BootstrapModal.Header>
                 )}
@@ -87,7 +97,7 @@ const Modal: React.FC<
                     <BootstrapModal.Footer>
                         {footerContent}
                         {closeBtn && (
-                            <Button bsClass={"btn btn-danger"} onClick={hide}>
+                            <Button bsClass={"btn btn-danger"} onClick={onHide}>
                                 Close
                             </Button>
                         )}

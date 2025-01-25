@@ -50,6 +50,10 @@ export type PopUpOptions = {
      * If true, the modal will be destroyed when it is closed.
      */
     destroyOnClose?: boolean;
+    /**
+     * If true, the modal will be centered vertically.
+     */
+    centered?: boolean;
 };
 
 export type ButtonType = "primary" | "info" | "success" | "warning" | "danger";

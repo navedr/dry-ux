@@ -78,6 +78,45 @@ const Content = React.memo(() => {
                                     <button
                                         type={"button"}
                                         className={"btn btn-primary"}
+                                        onClick={() =>
+                                            modal.show({
+                                                content: (
+                                                    <div>
+                                                        This modal will always be centered irrespective of global
+                                                        config!
+                                                    </div>
+                                                ),
+                                                title: "Always Centered",
+                                                width: 400,
+                                                centered: true,
+                                            })
+                                        }>
+                                        Always Centered
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        type={"button"}
+                                        className={"btn btn-primary"}
+                                        onClick={() =>
+                                            modal.show({
+                                                content: (
+                                                    <div>
+                                                        This modal will never be centered irrespective of global config!
+                                                    </div>
+                                                ),
+                                                title: "Never Centered",
+                                                width: 400,
+                                                centered: false,
+                                            })
+                                        }>
+                                        Never Centered
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        type={"button"}
+                                        className={"btn btn-primary"}
                                         onClick={() => modal.showAlert("This is an alert dialog!")}>
                                         Alert
                                     </button>
@@ -188,16 +227,21 @@ const Content = React.memo(() => {
 });
 
 const App = React.memo(() => {
+    const [centered, setCentered] = React.useState(false);
     return (
         <ErrorBoundary>
             <DryUXProvider noRenderer>
                 <div className={"container"}>
                     <div className="row">
                         <div className="col-12">
+                            <label>
+                                <input type={"checkbox"} onChange={e => setCentered(e.target.checked)} />
+                                &nbsp;Centered Modals
+                            </label>
                             <Content />
                         </div>
                     </div>
-                    <DryUXRenderer modalConfig={{ defaultModalStyles: true, setBackdropHeight: false }} />
+                    <DryUXRenderer modalConfig={{ defaultModalStyles: true, setBackdropHeight: false, centered }} />
                 </div>
             </DryUXProvider>
         </ErrorBoundary>
