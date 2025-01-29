@@ -43,7 +43,9 @@ export class Element {
      * @returns The value of the data attribute.
      */
     public data(attribute: string) {
-        return this.native.getAttribute(attribute);
+        return this.native.getAttribute(
+            ["data"].concat(attribute.split(/(?=[A-Z])/).map(s => s.toLowerCase())).join("-"),
+        );
     }
 
     /**
