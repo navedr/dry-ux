@@ -6,7 +6,27 @@ function keyIdentity(key) {
     return key;
 }
 
-type FlattenOptions = { delimiter?: string; maxDepth?: number; transformKey?: (key) => any; safe?: boolean };
+type FlattenOptions = {
+    /**
+     * The delimiter to use for separating keys. Defaults to ".".
+     */
+    delimiter?: string;
+
+    /**
+     * The maximum depth to flatten the object to.
+     */
+    maxDepth?: number;
+
+    /**
+     * A function to transform the keys.
+     */
+    transformKey?: (key) => any;
+
+    /**
+     * If true, ensures arrays are not flattened.
+     */
+    safe?: boolean;
+};
 
 /**
  * Flattens an object with the paths for keys.

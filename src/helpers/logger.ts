@@ -1,7 +1,26 @@
 export interface ILogger {
+    /**
+     * Logs a message with the info level.
+     * @param {...any[]} message - The message to log.
+     */
     log(...message: any[]): void;
+
+    /**
+     * Logs a message with the error level.
+     * @param {...any[]} message - The message to log.
+     */
     error(...message: any[]): void;
+
+    /**
+     * Logs a message with the debug level.
+     * @param {...any[]} message - The message to log.
+     */
     debug(...message: any[]): void;
+
+    /**
+     * Logs a message with the warn level.
+     * @param {...any[]} message - The message to log.
+     */
     warn(...message: any[]): void;
 }
 

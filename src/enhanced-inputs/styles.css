@@ -1,0 +1,13 @@
+.error-background:not(.MuiFormControl-root),
+.error-background.MuiFormControl-root .MuiInputBase-root
+{
+    background-color: #F8DBDD !important;
+    border: 1px solid #E17984 !important;
+}
+div.error-message
+{
+    font-size:7pt;
+    color:Red;
+    display:block;
+    line-height: 1.5;
+}

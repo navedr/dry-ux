@@ -1,7 +1,17 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { DryUXProvider, DryUXRenderer, ErrorBoundary, useDryUxContext, DajaxiceFn, DajaxiceProxy } from "../../../src";
+import {
+    DryUXProvider,
+    DryUXRenderer,
+    ErrorBoundary,
+    useDryUxContext,
+    DajaxiceFn,
+    DajaxiceProxy,
+    Validation,
+    Input,
+    Select,
+} from "../../../src";
 
 // https://urre.me/writings/test-local-npm-packages/
 
@@ -167,6 +177,80 @@ const Content = React.memo(() => {
                                             )
                                         }>
                                         Actions
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button
+                                        type={"button"}
+                                        className={"btn btn-primary"}
+                                        onClick={() =>
+                                            modal.showActions(
+                                                {
+                                                    content: (
+                                                        <form id={"test-form"}>
+                                                            <Input
+                                                                id={"name"}
+                                                                type={"text"}
+                                                                className={"form-control"}
+                                                                placeholder={"Name"}
+                                                                validations={{
+                                                                    required: true,
+                                                                    minLength: {
+                                                                        value: 3,
+                                                                    },
+                                                                }}
+                                                                validateOnChange
+                                                            />
+                                                            <Input
+                                                                id={"email"}
+                                                                type={"text"}
+                                                                className={"form-control"}
+                                                                placeholder={"Email"}
+                                                                validations={{ required: true, email: true }}
+                                                                validateOnChange
+                                                            />
+                                                            <Input
+                                                                id={"age"}
+                                                                type={"text"}
+                                                                className={"form-control"}
+                                                                placeholder={"Age"}
+                                                                validations={{ required: true, digits: true }}
+                                                                validateOnChange
+                                                            />
+                                                            <Select
+                                                                id={"age"}
+                                                                type={"text"}
+                                                                className={"form-control"}
+                                                                validations={{ required: true }}
+                                                                validateOnChange>
+                                                                <option></option>
+                                                                <option>Yes</option>
+                                                            </Select>
+                                                        </form>
+                                                    ),
+                                                    width: 400,
+                                                },
+                                                [
+                                                    {
+                                                        content: "Save",
+                                                        onClick: () => {
+                                                            const validation = new Validation({
+                                                                form: { id: "test-form" },
+                                                            });
+                                                            const valid = validation.validateForm();
+                                                            if (valid) {
+                                                                modal.getCurrent().remove();
+                                                                alert("Name saved!");
+                                                            }
+                                                        },
+                                                        type: "primary",
+                                                    },
+                                                ],
+                                            )
+                                        }>
+                                        Modal with validation
                                     </button>
                                 </td>
                             </tr>

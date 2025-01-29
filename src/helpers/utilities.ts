@@ -114,8 +114,15 @@ export const fnWithAuthCheck = (fn: Function, authCheckUrl: string, authRedirect
             }
         });
 
-export const StorageUtils = {
-    isStorageAvailable: function () {
+/**
+ * Utility class for storage-related operations.
+ */
+export class StorageUtils {
+    /**
+     * Checks if the storage is available.
+     * @returns A boolean indicating if the storage is available.
+     */
+    public static isStorageAvailable() {
         let available = typeof Storage !== "undefined";
         try {
             if (available) sessionStorage.setItem("test", "test");
@@ -123,9 +130,14 @@ export const StorageUtils = {
             available = false;
         }
         return available;
-    },
-};
+    }
+}
 
+/**
+ * Converts a string to a hash code.
+ * @param input The string to convert.
+ * @returns The hash code of the input string.
+ */
 export const toHashCode = (input: string): number => {
     let hash = 0;
     if (input.length === 0) return hash;
@@ -136,6 +148,11 @@ export const toHashCode = (input: string): number => {
     return hash;
 };
 
+/**
+ * Inserts a URL parameter.
+ * @param key The key of the parameter.
+ * @param value The value of the parameter.
+ */
 export const insertUrlParam = (key: string, value: any) => {
     if (history.pushState) {
         let searchParams = new URLSearchParams(window.location.search);
@@ -151,9 +168,17 @@ export const insertUrlParam = (key: string, value: any) => {
     }
 };
 
+/**
+ * Inserts multiple URL parameters.
+ * @param params An object containing key-value pairs of parameters.
+ */
 export const insertUrlParams = (params: { [key: string]: any }) =>
     Object.keys(params).forEach(key => insertUrlParam(key, params[key]));
 
+/**
+ * Retrieves URL parameters as an object.
+ * @returns An object containing the URL parameters.
+ */
 export const getUrlParams = <T>() => {
     const searchParams = new URLSearchParams(window.location.search);
     const params = {} as T;
@@ -163,9 +188,15 @@ export const getUrlParams = <T>() => {
     return params;
 };
 
+/**
+ * A class representing a deferred promise.
+ */
 export class Deferred<T> {
     private _resolve: (result: T) => void;
     private _reject: (error: any) => void;
+    /**
+     * The promise object.
+     */
     public readonly promise: Promise<T>;
 
     constructor() {
@@ -175,15 +206,27 @@ export class Deferred<T> {
         });
     }
 
+    /**
+     * Resolves the promise with the given result.
+     */
     public get resolve() {
         return this._resolve;
     }
 
+    /**
+     * Rejects the promise with the given error.
+     */
     public get reject() {
         return this._reject;
     }
 }
 
+/**
+ * Parses a JSON string and returns the corresponding object.
+ * @param json The JSON string to parse.
+ * @param errorValue The value to return if parsing fails.
+ * @returns The parsed object or the error value.
+ */
 export const tryParseJson = <T = any>(json: string, errorValue = {}) => {
     try {
         return JSON.parse(json) as T;
@@ -192,6 +235,11 @@ export const tryParseJson = <T = any>(json: string, errorValue = {}) => {
     }
 };
 
+/**
+ * Hook to check if an element is visible in the viewport.
+ * @param ref The reference to the element.
+ * @returns A boolean indicating if the element is visible.
+ */
 export const useIsVisible = (ref: React.MutableRefObject<any>) => {
     const [isIntersecting, setIntersecting] = React.useState(false);
 
@@ -207,9 +255,19 @@ export const useIsVisible = (ref: React.MutableRefObject<any>) => {
     return isIntersecting;
 };
 
+/**
+ * Hook to publish and subscribe to custom events.
+ * @returns An object containing the usePub and useSub hooks.
+ */
 export const usePubSub = <T>() => {
     const getEventName = (event: any) => `dry-ux-event-${event}`;
-
+    /**
+     * Publishes a custom event with the specified name and data.
+     * @template TName The type of the event name.
+     * @template TPayload The type of the event payload.
+     * @param event The name of the event to publish.
+     * @param data The data to include in the event payload.
+     */
     const usePub =
         () =>
         <TName extends keyof T, TPayload extends T[TName]>(event: TName, data?: TPayload) => {
@@ -220,6 +278,14 @@ export const usePubSub = <T>() => {
             );
         };
 
+    /**
+     * Subscribes to a custom event with the specified name and calls the callback when the event is triggered.
+     * @template TName The type of the event name.
+     * @template TPayload The type of the event payload.
+     * @param event The name of the event to subscribe to.
+     * @param callback The function to call when the event is triggered.
+     * @returns A function to unsubscribe from the event.
+     */
     const useSub = <TName extends keyof T, TPayload extends T[TName]>(
         event: TName,
         callback: (data: TPayload) => void,

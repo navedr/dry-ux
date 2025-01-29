@@ -1,10 +1,11 @@
 {
   "name": "dry-ux",
-  "version": "1.53.0",
+  "version": "1.54.0",
   "description": "",
   "main": "dist/index",
   "scripts": {
-    "build": "rimraf dist/ && tsc",
+    "copy-css": "copyfiles -u 2 \"./src/enhanced-inputs/styles.css\" \"./dist/enhanced-inputs\"",
+    "build": "rimraf dist/ && tsc && npm run copy-css",
     "watch": "rimraf dist/ && tsc --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "update:version": "npm version minor --no-git-tag-version",
@@ -23,6 +24,7 @@
   "author": "Naved Rangwala",
   "license": "ISC",
   "devDependencies": {
+    "copyfiles": "^2.4.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "@types/react": "^17.0.0",

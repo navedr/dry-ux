@@ -1,5 +1,9 @@
 import * as React from "react";
 
+/**
+ * A React component that displays an error screen with a message and a button to go back to the home page.
+ * @returns A JSX element representing the error screen.
+ */
 export const ErrorScreen = React.memo(() => (
     <div className="text-center" style={{ marginTop: 70 }}>
         <h1 style={{ fontSize: 70 }}>
