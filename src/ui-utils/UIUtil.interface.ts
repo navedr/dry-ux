@@ -56,7 +56,7 @@ export type PopUpOptions = {
     centered?: boolean;
 };
 
-export type ButtonType = "primary" | "info" | "success" | "warning" | "danger";
+export type ButtonType = "primary" | "secondary" | "info" | "success" | "warning" | "danger";
 
 export type PopUpAction = {
     /**
