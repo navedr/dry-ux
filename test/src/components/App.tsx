@@ -193,6 +193,7 @@ const Content = React.memo(() => {
                                                             <Input
                                                                 id={"name"}
                                                                 type={"text"}
+                                                                name={"name"}
                                                                 className={"form-control"}
                                                                 placeholder={"Name"}
                                                                 validations={{
@@ -206,6 +207,7 @@ const Content = React.memo(() => {
                                                             <Input
                                                                 id={"email"}
                                                                 type={"text"}
+                                                                name={"email"}
                                                                 className={"form-control"}
                                                                 placeholder={"Email"}
                                                                 validations={{ required: true, email: true }}
@@ -214,14 +216,16 @@ const Content = React.memo(() => {
                                                             <Input
                                                                 id={"age"}
                                                                 type={"text"}
+                                                                name={"age"}
                                                                 className={"form-control"}
                                                                 placeholder={"Age"}
                                                                 validations={{ required: true, digits: true }}
                                                                 validateOnChange
                                                             />
                                                             <Select
-                                                                id={"age"}
+                                                                id={"agree"}
                                                                 type={"text"}
+                                                                name={"agree"}
                                                                 className={"form-control"}
                                                                 validations={{ required: true }}
                                                                 validateOnChange>
@@ -239,10 +243,13 @@ const Content = React.memo(() => {
                                                             const validation = new Validation({
                                                                 form: { id: "test-form" },
                                                             });
-                                                            const valid = validation.validateForm();
-                                                            if (valid) {
+                                                            const { isValid, values } = validation.validateForm<{
+                                                                name: string;
+                                                                age: number;
+                                                            }>();
+                                                            if (isValid) {
                                                                 modal.getCurrent().remove();
-                                                                alert("Name saved!");
+                                                                alert(JSON.stringify(values));
                                                             }
                                                         },
                                                         type: "primary",
