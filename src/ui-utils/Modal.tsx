@@ -13,6 +13,8 @@ export interface IModalProps {
         defaultModalStyles?: boolean;
         setBackdropHeight?: boolean;
         centered?: boolean;
+        onOpen?: (modal: Pick<PopUpOptions, "title" | "trackingId">) => void;
+        onClose?: (modal: Pick<PopUpOptions, "title" | "trackingId">) => void;
     };
 }
 
@@ -24,8 +26,26 @@ const Modal: React.FC<
     ({
         handleClose,
         shown,
-        options: { content, footerContent, cssClass, closeBtn, title, width, onClose, titleCloseBtn = true, centered },
-        config: { defaultModalStyles = false, styles = {}, setBackdropHeight = true, centered: globalCentered },
+        options: {
+            content,
+            footerContent,
+            cssClass,
+            closeBtn,
+            title,
+            width,
+            onClose,
+            titleCloseBtn = true,
+            centered,
+            trackingId,
+        },
+        config: {
+            defaultModalStyles = false,
+            styles = {},
+            setBackdropHeight = true,
+            centered: globalCentered,
+            onOpen,
+            onClose: globalOnClose,
+        },
     }) => {
         const isCentered = centered ?? globalCentered;
 
@@ -64,6 +84,9 @@ const Modal: React.FC<
         React.useEffect(() => {
             if (shown) {
                 applyStyles();
+                onOpen?.({ title, trackingId });
+            } else {
+                globalOnClose?.({ title, trackingId });
             }
         }, [shown, width, defaultModalStyles]);
 

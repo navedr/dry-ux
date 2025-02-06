@@ -54,6 +54,10 @@ export type PopUpOptions = {
      * If true, the modal will be centered vertically.
      */
     centered?: boolean;
+    /**
+     * The tracking ID for the modal.
+     */
+    trackingId?: string;
 };
 
 export type ButtonType = "primary" | "secondary" | "info" | "success" | "warning" | "danger";
