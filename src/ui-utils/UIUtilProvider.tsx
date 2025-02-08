@@ -170,6 +170,10 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         // Hide all other instances
         Object.keys(instances).forEach(id => (instances[id].shown = false));
 
+        if (!shown) {
+            instance.options.onClose?.();
+        }
+
         if (!shown && destroyOnClose && instance.options.destroyOnClose) {
             this.removeModalInstance(id);
         } else {
@@ -187,6 +191,8 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         const {
             modal: { instances },
         } = this.state;
+        const instance = instances[id];
+        instance.options.onClose?.();
         delete instances[id];
         this.setState({
             modal: {

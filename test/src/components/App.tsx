@@ -140,6 +140,7 @@ const Content = React.memo(() => {
                                                 {
                                                     content: <div>Please confirm!</div>,
                                                     width: 400,
+                                                    onClose: () => console.log("closed"),
                                                 },
                                                 () => {
                                                     modal.getCurrent().remove();
@@ -159,6 +160,7 @@ const Content = React.memo(() => {
                                                 {
                                                     content: <div>Click one of the call to action!</div>,
                                                     width: 400,
+                                                    onClose: () => console.log("closed"),
                                                 },
                                                 [
                                                     {
