@@ -22,6 +22,10 @@ export type PopUp = {
          */
         show: (content: Content) => void;
         /**
+         * Shows the overlay.
+         */
+        showConfirm: (content: Content, onYes: () => void, onNo?: () => void) => void;
+        /**
          * Hides the overlay.
          */
         hide: () => void;

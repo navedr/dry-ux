@@ -11,6 +11,7 @@ import {
 import "../types";
 import { Button } from "react-bootstrap";
 import { Loader } from "./Loader";
+import { ConfirmOverlay } from "./ConfirmOverlay";
 
 export interface IUIUtilProviderState {
     modal: UIUtilModal;
@@ -218,46 +219,14 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                     if (!!confirm) {
                         this.toggleModalOverlay(
                             this.modalId.actions,
-                            <div style={{ minWidth: 200 }}>
-                                <div
-                                    style={{
-                                        fontWeight: "bold",
-                                        fontSize: 18,
-                                        paddingLeft: 5,
-                                    }}
-                                >
-                                    Confirm
-                                </div>
-                                <hr style={{ margin: 5 }} />
-                                <div>
-                                    {typeof confirm == "string" ? (
-                                        <h4 className="text-center" style={{ margin: 10 }}>
-                                            {confirm}
-                                        </h4>
-                                    ) : (
-                                        confirm
-                                    )}
-                                </div>
-                                <hr style={{ margin: 5 }} />
-                                <div style={{ textAlign: "right" }}>
-                                    <Button
-                                        bsClass={"btn btn-success"}
-                                        style={{ marginRight: 10 }}
-                                        onClick={() => {
-                                            triggerClick();
-                                            this.toggleModalOverlay(this.modalId.actions);
-                                        }}
-                                    >
-                                        Yes
-                                    </Button>
-                                    <Button
-                                        bsClass={"btn btn-danger"}
-                                        onClick={() => this.toggleModalOverlay(this.modalId.actions)}
-                                    >
-                                        No
-                                    </Button>
-                                </div>
-                            </div>,
+                            <ConfirmOverlay
+                                content={confirm}
+                                onYes={() => {
+                                    triggerClick();
+                                    this.toggleModalOverlay(this.modalId.actions);
+                                }}
+                                onNo={() => this.toggleModalOverlay(this.modalId.actions)}
+                            />,
                         );
                     } else {
                         triggerClick();
@@ -291,6 +260,21 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
             remove: () => this.removeModalInstance(id),
             overlay: {
                 show: (content: Content) => this.toggleModalOverlay(id, content),
+                showConfirm: (content: Content, onYes: () => void, onNo?: () => void) =>
+                    this.toggleModalOverlay(
+                        id,
+                        <ConfirmOverlay
+                            content={content}
+                            onYes={() => {
+                                onYes();
+                                this.toggleModalOverlay(id);
+                            }}
+                            onNo={() => {
+                                onNo?.();
+                                this.toggleModalOverlay(id);
+                            }}
+                        />,
+                    ),
                 hide: () => this.toggleModalOverlay(id),
             },
         };

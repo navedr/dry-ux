@@ -322,6 +322,36 @@ const Content = React.memo(() => {
                                         Overlay with confirm
                                     </button>
                                 </td>
+                                <td>
+                                    <button
+                                        type={"button"}
+                                        className={"btn btn-primary"}
+                                        onClick={() =>
+                                            modal.show({
+                                                content: (
+                                                    <div>
+                                                        Click to delete{" "}
+                                                        <button
+                                                            className={"btn btn-primary"}
+                                                            onClick={() => {
+                                                                modal
+                                                                    .getCurrent()
+                                                                    .overlay.showConfirm(
+                                                                        "Are you sure you want to delete?",
+                                                                        () => alert("deleted"),
+                                                                    );
+                                                            }}>
+                                                            Delete
+                                                        </button>
+                                                    </div>
+                                                ),
+                                                width: 600,
+                                                title: "Overlay",
+                                            })
+                                        }>
+                                        Overlay with manual confirm
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
