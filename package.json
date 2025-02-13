@@ -1,10 +1,10 @@
 {
   "name": "dry-ux",
-  "version": "1.61.0",
+  "version": "1.62.0",
   "description": "",
   "main": "dist/index",
   "scripts": {
-    "copy-css": "copyfiles -u 2 \"./src/enhanced-inputs/styles.css\" \"./dist/enhanced-inputs\"",
+    "copy-css": "copyfiles -u 2 \"./src/styles/*.css\" \"./dist/styles\"",
     "build": "rimraf dist/ && tsc && npm run copy-css",
     "watch": "rimraf dist/ && tsc --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",

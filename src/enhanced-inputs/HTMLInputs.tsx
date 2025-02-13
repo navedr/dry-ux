@@ -2,7 +2,7 @@ import * as React from "react";
 import { InputHTMLAttributes } from "react";
 import { IEnhancedProps } from "./interface";
 import { withEnhancements } from "./withEnhancements";
-import "./styles.css";
+import "../styles/validation.css";
 
 /**
  * Interface extending InputHTMLAttributes with an optional inputRef property.

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button, Modal as BootstrapModal } from "react-bootstrap";
 import { Content, PopUpOptions } from "./UIUtil.interface";
-import "./overlay.css";
+import "../styles/modal-overlay.css";
 
 export interface IModalProps {
     options: PopUpOptions;
