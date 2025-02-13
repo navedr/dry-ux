@@ -18,3 +18,9 @@
     padding: 10px;
     border-radius: 5px;
 }
+
+@media only screen and (max-width: 767px) {
+    .dry-ux-overlay-content {
+        width: 90%;
+    }
+}
