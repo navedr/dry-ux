@@ -11,11 +11,12 @@ export const UIUtilRenderer: React.FC<UIUtilRendererProps> = React.memo(({ modal
     return (
         <>
             {Object.keys(modal.instances).map(id => {
-                const { shown, options, handleClose } = modal.instances[id];
+                const { shown, options, handleClose, overlay } = modal.instances[id];
                 return (
                     <Modal
                         key={id}
                         shown={shown}
+                        overlay={overlay}
                         options={options}
                         handleClose={() => handleClose(id, false, true)}
                         config={modalConfig}

@@ -1,11 +1,13 @@
 import * as React from "react";
 import { Button, Modal as BootstrapModal } from "react-bootstrap";
-import { PopUpOptions } from "./UIUtil.interface";
+import { Content, PopUpOptions } from "./UIUtil.interface";
+import "./overlay.css";
 
 export interface IModalProps {
     options: PopUpOptions;
     handleClose: () => void;
     shown: boolean;
+    overlay: Content;
     config: {
         styles?: {
             [selector: string]: React.CSSProperties;
@@ -26,6 +28,7 @@ const Modal: React.FC<
     ({
         handleClose,
         shown,
+        overlay,
         options: {
             content,
             footerContent,
@@ -48,6 +51,7 @@ const Modal: React.FC<
         },
     }) => {
         const isCentered = centered ?? globalCentered;
+        const modalRef = React.useRef(null);
 
         const applyStyles = React.useCallback(() => {
             document.querySelectorAll(".modal-dialog").forEach((el: HTMLDivElement) => {
@@ -106,10 +110,16 @@ const Modal: React.FC<
                 animation
                 autoFocus
                 keyboard={false}
+                ref={modalRef}
                 className={cssClass}
                 backdropStyle={{ zIndex: 1040, opacity: 0.5 }}
                 backdrop={"static"}
             >
+                {overlay && (
+                    <div className={"dry-ux-overlay"}>
+                        <div className={"dry-ux-overlay-content"}>{overlay}</div>
+                    </div>
+                )}
                 {!!title && (
                     <BootstrapModal.Header closeButton={titleCloseBtn} onHide={onHide}>
                         <BootstrapModal.Title>{title}</BootstrapModal.Title>

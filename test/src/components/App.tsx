@@ -262,6 +262,66 @@ const Content = React.memo(() => {
                                         Modal with validation
                                     </button>
                                 </td>
+                                <td>
+                                    <button
+                                        type={"button"}
+                                        className={"btn btn-primary"}
+                                        onClick={() =>
+                                            modal.showActions(
+                                                {
+                                                    content: <div>Click to show overlay!</div>,
+                                                    width: 400,
+                                                    title: "Overlay",
+                                                },
+                                                [
+                                                    {
+                                                        content: "Show Overlay",
+                                                        onClick: () => {
+                                                            const overlay = modal.getCurrent().overlay;
+                                                            overlay.show(
+                                                                <div>
+                                                                    Are you sure?{" "}
+                                                                    <button
+                                                                        className={"btn btn-primary"}
+                                                                        onClick={overlay.hide}>
+                                                                        Yes
+                                                                    </button>
+                                                                </div>,
+                                                            );
+                                                        },
+                                                        type: "primary",
+                                                    },
+                                                ],
+                                            )
+                                        }>
+                                        Overlay
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        type={"button"}
+                                        className={"btn btn-primary"}
+                                        onClick={() =>
+                                            modal.showActions(
+                                                {
+                                                    content: <div>Click to show overlay!</div>,
+                                                    width: 600,
+                                                    title: "Overlay",
+                                                },
+                                                [
+                                                    {
+                                                        content: "Show Overlay",
+                                                        confirm: "Are you sure you want to do this?",
+                                                        type: "primary",
+                                                        onClick: () => alert("confirmed"),
+                                                        closeOnClick: true,
+                                                    },
+                                                ],
+                                            )
+                                        }>
+                                        Overlay with confirm
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

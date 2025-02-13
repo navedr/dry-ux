@@ -1,3 +1,5 @@
+export type Content = JSX.Element | string;
+
 export type PopUp = {
     /**
      * Hides the modal.
@@ -11,17 +13,30 @@ export type PopUp = {
      * Removes the modal.
      */
     remove: () => void;
+    /**
+     * The overlay for the modal.
+     */
+    overlay: {
+        /**
+         * Shows the overlay.
+         */
+        show: (content: Content) => void;
+        /**
+         * Hides the overlay.
+         */
+        hide: () => void;
+    };
 };
 
 export type PopUpOptions = {
     /**
      * The content of the modal.
      */
-    content: JSX.Element | string;
+    content: Content;
     /**
      * Footer content of the modal.
      */
-    footerContent?: JSX.Element | string;
+    footerContent?: Content;
     /**
      * The class to apply to the modal.
      */
@@ -33,7 +48,7 @@ export type PopUpOptions = {
     /**
      * The title of the modal.
      */
-    title?: JSX.Element | string;
+    title?: Content;
     /**
      * If true, the modal will have a close button in the title bar.
      */
@@ -66,7 +81,7 @@ export type PopUpAction = {
     /**
      * The content to display in the modal.
      */
-    content: JSX.Element | string;
+    content: Content;
     /**
      * The type of button to display.
      */
@@ -79,6 +94,10 @@ export type PopUpAction = {
      * If true, the modal will be closed when the button is clicked.
      */
     closeOnClick?: boolean;
+    /**
+     * If set, confirm overlay will be shown before the action is executed.
+     */
+    confirm?: Content;
 };
 
 export type UIUtilModal = {
@@ -100,6 +119,7 @@ export type UIUtilModal = {
         [id: string]: {
             options: PopUpOptions;
             shown: boolean;
+            overlay?: Content;
             handleClose: (id: string, shown: boolean, destroyOnClose: boolean) => void;
         };
     };
@@ -111,7 +131,7 @@ export type UIUtilModal = {
      * Shows an alert style modal.
      * @param content The content to display in the modal.
      */
-    showAlert: (content: PopUpOptions["content"], onClose?: PopUpOptions["onClose"]) => PopUp;
+    showAlert: (content: Content, onClose?: PopUpOptions["onClose"]) => PopUp;
     /**
      * Shows a confirm style modal.
      * @param options The options for the modal.
