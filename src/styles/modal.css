@@ -24,24 +24,39 @@
 }
 
 .dry-ux-modal.default-styles .modal-dialog {
-    max-width: 95%;
-    margin-top: 100px;
+    max-width: 95%!important;
+    margin: 2.5vh auto!important;
+    transform: unset!important;
 }
 
 .dry-ux-modal.default-styles .modal-dialog .modal-header {
-    display: block;
+    display: block!important;
 }
 
 .dry-ux-modal.default-styles .modal-dialog .modal-title {
-    margin-top: 0;
+    margin-top: 0!important;
+}
+
+.dry-ux-modal.default-styles .modal-dialog .modal-content {
+  max-height: 95vh!important;
+  overflow: hidden!important;
+}
+
+.dry-ux-modal.default-styles .modal-dialog .modal-body {
+  max-height: 90vh!important;
+  overflow: auto!important;
+}
+
+.dry-ux-modal.default-styles .modal-dialog .modal-footer {
+  border: 0!important;
 }
 
 .dry-ux-modal.centered .modal-dialog {
-    margin-top: unset;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
+    margin-top: unset!important;
+    position: absolute!important;
+    transform: translate(-50%, -50%)!important;
+    top: 50%!important;
+    left: 50%!important;
 }
 
 @media only screen and (max-width: 767px) {
