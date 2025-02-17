@@ -1,17 +1,17 @@
 import * as React from "react";
 import {
+    Content,
     IUIUtilLoader,
-    UIUtilModal,
     PopUp,
     PopUpAction,
+    PopUpInstance,
     PopUpOptions,
+    UIUtilModal,
     UIUtilPrompt,
-    Content,
 } from "./UIUtil.interface";
 import "../types";
-import { Button } from "react-bootstrap";
 import { Loader } from "./Loader";
-import { ConfirmOverlay } from "./ConfirmOverlay";
+import { ActionsOverlay } from "./ActionsOverlay";
 
 export interface IUIUtilProviderState {
     modal: UIUtilModal;
@@ -51,12 +51,17 @@ export const UIUtilContext = React.createContext<IUIUtilProviderState>(defaultSt
 
 export const useUIUtilContext = () => React.useContext<IUIUtilProviderState>(UIUtilContext);
 
+const modalId = {
+    actions: "actions",
+    confirm: "confirm",
+    alert: "alert",
+    modal: "modal",
+};
+
+type ModalId = (typeof modalId)[keyof typeof modalId];
+
 export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState> {
     private readonly loader = Loader.getInstance();
-    private readonly modalId = {
-        actions: "actions",
-        confirm: "confirm",
-    };
 
     constructor(props) {
         super(props);
@@ -74,7 +79,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         return {
             ...defaultState.modal,
             create: this.createModal.bind(this),
-            show: (options: PopUpOptions) => this.createModal(null, options),
+            show: (options: PopUpOptions) => this.createModal(modalId.modal, options),
             getCurrent: () => {
                 const {
                     modal: { instances },
@@ -83,7 +88,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                 return this.getCurrentModal(id);
             },
             showAlert: (content: Content, onClose?: PopUpOptions["onClose"]) =>
-                this.createModal(null, {
+                this.createModal(modalId.alert, {
                     content: typeof content == "string" ? <h4 className="text-center mtop">{content}</h4> : content,
                     destroyOnClose: true,
                     closeBtn: true,
@@ -91,35 +96,20 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                     onClose,
                 }),
             showConfirm: (options: PopUpOptions, onYes: () => void, onNo?: () => void) =>
-                this.createModal(this.modalId.confirm, {
+                this.createModal(modalId.confirm, {
                     ...options,
-                    footerContent: (
-                        <>
-                            {options.footerContent}
-                            <Button bsClass={"btn btn-success mright"} onClick={onYes}>
-                                Yes
-                            </Button>
-                            <Button
-                                bsClass={"btn btn-danger"}
-                                onClick={() =>
-                                    onNo ? onNo() : this.toggleModalInstance(this.modalId.confirm, false, true)
-                                }
-                            >
-                                No
-                            </Button>
-                        </>
-                    ),
+                    actions: [
+                        { content: "Yes", type: "success", onClick: onYes },
+                        {
+                            content: "No",
+                            type: "danger",
+                            onClick: onNo,
+                            closeOnClick: true,
+                        },
+                    ],
                 }),
             showActions: (options: PopUpOptions, actions: PopUpAction[]) =>
-                this.createModal(this.modalId.actions, {
-                    ...options,
-                    footerContent: (
-                        <>
-                            {options.footerContent}
-                            {this.getModalActionButtons(actions)}
-                        </>
-                    ),
-                }),
+                this.createModal(modalId.actions, { ...options, actions }),
         };
     }
 
@@ -164,7 +154,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         };
     }
 
-    toggleModalInstance(id: string, shown: boolean, destroyOnClose = false) {
+    toggleModalInstance: PopUpInstance["handleClose"] = (id: ModalId, shown: boolean, destroyOnClose = false) => {
         const {
             modal: { instances },
         } = this.state;
@@ -192,9 +182,9 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                 },
             });
         }
-    }
+    };
 
-    toggleModalOverlay(id: string, content?: JSX.Element | string) {
+    toggleModalOverlay: PopUpInstance["toggleOverlay"] = (id: ModalId, content?: Content) => {
         const {
             modal: { instances },
         } = this.state;
@@ -205,40 +195,9 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
                 instances,
             },
         });
-    }
+    };
 
-    getModalActionButtons(actions: PopUpAction[]) {
-        return actions.map(({ content, type = "success", closeOnClick, onClick, confirm }, index) => (
-            <Button
-                bsClass={`btn btn-${type} mright`}
-                onClick={() => {
-                    const triggerClick = () => {
-                        onClick?.();
-                        closeOnClick && this.toggleModalInstance(this.modalId.actions, false, true);
-                    };
-                    if (!!confirm) {
-                        this.toggleModalOverlay(
-                            this.modalId.actions,
-                            <ConfirmOverlay
-                                content={confirm}
-                                onYes={() => {
-                                    triggerClick();
-                                    this.toggleModalOverlay(this.modalId.actions);
-                                }}
-                                onNo={() => this.toggleModalOverlay(this.modalId.actions)}
-                            />,
-                        );
-                    } else {
-                        triggerClick();
-                    }
-                }}
-            >
-                {content}
-            </Button>
-        ));
-    }
-
-    removeModalInstance(id: string) {
+    removeModalInstance(id: ModalId) {
         const {
             modal: { instances },
         } = this.state;
@@ -253,26 +212,57 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         });
     }
 
-    getCurrentModal(id: string): PopUp {
+    getCurrentModal(id: ModalId): PopUp {
         return {
             show: () => this.toggleModalInstance(id, true),
             hide: () => this.toggleModalInstance(id, false),
             remove: () => this.removeModalInstance(id),
+            update: (options: Partial<PopUpOptions>) => {
+                const instance = this.state.modal.instances[id];
+                instance.options = { ...instance.options, ...options };
+                this.setState({
+                    modal: {
+                        ...this.state.modal,
+                        instances: {
+                            ...this.state.modal.instances,
+                            [id]: instance,
+                        },
+                    },
+                });
+            },
             overlay: {
                 show: (content: Content) => this.toggleModalOverlay(id, content),
                 showConfirm: (content: Content, onYes: () => void, onNo?: () => void) =>
                     this.toggleModalOverlay(
                         id,
-                        <ConfirmOverlay
+                        <ActionsOverlay
+                            title={"Confirm"}
                             content={content}
-                            onYes={() => {
-                                onYes();
-                                this.toggleModalOverlay(id);
-                            }}
-                            onNo={() => {
-                                onNo?.();
-                                this.toggleModalOverlay(id);
-                            }}
+                            hide={() => this.toggleModalOverlay(id)}
+                            actions={[
+                                {
+                                    content: "Yes",
+                                    type: "success",
+                                    onClick: onYes,
+                                    closeOnClick: true,
+                                },
+                                {
+                                    content: "No",
+                                    type: "danger",
+                                    onClick: onNo,
+                                    closeOnClick: true,
+                                },
+                            ]}
+                        />,
+                    ),
+                showActions: (title: Content, content: Content, actions: Omit<PopUpAction, "confirm">[]) =>
+                    this.toggleModalOverlay(
+                        id,
+                        <ActionsOverlay
+                            title={title}
+                            content={content}
+                            hide={() => this.toggleModalOverlay(id)}
+                            actions={actions}
                         />,
                     ),
                 hide: () => this.toggleModalOverlay(id),
@@ -280,7 +270,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
         };
     }
 
-    createModal(id: string, options: PopUpOptions): PopUp {
+    createModal(id: ModalId, options: PopUpOptions): PopUp {
         const {
             modal: { instances },
         } = this.state;
@@ -289,6 +279,7 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
             options,
             shown: false,
             handleClose: this.toggleModalInstance.bind(this),
+            toggleOverlay: this.toggleModalOverlay.bind(this),
         };
 
         this.setState({

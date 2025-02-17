@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Button, Modal as BootstrapModal } from "react-bootstrap";
-import { Content, PopUpOptions } from "./UIUtil.interface";
-import "../styles/modal-overlay.css";
+import { PopUpInstance, PopUpOptions } from "./UIUtil.interface";
+import "../styles/modal.css";
+import { classSet } from "../helpers/classSet";
+import { ActionsOverlay } from "./ActionsOverlay";
 
-export interface IModalProps {
-    options: PopUpOptions;
-    handleClose: () => void;
-    shown: boolean;
-    overlay: Content;
+export type ModalProps = {
+    id: string;
+    instance: PopUpInstance;
     config: {
         styles?: {
             [selector: string]: React.CSSProperties;
@@ -18,21 +18,19 @@ export interface IModalProps {
         onOpen?: (modal: Pick<PopUpOptions, "title" | "trackingId">) => void;
         onClose?: (modal: Pick<PopUpOptions, "title" | "trackingId">) => void;
     };
-}
+};
 
-const Modal: React.FC<
-    IModalProps & {
-        handleClose: () => void;
-    }
-> = React.memo(
-    ({
+const Modal: React.FC<ModalProps> = ({
+    id,
+    instance: {
         handleClose,
+        toggleOverlay,
         shown,
         overlay,
         options: {
             content,
             footerContent,
-            cssClass,
+            cssClass = "",
             closeBtn,
             title,
             width,
@@ -40,105 +38,128 @@ const Modal: React.FC<
             titleCloseBtn = true,
             centered,
             trackingId,
+            actions = [],
         },
-        config: {
-            defaultModalStyles = false,
-            styles = {},
-            setBackdropHeight = true,
-            centered: globalCentered,
-            onOpen,
-            onClose: globalOnClose,
-        },
-    }) => {
-        const isCentered = centered ?? globalCentered;
-        const modalRef = React.useRef(null);
+    },
+    config: {
+        defaultModalStyles = false,
+        styles = {},
+        setBackdropHeight = true,
+        centered: globalCentered,
+        onOpen,
+        onClose: globalOnClose,
+    },
+}) => {
+    const isCentered = centered ?? globalCentered;
 
-        const applyStyles = React.useCallback(() => {
-            document.querySelectorAll(".modal-dialog").forEach((el: HTMLDivElement) => {
-                el.style.width = typeof width == "number" ? `${width}px` : width;
-                if (defaultModalStyles) {
-                    el.style.maxWidth = "95%";
-                    el.style.marginTop = "100px";
-                    el.querySelectorAll(".modal-header").forEach((el: HTMLDivElement) => (el.style.display = "block"));
-                    el.querySelectorAll(".modal-title").forEach((el: HTMLDivElement) => (el.style.marginTop = "0"));
-                }
-                if (isCentered) {
-                    el.style.position = "absolute";
-                    el.style.transform = "translate(-50%, -50%)";
-                    el.style.top = "50%";
-                    el.style.left = "50%";
-                    el.style.marginTop = "unset";
-                }
-            });
-            document.querySelectorAll("[role=dialog]").forEach((el: HTMLDivElement) => (el.style.opacity = "1"));
-            if (setBackdropHeight) {
-                document
-                    .querySelectorAll(".modal-backdrop")
-                    .forEach((el: HTMLDivElement) => (el.style.height = `${document.body.scrollHeight}px`));
-            }
-            Object.keys(styles).forEach(selector => {
-                document.querySelectorAll(selector).forEach((el: HTMLDivElement) => {
-                    Object.keys(styles[selector]).forEach(style => {
-                        el.style[style] = styles[selector][style];
-                    });
+    const applyStyles = React.useCallback(() => {
+        document.querySelectorAll(".modal-dialog").forEach((el: HTMLDivElement) => {
+            el.style.width = typeof width == "number" ? `${width}px` : width;
+        });
+        if (setBackdropHeight) {
+            document
+                .querySelectorAll(".modal-backdrop")
+                .forEach((el: HTMLDivElement) => (el.style.height = `${document.body.scrollHeight}px`));
+        }
+        Object.keys(styles).forEach(selector => {
+            document.querySelectorAll(selector).forEach((el: HTMLDivElement) => {
+                Object.keys(styles[selector]).forEach(style => {
+                    el.style[style] = styles[selector][style];
                 });
             });
-        }, [width, defaultModalStyles, isCentered, styles, setBackdropHeight]);
+        });
+    }, [width, styles, setBackdropHeight]);
 
-        React.useEffect(() => {
-            if (shown) {
-                applyStyles();
-                onOpen?.({ title, trackingId });
-            } else {
-                globalOnClose?.({ title, trackingId });
-            }
-        }, [shown, width, defaultModalStyles]);
+    React.useEffect(() => {
+        if (shown) {
+            applyStyles();
+            onOpen?.({ title, trackingId });
+        } else {
+            globalOnClose?.({ title, trackingId });
+        }
+    }, [shown, width, defaultModalStyles]);
 
-        const onHide = () => {
-            handleClose();
-            onClose && onClose();
-        };
+    const onHide = () => {
+        handleClose(id, false, true);
+        onClose && onClose();
+    };
 
-        const contentToRender =
-            typeof content == "string" ? <div dangerouslySetInnerHTML={{ __html: content }} /> : content;
-        const showFooter = closeBtn || footerContent;
+    const contentToRender =
+        typeof content == "string" ? <div dangerouslySetInnerHTML={{ __html: content }} /> : content;
+    const showFooter = closeBtn || footerContent || !!actions?.length;
+    const modalCssClass = classSet({
+        "dry-ux-modal": true,
+        centered: isCentered,
+        [cssClass]: true,
+        "default-styles": defaultModalStyles,
+    });
 
-        return (
-            <BootstrapModal
-                onHide={onHide}
-                show={shown}
-                animation
-                autoFocus
-                keyboard={false}
-                ref={modalRef}
-                className={cssClass}
-                backdropStyle={{ zIndex: 1040, opacity: 0.5 }}
-                backdrop={"static"}
+    const actionsToRender = React.useMemo(() => {
+        const _actions = [...(actions || [])];
+        if (closeBtn) {
+            _actions.push({ content: "Close", type: "danger", onClick: onHide });
+        }
+        return _actions.map(({ content, type = "success", closeOnClick, onClick, confirm }, index) => (
+            <Button
+                bsClass={`btn btn-${type} mright`}
+                onClick={() => {
+                    const triggerClick = () => {
+                        onClick?.();
+                        closeOnClick && onHide();
+                    };
+                    if (!!confirm) {
+                        toggleOverlay(
+                            id,
+                            <ActionsOverlay
+                                title={"Confirm"}
+                                content={confirm}
+                                hide={() => toggleOverlay(id)}
+                                actions={[
+                                    { content: "Yes", type: "success", onClick: triggerClick, closeOnClick: true },
+                                    { content: "No", type: "danger", closeOnClick: true },
+                                ]}
+                            />,
+                        );
+                    } else {
+                        triggerClick();
+                    }
+                }}
             >
-                {overlay && (
-                    <div className={"dry-ux-overlay"}>
-                        <div className={"dry-ux-overlay-content"}>{overlay}</div>
-                    </div>
-                )}
-                {!!title && (
-                    <BootstrapModal.Header closeButton={titleCloseBtn} onHide={onHide}>
-                        <BootstrapModal.Title>{title}</BootstrapModal.Title>
-                    </BootstrapModal.Header>
-                )}
-                <BootstrapModal.Body>{contentToRender}</BootstrapModal.Body>
-                {showFooter && (
-                    <BootstrapModal.Footer>
-                        {footerContent}
-                        {closeBtn && (
-                            <Button bsClass={"btn btn-danger"} onClick={onHide}>
-                                Close
-                            </Button>
-                        )}
-                    </BootstrapModal.Footer>
-                )}
-            </BootstrapModal>
-        );
-    },
-);
+                {content}
+            </Button>
+        ));
+    }, [actions, toggleOverlay, onHide, closeBtn]);
+
+    return (
+        <BootstrapModal
+            onHide={onHide}
+            show={shown}
+            animation
+            autoFocus
+            keyboard={false}
+            className={modalCssClass}
+            backdropStyle={{ zIndex: 1040, opacity: 0.5 }}
+            backdrop={"static"}
+        >
+            {overlay && (
+                <div className={"dry-ux-overlay"}>
+                    <div className={"dry-ux-overlay-content"}>{overlay}</div>
+                </div>
+            )}
+            {!!title && (
+                <BootstrapModal.Header closeButton={titleCloseBtn} onHide={onHide}>
+                    <BootstrapModal.Title>{title}</BootstrapModal.Title>
+                </BootstrapModal.Header>
+            )}
+            <BootstrapModal.Body>{contentToRender}</BootstrapModal.Body>
+            {showFooter && (
+                <BootstrapModal.Footer>
+                    {footerContent}
+                    {actionsToRender}
+                </BootstrapModal.Footer>
+            )}
+        </BootstrapModal>
+    );
+};
 
 export default Modal;

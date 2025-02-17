@@ -12,6 +12,7 @@ import {
     Input,
     Select,
 } from "../../../src";
+import "../css/site.css";
 
 // https://urre.me/writings/test-local-npm-packages/
 
@@ -79,6 +80,7 @@ const Content = React.memo(() => {
                                                 content: <div>This is a modal!</div>,
                                                 title: "Test Modal",
                                                 width: 400,
+                                                cssClass: "test",
                                             })
                                         }>
                                         Basic Modal
@@ -161,6 +163,7 @@ const Content = React.memo(() => {
                                                     content: <div>Click one of the call to action!</div>,
                                                     width: 400,
                                                     onClose: () => console.log("closed"),
+                                                    closeBtn: true,
                                                 },
                                                 [
                                                     {
@@ -237,6 +240,7 @@ const Content = React.memo(() => {
                                                         </form>
                                                     ),
                                                     width: 400,
+                                                    title: "Modal with Validation",
                                                 },
                                                 [
                                                     {
@@ -345,11 +349,94 @@ const Content = React.memo(() => {
                                                         </button>
                                                     </div>
                                                 ),
-                                                width: 600,
+                                                width: 400,
                                                 title: "Overlay",
                                             })
                                         }>
                                         Overlay with manual confirm
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        type={"button"}
+                                        className={"btn btn-primary"}
+                                        onClick={() =>
+                                            modal.show({
+                                                content: (
+                                                    <div>
+                                                        Click to delete{" "}
+                                                        <button
+                                                            className={"btn btn-primary"}
+                                                            onClick={() => {
+                                                                modal
+                                                                    .getCurrent()
+                                                                    .overlay.showActions(
+                                                                        "Pick an action",
+                                                                        "Select an action",
+                                                                        [
+                                                                            {
+                                                                                content: "Action 1",
+                                                                                type: "success",
+                                                                                onClick: () => alert("action 1"),
+                                                                                closeOnClick: true,
+                                                                            },
+                                                                            {
+                                                                                content: "Action 2",
+                                                                                type: "secondary",
+                                                                                onClick: () => alert("action 2"),
+                                                                                closeOnClick: true,
+                                                                            },
+                                                                        ],
+                                                                    );
+                                                            }}>
+                                                            Delete
+                                                        </button>
+                                                    </div>
+                                                ),
+                                                width: 400,
+                                                title: "Overlay",
+                                            })
+                                        }>
+                                        Overlay with actions
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        type={"button"}
+                                        className={"btn btn-primary"}
+                                        onClick={() =>
+                                            modal.show({
+                                                content: (
+                                                    <div>
+                                                        Click to update
+                                                        <br />
+                                                        <button
+                                                            className={"btn btn-primary"}
+                                                            onClick={() => {
+                                                                modal.getCurrent().update({
+                                                                    width: 400,
+                                                                    footerContent: "Updated footer",
+                                                                    content: "Updated content",
+                                                                    actions: [
+                                                                        {
+                                                                            content: "Update",
+                                                                            type: "primary",
+                                                                            onClick: () => alert("updated"),
+                                                                            closeOnClick: true,
+                                                                            confirm: "Are you sure?",
+                                                                        },
+                                                                    ],
+                                                                });
+                                                            }}>
+                                                            Update
+                                                        </button>
+                                                    </div>
+                                                ),
+                                                width: 600,
+                                                title: "Overlay",
+                                            })
+                                        }>
+                                        Update existing modal
                                     </button>
                                 </td>
                             </tr>

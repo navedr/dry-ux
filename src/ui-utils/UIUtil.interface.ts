@@ -1,3 +1,5 @@
+import { Omit } from "react-bootstrap";
+
 export type Content = JSX.Element | string;
 
 export type PopUp = {
@@ -14,6 +16,10 @@ export type PopUp = {
      */
     remove: () => void;
     /**
+     * Updates the modal options.
+     */
+    update: (options: Partial<PopUpOptions>) => void;
+    /**
      * The overlay for the modal.
      */
     overlay: {
@@ -22,14 +28,51 @@ export type PopUp = {
          */
         show: (content: Content) => void;
         /**
-         * Shows the overlay.
+         * Shows the overlay with yes/no buttons.
          */
         showConfirm: (content: Content, onYes: () => void, onNo?: () => void) => void;
+        /**
+         * Shows the overlay with custom actions.
+         */
+        showActions: (title: Content, content: Content, actions: Omit<PopUpAction, "confirm">[]) => void;
         /**
          * Hides the overlay.
          */
         hide: () => void;
     };
+};
+
+export type ButtonType = "primary" | "secondary" | "info" | "success" | "warning" | "danger";
+
+export type PopUpInstance = {
+    options: PopUpOptions;
+    shown: boolean;
+    overlay?: Content;
+    handleClose: (id: string, shown: boolean, destroyOnClose?: boolean) => void;
+    toggleOverlay: (id: string, content?: Content) => void;
+};
+
+export type PopUpAction = {
+    /**
+     * The content to display in the modal.
+     */
+    content: Content;
+    /**
+     * The type of button to display.
+     */
+    type?: ButtonType;
+    /**
+     * Function to call when the button is clicked.
+     */
+    onClick?: () => void;
+    /**
+     * If true, the modal will be closed when the button is clicked.
+     */
+    closeOnClick?: boolean;
+    /**
+     * If set, confirm overlay will be shown before the action is executed.
+     */
+    confirm?: Content;
 };
 
 export type PopUpOptions = {
@@ -77,31 +120,10 @@ export type PopUpOptions = {
      * The tracking ID for the modal.
      */
     trackingId?: string;
-};
-
-export type ButtonType = "primary" | "secondary" | "info" | "success" | "warning" | "danger";
-
-export type PopUpAction = {
     /**
-     * The content to display in the modal.
+     * If true, the modal will be shown.
      */
-    content: Content;
-    /**
-     * The type of button to display.
-     */
-    type?: ButtonType;
-    /**
-     * Function to call when the button is clicked.
-     */
-    onClick?: () => void;
-    /**
-     * If true, the modal will be closed when the button is clicked.
-     */
-    closeOnClick?: boolean;
-    /**
-     * If set, confirm overlay will be shown before the action is executed.
-     */
-    confirm?: Content;
+    actions?: PopUpAction[];
 };
 
 export type UIUtilModal = {
@@ -120,12 +142,7 @@ export type UIUtilModal = {
      * Dictionary of modal instances in memory.
      */
     instances: {
-        [id: string]: {
-            options: PopUpOptions;
-            shown: boolean;
-            overlay?: Content;
-            handleClose: (id: string, shown: boolean, destroyOnClose: boolean) => void;
-        };
+        [id: string]: PopUpInstance;
     };
     /**
      * Gets the current modal instance.
@@ -142,13 +159,13 @@ export type UIUtilModal = {
      * @param onYes The function to call when the yes button is clicked.
      * @param onNo The function to call when the no button is clicked.
      */
-    showConfirm: (options: PopUpOptions, onYes: () => void, onNo?: () => void) => PopUp;
+    showConfirm: (options: Omit<PopUpOptions, "actions">, onYes: () => void, onNo?: () => void) => PopUp;
     /**
      * Shows a modal with custom actions.
      * @param options The options for the modal.
      * @param actions The actions to display in the modal.
      */
-    showActions: (options: PopUpOptions, actions: PopUpAction[]) => PopUp;
+    showActions: (options: Omit<PopUpOptions, "actions">, actions: PopUpAction[]) => PopUp;
 };
 
 export interface IUIUtilLoader {

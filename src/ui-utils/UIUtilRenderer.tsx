@@ -1,28 +1,21 @@
 import * as React from "react";
 import { useUIUtilContext } from "./UIUtilProvider";
-import Modal, { IModalProps } from "./Modal";
+import Modal, { ModalProps } from "./Modal";
 
 export type UIUtilRendererProps = {
-    modalConfig?: IModalProps["config"];
+    modalConfig?: ModalProps["config"];
 };
 
 export const UIUtilRenderer: React.FC<UIUtilRendererProps> = React.memo(({ modalConfig = {} }) => {
-    const { modal } = useUIUtilContext();
+    const {
+        modal: { instances },
+    } = useUIUtilContext();
+
     return (
         <>
-            {Object.keys(modal.instances).map(id => {
-                const { shown, options, handleClose, overlay } = modal.instances[id];
-                return (
-                    <Modal
-                        key={id}
-                        shown={shown}
-                        overlay={overlay}
-                        options={options}
-                        handleClose={() => handleClose(id, false, true)}
-                        config={modalConfig}
-                    />
-                );
-            })}
+            {Object.keys(instances).map(id => (
+                <Modal key={id} id={id} instance={instances[id]} config={modalConfig} />
+            ))}
         </>
     );
 });
