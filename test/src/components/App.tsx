@@ -11,6 +11,7 @@ import {
     Validation,
     Input,
     Select,
+    useDimensions,
 } from "../../../src";
 import "../css/site.css";
 
@@ -33,8 +34,23 @@ const Api = DajaxiceProxy<DajaxiceModules>({
     modules,
 });
 
+const Section = React.memo(({ children }) => {
+    const ref = React.useRef(null);
+    const { width, height } = useDimensions(ref);
+
+    return (
+        <section ref={ref}>
+            <div style={{ float: "right" }}>
+                {width}x{height}px
+            </div>
+            {children}
+        </section>
+    );
+});
+
 const Content = React.memo(() => {
-    const { modal, loader, customLoader, prompt } = useDryUxContext();
+    const { modal, loader, customLoader, prompt, viewport } = useDryUxContext();
+    const { width, height } = useDimensions();
 
     React.useEffect(() => {
         window["Dajaxice"] = new Proxy(
@@ -65,7 +81,8 @@ const Content = React.memo(() => {
     return (
         <div>
             <h2 className={"text-center"}>dry-ux tests</h2>
-            <section>
+
+            <Section>
                 <h3>Modal</h3>
                 <div>
                     <table className={"table"}>
@@ -497,8 +514,8 @@ const Content = React.memo(() => {
                         </tbody>
                     </table>
                 </div>
-            </section>
-            <section>
+            </Section>
+            <Section>
                 <h3>Loader</h3>
                 <button
                     className={"btn btn-primary"}
@@ -508,9 +525,9 @@ const Content = React.memo(() => {
                     }}>
                     Show (5 secs)
                 </button>
-            </section>
+            </Section>
             <hr />
-            <section>
+            <Section>
                 <h3>Custom Loader</h3>
                 <button
                     className={"btn btn-primary"}
@@ -521,9 +538,9 @@ const Content = React.memo(() => {
                     Show (5 secs)
                 </button>
                 {customLoader.shown && <div className="text-center">Loading...</div>}
-            </section>
+            </Section>
             <hr />
-            <section>
+            <Section>
                 <h3>Dajaxice</h3>
                 <button
                     className={"btn btn-primary"}
@@ -536,25 +553,34 @@ const Content = React.memo(() => {
                     }>
                     Success call
                 </button>
-            </section>
+            </Section>
             <hr />
-            <section>
+            <Section>
                 <h3>Prompts</h3>
                 <button
                     className={"btn btn-primary"}
                     onClick={() => prompt.showConfirm({ content: "This is a test prompt" }, () => {})}>
                     Show Prompt
                 </button>
-            </section>
+            </Section>
+            <hr />
+            <Section>
+                <h3>DOM</h3>
+                <p>Viewport: {viewport}</p>
+                <p>
+                    Dimensions: {width}x{height}px
+                </p>
+            </Section>
         </div>
     );
 });
 
 const App = React.memo(() => {
     const [centered, setCentered] = React.useState(false);
+
     return (
         <ErrorBoundary>
-            <DryUXProvider noRenderer>
+            <DryUXProvider noRenderer viewportDetect>
                 <div className={"container"}>
                     <div className="row">
                         <div className="col-12">
@@ -565,7 +591,7 @@ const App = React.memo(() => {
                             <Content />
                         </div>
                     </div>
-                    <DryUXRenderer modalConfig={{ defaultModalStyles: true, setBackdropHeight: false, centered }} />
+                    <DryUXRenderer modalConfig={{ defaultModalStyles: true, setBackdropHeight: true, centered }} />
                 </div>
             </DryUXProvider>
         </ErrorBoundary>

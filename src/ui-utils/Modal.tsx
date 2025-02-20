@@ -4,6 +4,7 @@ import { PopUpInstance, PopUpOptions } from "./UIUtil.interface";
 import "../styles/modal.css";
 import { classSet } from "../helpers/classSet";
 import { ActionsOverlay } from "./ActionsOverlay";
+import { useDimensions } from "../helpers/utilities";
 
 export type ModalProps = {
     id: string;
@@ -51,6 +52,7 @@ const Modal: React.FC<ModalProps> = ({
     },
 }) => {
     const isCentered = centered ?? globalCentered;
+    const { height: documentHeight } = useDimensions();
 
     const applyStyles = React.useCallback(() => {
         document.querySelectorAll(".modal-dialog").forEach((el: HTMLDivElement) => {
@@ -59,7 +61,7 @@ const Modal: React.FC<ModalProps> = ({
         if (setBackdropHeight) {
             document
                 .querySelectorAll(".modal-backdrop")
-                .forEach((el: HTMLDivElement) => (el.style.height = `${document.body.scrollHeight}px`));
+                .forEach((el: HTMLDivElement) => (el.style.height = `${document.documentElement.clientHeight}px`));
         }
         Object.keys(styles).forEach(selector => {
             document.querySelectorAll(selector).forEach((el: HTMLDivElement) => {
@@ -78,6 +80,14 @@ const Modal: React.FC<ModalProps> = ({
             globalOnClose?.({ title, trackingId });
         }
     }, [shown, width, defaultModalStyles]);
+
+    React.useEffect(() => {
+        if (setBackdropHeight) {
+            document
+                .querySelectorAll(".modal-backdrop")
+                .forEach((el: HTMLDivElement) => (el.style.height = `${documentHeight}px`));
+        }
+    }, [documentHeight, setBackdropHeight]);
 
     const onHide = () => {
         handleClose(id, false, true);

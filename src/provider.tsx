@@ -12,12 +12,16 @@ interface IDryUXProviderProps {
      * Props to pass to the renderer.
      */
     rendererProps?: UIUtilRendererProps;
+    /**
+     * If true, the viewport detection will be enabled.
+     */
+    viewportDetect?: boolean;
     children: React.ReactNode;
 }
 
 export const DryUXProvider: React.FC<IDryUXProviderProps> = React.memo(
-    ({ children, noRenderer = false, rendererProps }) => (
-        <UIUtilProvider>
+    ({ children, noRenderer = false, rendererProps, viewportDetect }) => (
+        <UIUtilProvider viewportDetect={viewportDetect}>
             {children}
             {!noRenderer && <UIUtilRenderer {...rendererProps} />}
         </UIUtilProvider>

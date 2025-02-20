@@ -306,3 +306,25 @@ export const usePubSub = <T>() => {
 
     return { usePub, useSub };
 };
+
+export const useDimensions = (ref?: React.MutableRefObject<HTMLElement>) => {
+    const [size, setSize] = React.useState<{ width: number; height: number }>({ width: 0, height: 0 });
+
+    const element = ref?.current || document.documentElement;
+
+    const handleResize = React.useCallback(
+        () => setSize({ width: element.clientWidth, height: element.clientHeight }),
+        [element],
+    );
+
+    React.useEffect(() => {
+        const controller = new AbortController();
+        window.addEventListener("load", handleResize, { signal: controller.signal });
+        window.addEventListener("resize", handleResize, { signal: controller.signal });
+        handleResize();
+
+        return () => controller.abort();
+    }, [ref, handleResize]);
+
+    return size;
+};

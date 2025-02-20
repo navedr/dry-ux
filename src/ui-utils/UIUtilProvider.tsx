@@ -12,12 +12,14 @@ import {
 import "../types";
 import { Loader } from "./Loader";
 import { ActionsOverlay } from "./ActionsOverlay";
+import { Viewport, ViewportDetect } from "./ViewportDetect";
 
 export interface IUIUtilProviderState {
     modal: UIUtilModal;
     prompt: UIUtilPrompt;
     customLoader: IUIUtilLoader;
     loader: Pick<IUIUtilLoader, "show" | "hide">;
+    viewport?: Viewport;
 }
 
 const defaultState: IUIUtilProviderState = {
@@ -60,7 +62,7 @@ const modalId = {
 
 type ModalId = (typeof modalId)[keyof typeof modalId];
 
-export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState> {
+export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boolean }, IUIUtilProviderState> {
     private readonly loader = Loader.getInstance();
 
     constructor(props) {
@@ -295,6 +297,11 @@ export class UIUtilProvider extends React.PureComponent<{}, IUIUtilProviderState
     }
 
     render() {
-        return <UIUtilContext.Provider value={this.state}>{this.props.children}</UIUtilContext.Provider>;
+        return (
+            <UIUtilContext.Provider value={this.state}>
+                {this.props.viewportDetect && <ViewportDetect onChange={viewport => this.setState({ viewport })} />}
+                {this.props.children}
+            </UIUtilContext.Provider>
+        );
     }
 }
