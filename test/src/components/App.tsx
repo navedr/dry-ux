@@ -566,7 +566,11 @@ const Content = React.memo(() => {
             <hr />
             <Section>
                 <h3>DOM</h3>
-                <p>Viewport: {viewport}</p>
+                <p>
+                    Viewport: {viewport.current} [XS: {viewport.isXS ? "Yes" : "No"}] [SM:{" "}
+                    {viewport.isSM ? "Yes" : "No"}] [MD: {viewport.isMD ? "Yes" : "No"}] [LG:{" "}
+                    {viewport.isLG ? "Yes" : "No"}]
+                </p>
                 <p>
                     Dimensions: {width}x{height}px
                 </p>
