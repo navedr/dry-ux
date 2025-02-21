@@ -9,6 +9,30 @@ export enum Viewport {
     LG = "lg",
 }
 
+export class CurrentViewport {
+    constructor(private _current: Viewport) {}
+
+    get isXS() {
+        return this._current === Viewport.XS;
+    }
+
+    get isSM() {
+        return this._current === Viewport.SM;
+    }
+
+    get isMD() {
+        return this._current === Viewport.MD;
+    }
+
+    get isLG() {
+        return this._current === Viewport.LG;
+    }
+
+    get current() {
+        return this._current;
+    }
+}
+
 const DetectionElement = ({
     viewport,
     onVisibilityChange,
@@ -26,10 +50,10 @@ const DetectionElement = ({
     return <div ref={ref} className={`dry-visible-${viewport}`}></div>;
 };
 
-export const ViewportDetect: React.FC<{ onChange: (viewport: Viewport) => void }> = React.memo(({ onChange }) => {
+export const ViewportDetect: React.FC<{ onChange: (current: CurrentViewport) => void }> = React.memo(({ onChange }) => {
     const onVisibilityChange = (viewport: Viewport, isVisible: boolean) => {
         if (isVisible) {
-            onChange(viewport);
+            onChange(new CurrentViewport(viewport));
         }
     };
 

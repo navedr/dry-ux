@@ -12,14 +12,14 @@ import {
 import "../types";
 import { Loader } from "./Loader";
 import { ActionsOverlay } from "./ActionsOverlay";
-import { Viewport, ViewportDetect } from "./ViewportDetect";
+import { CurrentViewport, ViewportDetect } from "./ViewportDetect";
 
 export interface IUIUtilProviderState {
     modal: UIUtilModal;
     prompt: UIUtilPrompt;
     customLoader: IUIUtilLoader;
     loader: Pick<IUIUtilLoader, "show" | "hide">;
-    viewport?: Viewport;
+    viewport: CurrentViewport;
 }
 
 const defaultState: IUIUtilProviderState = {
@@ -47,6 +47,7 @@ const defaultState: IUIUtilProviderState = {
         show: null,
         hide: null,
     },
+    viewport: new CurrentViewport(undefined),
 };
 
 export const UIUtilContext = React.createContext<IUIUtilProviderState>(defaultState);
