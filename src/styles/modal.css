@@ -59,6 +59,16 @@
     left: 50%!important;
 }
 
+.dry-ux-modal-backdrop {
+    position: fixed!important;
+    top: 0!important;
+    left: 0!important;
+    width: 100vw!important;
+    height: 100vh!important;
+    z-index: 1040!important;
+    opacity: 0.5!important;
+}
+
 @media only screen and (max-width: 767px) {
     .dry-ux-overlay-content {
         width: 90%;

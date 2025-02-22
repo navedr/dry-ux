@@ -300,8 +300,8 @@ export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boole
     render() {
         return (
             <UIUtilContext.Provider value={this.state}>
-                {this.props.viewportDetect && <ViewportDetect onChange={viewport => this.setState({ viewport })} />}
                 {this.props.children}
+                {this.props.viewportDetect && <ViewportDetect onChange={viewport => this.setState({ viewport })} />}
             </UIUtilContext.Provider>
         );
     }
