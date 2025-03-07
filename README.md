@@ -11,4 +11,4 @@ Key features of **dry-ux** include:
 - **Storage Utilities**: Simplify interactions with local and session storage.
 - **Validation Helpers**: Utility functions to handle common validation tasks.
 
-For a detailed overview of all available classes, interfaces, type aliases, variables, and functions, refer to the [API Documentation](docs/globals.md).
+For a detailed overview of all available classes, interfaces, type aliases, variables, and functions, refer to the [API Documentation](docs/markdown/globals.md).

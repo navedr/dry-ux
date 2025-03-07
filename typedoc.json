@@ -3,11 +3,28 @@
     "entryPoints": ["./src/index.ts"],
     "externalPattern": ["node_modules/**"],
     "plugin": ["typedoc-plugin-markdown"],
-    "out": "./docs",
     "excludeExternals": true,
     "useCodeBlocks": true,
     "expandObjects": true,
     "expandParameters": true,
     "indexFormat": "table",
-    "entryModule": "index"
+    "entryModule": "index",
+    "outputs": [
+        {
+            "name": "html",
+            "path": "./docs/html",
+            "options": {
+                "navigation": {
+                    "includeCategories": true,
+                    "includeGroups": true,
+                    "excludeReferences": false,
+                    "includeFolders": true
+                }
+            }
+        },
+        {
+            "name": "markdown",
+            "path": "./docs/markdown"
+        }
+    ]
 }
