@@ -11,7 +11,8 @@
     "update:version": "npm version minor --no-git-tag-version",
     "prepub:npm": "npm run format && npm run build && npm run update:version",
     "publish:npm": "npm run prepub:npm && npm publish",
-    "pack": "npm run build && npm pack --pack-destination pack/"
+    "pack": "npm run build && npm pack --pack-destination pack/",
+    "docs": "typedoc --options typedoc.json"
   },
   "repository": {
     "type": "git",
@@ -24,13 +25,16 @@
   "author": "Naved Rangwala",
   "license": "ISC",
   "devDependencies": {
-    "copyfiles": "^2.4.1",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
     "@types/react": "^17.0.0",
     "@types/react-bootstrap": "^0.32.25",
+    "copyfiles": "^2.4.1",
+    "jsdoc": "^4.0.4",
     "prettier": "^2.2.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
     "rimraf": "^3.0.2",
+    "typedoc": "^0.27.9",
+    "typedoc-plugin-markdown": "^4.4.2",
     "typescript": "*"
   },
   "dependencies": {

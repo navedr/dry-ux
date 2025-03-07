@@ -1,3 +1,6 @@
+/**
+ * Interface representing a logger with various logging methods.
+ */
 export interface ILogger {
     /**
      * Logs a message with the info level.
@@ -24,6 +27,13 @@ export interface ILogger {
     warn(...message: any[]): void;
 }
 
+/**
+ * Creates a logger instance with the specified path and name.
+ *
+ * @param {string} path - The endpoint to which log messages will be sent.
+ * @param {string} name - The name of the logger.
+ * @returns {ILogger} The logger instance with methods to log messages at different levels.
+ */
 const useLogger = (path: string, name: string): ILogger => {
     const convertMessage = (message: any[]) =>
         message
@@ -62,6 +72,18 @@ const useLogger = (path: string, name: string): ILogger => {
     };
 };
 
+/**
+ * Initializes a logger factory with the specified path.
+ *
+ * @param {string} path - The endpoint to which log messages will be sent.
+ * @returns {Object} An object containing a useLogger method to create logger instances.
+ */
 export const initLoggerFactory = (path: string) => ({
+    /**
+     * Creates a logger instance with the specified name.
+     *
+     * @param {string} name - The name of the logger.
+     * @returns {ILogger} The logger instance with methods to log messages at different levels.
+     */
     useLogger: (name: string): ILogger => useLogger(path, name),
 });

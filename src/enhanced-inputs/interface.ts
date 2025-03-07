@@ -1,7 +1,13 @@
 import { InputHTMLAttributes } from "react";
 
+/**
+ * Type alias for validation, which can be a boolean or a string.
+ */
 export type IValidation = boolean | string;
 
+/**
+ * Interface representing a value validation with an optional message.
+ */
 export interface IValueValidation<T> {
     /**
      * The value to be validated.
@@ -13,6 +19,9 @@ export interface IValueValidation<T> {
     message?: string;
 }
 
+/**
+ * Interface representing various validation rules for a field.
+ */
 export interface IValidations {
     /**
      * Indicates if the field is required.
@@ -84,6 +93,9 @@ export interface IValidations {
     errorRef?: string;
 }
 
+/**
+ * Interface representing enhanced properties for an input field.
+ */
 export interface IEnhancedProps {
     /**
      * Validation rules for the field.
@@ -111,4 +123,7 @@ export interface IEnhancedProps {
     validateOnChange?: boolean;
 }
 
+/**
+ * Type alias for input attributes, extending HTML input, select, and textarea attributes.
+ */
 export type InputAttributes = InputHTMLAttributes<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>;

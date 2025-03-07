@@ -5,20 +5,53 @@ import "../styles/modal.css";
 import { classSet } from "../helpers/classSet";
 import { ActionsOverlay } from "./ActionsOverlay";
 
+/**
+ * Props for the Modal component.
+ */
 export type ModalProps = {
+    /**
+     * The id of the modal.
+     */
     id: string;
+    /**
+     * The instance of the PopUp.
+     */
     instance: PopUpInstance;
+    /**
+     * Configuration options for the modal.
+     */
     config: {
+        /**
+         * Custom styles for the modal.
+         */
         styles?: {
             [selector: string]: React.CSSProperties;
         };
+        /**
+         * If true, applies default modal styles.
+         */
         defaultModalStyles?: boolean;
+        /**
+         * If true, centers the modal vertically.
+         */
         centered?: boolean;
+        /**
+         * Callback function to be called when the modal is opened.
+         */
         onOpen?: (modal: Pick<PopUpOptions, "title" | "trackingId">) => void;
+        /**
+         * Callback function to be called when the modal is closed.
+         */
         onClose?: (modal: Pick<PopUpOptions, "title" | "trackingId">) => void;
     };
 };
 
+/**
+ * Modal component that renders a Bootstrap modal with custom configurations.
+ *
+ * @param {ModalProps} props - The props for the Modal component.
+ * @returns {JSX.Element} The Modal component.
+ */
 const Modal: React.FC<ModalProps> = ({
     id,
     instance: {
@@ -110,8 +143,7 @@ const Modal: React.FC<ModalProps> = ({
                     } else {
                         triggerClick();
                     }
-                }}
-            >
+                }}>
                 {content}
             </Button>
         ));
@@ -126,8 +158,7 @@ const Modal: React.FC<ModalProps> = ({
             keyboard={false}
             className={modalCssClass}
             backdropClassName={"dry-ux-modal-backdrop"}
-            backdrop={"static"}
-        >
+            backdrop={"static"}>
             {overlay && (
                 <div className={"dry-ux-overlay"}>
                     <div className={"dry-ux-overlay-content"}>{overlay}</div>
