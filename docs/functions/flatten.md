@@ -6,9 +6,11 @@
 
 # Function: flatten()
 
-> **flatten**(`target`, `opts`?): `object`
+```ts
+function flatten(target: any, opts?: FlattenOptions): {}
+```
 
-Defined in: [src/helpers/flat.ts:36](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/flat.ts#L36)
+Defined in: [src/helpers/flat.ts:36](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/flat.ts#L36)
 
 Flattens an object with the paths for keys.
 
@@ -28,4 +30,6 @@ Options for flattening the object.
 
 ## Returns
 
-`object`
+```ts
+{}
+```

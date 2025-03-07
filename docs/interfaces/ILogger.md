@@ -6,7 +6,7 @@
 
 # Interface: ILogger
 
-Defined in: [src/helpers/logger.ts:4](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/logger.ts#L4)
+Defined in: [src/helpers/logger.ts:4](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/logger.ts#L4)
 
 Interface representing a logger with various logging methods.
 
@@ -14,9 +14,11 @@ Interface representing a logger with various logging methods.
 
 ### debug()
 
-> **debug**(...`message`): `void`
+```ts
+debug(...message: any[]): void
+```
 
-Defined in: [src/helpers/logger.ts:21](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/logger.ts#L21)
+Defined in: [src/helpers/logger.ts:21](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/logger.ts#L21)
 
 Logs a message with the debug level.
 
@@ -36,9 +38,11 @@ The message to log.
 
 ### error()
 
-> **error**(...`message`): `void`
+```ts
+error(...message: any[]): void
+```
 
-Defined in: [src/helpers/logger.ts:15](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/logger.ts#L15)
+Defined in: [src/helpers/logger.ts:15](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/logger.ts#L15)
 
 Logs a message with the error level.
 
@@ -58,9 +62,11 @@ The message to log.
 
 ### log()
 
-> **log**(...`message`): `void`
+```ts
+log(...message: any[]): void
+```
 
-Defined in: [src/helpers/logger.ts:9](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/logger.ts#L9)
+Defined in: [src/helpers/logger.ts:9](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/logger.ts#L9)
 
 Logs a message with the info level.
 
@@ -80,9 +86,11 @@ The message to log.
 
 ### warn()
 
-> **warn**(...`message`): `void`
+```ts
+warn(...message: any[]): void
+```
 
-Defined in: [src/helpers/logger.ts:27](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/logger.ts#L27)
+Defined in: [src/helpers/logger.ts:27](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/logger.ts#L27)
 
 Logs a message with the warn level.
 

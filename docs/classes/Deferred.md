@@ -6,7 +6,7 @@
 
 # Class: Deferred\<T\>
 
-Defined in: [src/helpers/utilities.ts:194](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/utilities.ts#L194)
+Defined in: [src/helpers/utilities.ts:194](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/utilities.ts#L194)
 
 A class representing a deferred promise.
 
@@ -18,9 +18,11 @@ A class representing a deferred promise.
 
 ### new Deferred()
 
-> **new Deferred**\<`T`\>(): [`Deferred`](Deferred.md)\<`T`\>
+```ts
+new Deferred<T>(): Deferred<T>
+```
 
-Defined in: [src/helpers/utilities.ts:202](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/utilities.ts#L202)
+Defined in: [src/helpers/utilities.ts:202](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/utilities.ts#L202)
 
 #### Returns
 
@@ -30,9 +32,11 @@ Defined in: [src/helpers/utilities.ts:202](https://github.com/navedr/dry-ux/blob
 
 ### promise
 
-> `readonly` **promise**: `Promise`\<`T`\>
+```ts
+readonly promise: Promise<T>;
+```
 
-Defined in: [src/helpers/utilities.ts:200](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/utilities.ts#L200)
+Defined in: [src/helpers/utilities.ts:200](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/utilities.ts#L200)
 
 The promise object.
 
@@ -42,9 +46,11 @@ The promise object.
 
 #### Get Signature
 
-> **get** **reject**(): (`error`) => `void`
+```ts
+get reject(): (error: any) => void
+```
 
-Defined in: [src/helpers/utilities.ts:219](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/utilities.ts#L219)
+Defined in: [src/helpers/utilities.ts:219](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/utilities.ts#L219)
 
 Rejects the promise with the given error.
 
@@ -68,9 +74,11 @@ Rejects the promise with the given error.
 
 #### Get Signature
 
-> **get** **resolve**(): (`result`) => `void`
+```ts
+get resolve(): (result: T) => void
+```
 
-Defined in: [src/helpers/utilities.ts:212](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/utilities.ts#L212)
+Defined in: [src/helpers/utilities.ts:212](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/utilities.ts#L212)
 
 Resolves the promise with the given result.
 

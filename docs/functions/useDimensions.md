@@ -6,9 +6,14 @@
 
 # Function: useDimensions()
 
-> **useDimensions**(`ref`?): `object`
+```ts
+function useDimensions(ref?: MutableRefObject<HTMLElement>): {
+  height: number;
+  width: number;
+}
+```
 
-Defined in: [src/helpers/utilities.ts:310](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/utilities.ts#L310)
+Defined in: [src/helpers/utilities.ts:310](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/utilities.ts#L310)
 
 ## Parameters
 
@@ -18,12 +23,21 @@ Defined in: [src/helpers/utilities.ts:310](https://github.com/navedr/dry-ux/blob
 
 ## Returns
 
-`object`
+```ts
+{
+  height: number;
+  width: number;
+}
+```
 
 ### height
 
-> **height**: `number`
+```ts
+height: number;
+```
 
 ### width
 
-> **width**: `number`
+```ts
+width: number;
+```

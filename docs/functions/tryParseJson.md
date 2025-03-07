@@ -6,9 +6,11 @@
 
 # Function: tryParseJson()
 
-> **tryParseJson**\<`T`\>(`json`, `errorValue`): `object`
+```ts
+function tryParseJson<T>(json: string, errorValue: {}): {}
+```
 
-Defined in: [src/helpers/utilities.ts:230](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/utilities.ts#L230)
+Defined in: [src/helpers/utilities.ts:230](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/utilities.ts#L230)
 
 Parses a JSON string and returns the corresponding object.
 
@@ -30,6 +32,8 @@ The value to return if parsing fails.
 
 ## Returns
 
-`object`
+```ts
+{}
+```
 
 The parsed object or the error value.

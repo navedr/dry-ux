@@ -6,7 +6,7 @@
 
 # Class: Loader
 
-Defined in: [src/ui-utils/Loader.ts:6](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/ui-utils/Loader.ts#L6)
+Defined in: [src/ui-utils/Loader.ts:6](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/ui-utils/Loader.ts#L6)
 
 A singleton class that manages the display of a fullscreen loader spinner.
 
@@ -16,9 +16,11 @@ A singleton class that manages the display of a fullscreen loader spinner.
 
 #### Get Signature
 
-> **get** **element**(): `HTMLElement`
+```ts
+get element(): HTMLElement
+```
 
-Defined in: [src/ui-utils/Loader.ts:28](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/ui-utils/Loader.ts#L28)
+Defined in: [src/ui-utils/Loader.ts:28](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/ui-utils/Loader.ts#L28)
 
 Gets the loader element from the DOM.
 
@@ -32,9 +34,11 @@ The loader element.
 
 ### hide()
 
-> **hide**(): `void`
+```ts
+hide(): void
+```
 
-Defined in: [src/ui-utils/Loader.ts:43](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/ui-utils/Loader.ts#L43)
+Defined in: [src/ui-utils/Loader.ts:43](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/ui-utils/Loader.ts#L43)
 
 Hides the loader by setting its visibility to hidden.
 
@@ -46,9 +50,11 @@ Hides the loader by setting its visibility to hidden.
 
 ### show()
 
-> **show**(): `void`
+```ts
+show(): void
+```
 
-Defined in: [src/ui-utils/Loader.ts:35](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/ui-utils/Loader.ts#L35)
+Defined in: [src/ui-utils/Loader.ts:35](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/ui-utils/Loader.ts#L35)
 
 Shows the loader by setting its visibility to visible.
 
@@ -60,9 +66,11 @@ Shows the loader by setting its visibility to visible.
 
 ### getInstance()
 
-> `static` **getInstance**(): [`Loader`](Loader.md)
+```ts
+static getInstance(): Loader
+```
 
-Defined in: [src/ui-utils/Loader.ts:17](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/ui-utils/Loader.ts#L17)
+Defined in: [src/ui-utils/Loader.ts:17](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/ui-utils/Loader.ts#L17)
 
 Returns the singleton instance of the Loader class.
 

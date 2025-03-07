@@ -6,9 +6,22 @@
 
 # Type Alias: PopUp
 
-> **PopUp**: `object`
+```ts
+type PopUp = {
+  hide: () => void;
+  overlay: {
+     hide: () => void;
+     show: (content: Content) => void;
+     showActions: (title: Content, content: Content, actions: Omit<PopUpAction, "confirm">[]) => void;
+     showConfirm: (content: Content, onYes: () => void, onNo?: () => void) => void;
+    };
+  remove: () => void;
+  show: () => void;
+  update: (options: Partial<PopUpOptions>) => void;
+};
+```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:11](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/ui-utils/UIUtil.interface.ts#L11)
+Defined in: [src/ui-utils/UIUtil.interface.ts:11](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/ui-utils/UIUtil.interface.ts#L11)
 
 Represents a PopUp with methods to control its visibility and content.
 
@@ -16,7 +29,9 @@ Represents a PopUp with methods to control its visibility and content.
 
 ### hide()
 
-> **hide**: () => `void`
+```ts
+hide: () => void;
+```
 
 Hides the modal.
 
@@ -26,13 +41,22 @@ Hides the modal.
 
 ### overlay
 
-> **overlay**: `object`
+```ts
+overlay: {
+  hide: () => void;
+  show: (content: Content) => void;
+  showActions: (title: Content, content: Content, actions: Omit<PopUpAction, "confirm">[]) => void;
+  showConfirm: (content: Content, onYes: () => void, onNo?: () => void) => void;
+};
+```
 
 The overlay for the modal.
 
 #### overlay.hide()
 
-> **hide**: () => `void`
+```ts
+hide: () => void;
+```
 
 Hides the overlay.
 
@@ -42,7 +66,9 @@ Hides the overlay.
 
 #### overlay.show()
 
-> **show**: (`content`) => `void`
+```ts
+show: (content: Content) => void;
+```
 
 Shows the overlay.
 
@@ -60,7 +86,9 @@ The content to display in the overlay.
 
 #### overlay.showActions()
 
-> **showActions**: (`title`, `content`, `actions`) => `void`
+```ts
+showActions: (title: Content, content: Content, actions: Omit<PopUpAction, "confirm">[]) => void;
+```
 
 Shows the overlay with custom actions.
 
@@ -90,7 +118,9 @@ The actions to display in the overlay.
 
 #### overlay.showConfirm()
 
-> **showConfirm**: (`content`, `onYes`, `onNo`?) => `void`
+```ts
+showConfirm: (content: Content, onYes: () => void, onNo?: () => void) => void;
+```
 
 Shows the overlay with yes/no buttons.
 
@@ -120,7 +150,9 @@ The function to call when the no button is clicked.
 
 ### remove()
 
-> **remove**: () => `void`
+```ts
+remove: () => void;
+```
 
 Removes the modal.
 
@@ -130,7 +162,9 @@ Removes the modal.
 
 ### show()
 
-> **show**: () => `void`
+```ts
+show: () => void;
+```
 
 Shows the modal.
 
@@ -140,7 +174,9 @@ Shows the modal.
 
 ### update()
 
-> **update**: (`options`) => `void`
+```ts
+update: (options: Partial<PopUpOptions>) => void;
+```
 
 Updates the modal options.
 

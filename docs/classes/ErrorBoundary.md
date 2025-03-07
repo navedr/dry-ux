@@ -6,7 +6,7 @@
 
 # Class: ErrorBoundary
 
-Defined in: [src/error/ErrorBoundary.tsx:42](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/error/ErrorBoundary.tsx#L42)
+Defined in: [src/error/ErrorBoundary.tsx:42](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/error/ErrorBoundary.tsx#L42)
 
 A React component that acts as an error boundary to catch JavaScript errors anywhere in its child component tree.
 It displays a fallback UI when an error is caught.
@@ -19,9 +19,11 @@ It displays a fallback UI when an error is caught.
 
 ### new ErrorBoundary()
 
-> **new ErrorBoundary**(`props`): [`ErrorBoundary`](ErrorBoundary.md)
+```ts
+new ErrorBoundary(props: IErrorBoundaryProps): ErrorBoundary
+```
 
-Defined in: [src/error/ErrorBoundary.tsx:43](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/error/ErrorBoundary.tsx#L43)
+Defined in: [src/error/ErrorBoundary.tsx:43](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/error/ErrorBoundary.tsx#L43)
 
 #### Parameters
 
@@ -35,15 +37,19 @@ Defined in: [src/error/ErrorBoundary.tsx:43](https://github.com/navedr/dry-ux/bl
 
 #### Overrides
 
-`React.PureComponent<IErrorBoundaryProps, IErrorBoundaryInnerState>.constructor`
+```ts
+React.PureComponent<IErrorBoundaryProps, IErrorBoundaryInnerState>.constructor
+```
 
 ## Methods
 
 ### componentDidCatch()
 
-> **componentDidCatch**(`error`, `info`): `void`
+```ts
+componentDidCatch(error: Error, info: ErrorInfo): void
+```
 
-Defined in: [src/error/ErrorBoundary.tsx:62](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/error/ErrorBoundary.tsx#L62)
+Defined in: [src/error/ErrorBoundary.tsx:62](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/error/ErrorBoundary.tsx#L62)
 
 Handles the error and updates the state.
 
@@ -67,15 +73,19 @@ Additional information about the error.
 
 #### Overrides
 
-`React.PureComponent.componentDidCatch`
+```ts
+React.PureComponent.componentDidCatch
+```
 
 ***
 
 ### render()
 
-> **render**(): `Element`
+```ts
+render(): Element
+```
 
-Defined in: [src/error/ErrorBoundary.tsx:70](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/error/ErrorBoundary.tsx#L70)
+Defined in: [src/error/ErrorBoundary.tsx:70](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/error/ErrorBoundary.tsx#L70)
 
 Renders the component.
 
@@ -87,15 +97,21 @@ The rendered component.
 
 #### Overrides
 
-`React.PureComponent.render`
+```ts
+React.PureComponent.render
+```
 
 ***
 
 ### getDerivedStateFromError()
 
-> `static` **getDerivedStateFromError**(`error`): `object`
+```ts
+static getDerivedStateFromError(error: Error): {
+  error: Error;
+}
+```
 
-Defined in: [src/error/ErrorBoundary.tsx:53](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/error/ErrorBoundary.tsx#L53)
+Defined in: [src/error/ErrorBoundary.tsx:53](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/error/ErrorBoundary.tsx#L53)
 
 Updates the state with the error.
 
@@ -109,10 +125,16 @@ The error that was thrown.
 
 #### Returns
 
-`object`
+```ts
+{
+  error: Error;
+}
+```
 
 The updated state.
 
 ##### error
 
-> **error**: `Error`
+```ts
+error: Error;
+```

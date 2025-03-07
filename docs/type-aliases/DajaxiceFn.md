@@ -6,9 +6,11 @@
 
 # Type Alias: DajaxiceFn()\<TArgs\>
 
-> **DajaxiceFn**\<`TArgs`\>: \<`TResult`\>(`args`) => `Promise`\<`TResult`\>
+```ts
+type DajaxiceFn<TArgs> = <TResult>(args: ArgType<TArgs>) => Promise<TResult>;
+```
 
-Defined in: [src/dajaxice/Proxy.interface.ts:49](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/dajaxice/Proxy.interface.ts#L49)
+Defined in: [src/dajaxice/Proxy.interface.ts:49](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/dajaxice/Proxy.interface.ts#L49)
 
 Represents a Dajaxice function.
 

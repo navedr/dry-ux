@@ -4,5 +4,10 @@
     "externalPattern": ["node_modules/**"],
     "plugin": ["typedoc-plugin-markdown"],
     "out": "./docs",
-    "excludeExternals": true
+    "excludeExternals": true,
+    "useCodeBlocks": true,
+    "expandObjects": true,
+    "expandParameters": true,
+    "indexFormat": "table",
+    "entryModule": "index"
 }

@@ -6,9 +6,17 @@
 
 # Type Alias: PopUpAction
 
-> **PopUpAction**: `object`
+```ts
+type PopUpAction = {
+  closeOnClick: boolean;
+  confirm: Content;
+  content: Content;
+  onClick: () => void;
+  type: ButtonType;
+};
+```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:98](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/ui-utils/UIUtil.interface.ts#L98)
+Defined in: [src/ui-utils/UIUtil.interface.ts:98](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/ui-utils/UIUtil.interface.ts#L98)
 
 Represents an action for a PopUp.
 
@@ -16,25 +24,33 @@ Represents an action for a PopUp.
 
 ### closeOnClick?
 
-> `optional` **closeOnClick**: `boolean`
+```ts
+optional closeOnClick: boolean;
+```
 
 If true, the modal will be closed when the button is clicked.
 
 ### confirm?
 
-> `optional` **confirm**: [`Content`](Content.md)
+```ts
+optional confirm: Content;
+```
 
 If set, confirm overlay will be shown before the action is executed.
 
 ### content
 
-> **content**: [`Content`](Content.md)
+```ts
+content: Content;
+```
 
 The content to display in the modal.
 
 ### onClick()?
 
-> `optional` **onClick**: () => `void`
+```ts
+optional onClick: () => void;
+```
 
 Function to call when the button is clicked.
 
@@ -44,6 +60,8 @@ Function to call when the button is clicked.
 
 ### type?
 
-> `optional` **type**: [`ButtonType`](ButtonType.md)
+```ts
+optional type: ButtonType;
+```
 
 The type of button to display.

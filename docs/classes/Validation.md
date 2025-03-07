@@ -6,7 +6,7 @@
 
 # Class: Validation
 
-Defined in: [src/enhanced-inputs/Validaition.ts:146](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/enhanced-inputs/Validaition.ts#L146)
+Defined in: [src/enhanced-inputs/Validaition.ts:146](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/enhanced-inputs/Validaition.ts#L146)
 
 Class representing form validation.
 
@@ -14,9 +14,11 @@ Class representing form validation.
 
 ### new Validation()
 
-> **new Validation**(`options`?): [`Validation`](Validation.md)
+```ts
+new Validation(options?: ValidationOptions): Validation
+```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:154](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/enhanced-inputs/Validaition.ts#L154)
+Defined in: [src/enhanced-inputs/Validaition.ts:154](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/enhanced-inputs/Validaition.ts#L154)
 
 Creates an instance of Validation.
 
@@ -36,9 +38,11 @@ The options for configuring the validation.
 
 ### bindToValueChanges()
 
-> **bindToValueChanges**(`input`): `void`
+```ts
+bindToValueChanges(input: string | HTMLElement): void
+```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:169](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/enhanced-inputs/Validaition.ts#L169)
+Defined in: [src/enhanced-inputs/Validaition.ts:169](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/enhanced-inputs/Validaition.ts#L169)
 
 Binds the form to value changes for validation.
 
@@ -58,9 +62,14 @@ The input element or its ID.
 
 ### validateForm()
 
-> **validateForm**\<`T`\>(): `object`
+```ts
+validateForm<T>(): {
+  isValid: boolean;
+  values: T;
+}
+```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:178](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/enhanced-inputs/Validaition.ts#L178)
+Defined in: [src/enhanced-inputs/Validaition.ts:178](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/enhanced-inputs/Validaition.ts#L178)
 
 Validates the entire form.
 
@@ -70,25 +79,39 @@ Validates the entire form.
 
 #### Returns
 
-`object`
+```ts
+{
+  isValid: boolean;
+  values: T;
+}
+```
 
 True if the form is valid, false otherwise.
 
 ##### isValid
 
-> **isValid**: `boolean`
+```ts
+isValid: boolean;
+```
 
 ##### values
 
-> **values**: `T`
+```ts
+values: T;
+```
 
 ***
 
 ### validateInput()
 
-> **validateInput**(`input`): `object`
+```ts
+validateInput(input: string | HTMLElement): {
+  isValid: boolean;
+  value: string;
+}
+```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:195](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/enhanced-inputs/Validaition.ts#L195)
+Defined in: [src/enhanced-inputs/Validaition.ts:195](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/enhanced-inputs/Validaition.ts#L195)
 
 Validates a specific input element.
 
@@ -102,14 +125,23 @@ The input element or its ID.
 
 #### Returns
 
-`object`
+```ts
+{
+  isValid: boolean;
+  value: string;
+}
+```
 
 True if the input is valid, false otherwise.
 
 ##### isValid
 
-> **isValid**: `boolean`
+```ts
+isValid: boolean;
+```
 
 ##### value?
 
-> `optional` **value**: `string`
+```ts
+optional value: string;
+```

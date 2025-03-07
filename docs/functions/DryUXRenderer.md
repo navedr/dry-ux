@@ -6,9 +6,11 @@
 
 # Function: DryUXRenderer()
 
-> **DryUXRenderer**(`props`, `context`?): `ReactElement`\<`any`, `any`\>
+```ts
+function DryUXRenderer(props: PropsWithChildren<UIUtilRendererProps>, context?: any): ReactElement<any, any>
+```
 
-Defined in: [src/ui-utils/UIUtilRenderer.tsx:21](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/ui-utils/UIUtilRenderer.tsx#L21)
+Defined in: [src/ui-utils/UIUtilRenderer.tsx:21](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/ui-utils/UIUtilRenderer.tsx#L21)
 
 UIUtilRenderer component that renders modals based on the UIUtil context.
 

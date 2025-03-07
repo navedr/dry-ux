@@ -6,9 +6,24 @@
 
 # Type Alias: PopUpOptions
 
-> **PopUpOptions**: `object`
+```ts
+type PopUpOptions = {
+  actions: PopUpAction[];
+  centered: boolean;
+  closeBtn: boolean;
+  content: Content;
+  cssClass: string;
+  destroyOnClose: boolean;
+  footerContent: Content;
+  onClose: () => void;
+  title: Content;
+  titleCloseBtn: boolean;
+  trackingId: string;
+  width: string | number;
+};
+```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:124](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/ui-utils/UIUtil.interface.ts#L124)
+Defined in: [src/ui-utils/UIUtil.interface.ts:124](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/ui-utils/UIUtil.interface.ts#L124)
 
 Represents the options for a PopUp.
 
@@ -16,49 +31,65 @@ Represents the options for a PopUp.
 
 ### actions?
 
-> `optional` **actions**: [`PopUpAction`](PopUpAction.md)[]
+```ts
+optional actions: PopUpAction[];
+```
 
 If true, the modal will be shown.
 
 ### centered?
 
-> `optional` **centered**: `boolean`
+```ts
+optional centered: boolean;
+```
 
 If true, the modal will be centered vertically.
 
 ### closeBtn?
 
-> `optional` **closeBtn**: `boolean`
+```ts
+optional closeBtn: boolean;
+```
 
 If true, the modal will have a close button in the footer.
 
 ### content
 
-> **content**: [`Content`](Content.md)
+```ts
+content: Content;
+```
 
 The content of the modal.
 
 ### cssClass?
 
-> `optional` **cssClass**: `string`
+```ts
+optional cssClass: string;
+```
 
 The class to apply to the modal.
 
 ### destroyOnClose?
 
-> `optional` **destroyOnClose**: `boolean`
+```ts
+optional destroyOnClose: boolean;
+```
 
 If true, the modal will be destroyed when it is closed.
 
 ### footerContent?
 
-> `optional` **footerContent**: [`Content`](Content.md)
+```ts
+optional footerContent: Content;
+```
 
 Footer content of the modal.
 
 ### onClose()?
 
-> `optional` **onClose**: () => `void`
+```ts
+optional onClose: () => void;
+```
 
 Function to call when the modal is closed.
 
@@ -68,24 +99,32 @@ Function to call when the modal is closed.
 
 ### title?
 
-> `optional` **title**: [`Content`](Content.md)
+```ts
+optional title: Content;
+```
 
 The title of the modal.
 
 ### titleCloseBtn?
 
-> `optional` **titleCloseBtn**: `boolean`
+```ts
+optional titleCloseBtn: boolean;
+```
 
 If true, the modal will have a close button in the title bar.
 
 ### trackingId?
 
-> `optional` **trackingId**: `string`
+```ts
+optional trackingId: string;
+```
 
 The tracking ID for the modal.
 
 ### width?
 
-> `optional` **width**: `string` \| `number`
+```ts
+optional width: string | number;
+```
 
 The width of the modal.

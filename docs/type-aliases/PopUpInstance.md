@@ -6,9 +6,17 @@
 
 # Type Alias: PopUpInstance
 
-> **PopUpInstance**: `object`
+```ts
+type PopUpInstance = {
+  handleClose: (id: string, shown: boolean, destroyOnClose?: boolean) => void;
+  options: PopUpOptions;
+  overlay: Content;
+  shown: boolean;
+  toggleOverlay: (id: string, content?: Content) => void;
+};
+```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:67](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/ui-utils/UIUtil.interface.ts#L67)
+Defined in: [src/ui-utils/UIUtil.interface.ts:67](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/ui-utils/UIUtil.interface.ts#L67)
 
 Represents an instance of a PopUp.
 
@@ -16,7 +24,9 @@ Represents an instance of a PopUp.
 
 ### handleClose()
 
-> **handleClose**: (`id`, `shown`, `destroyOnClose`?) => `void`
+```ts
+handleClose: (id: string, shown: boolean, destroyOnClose?: boolean) => void;
+```
 
 Handles closing the PopUp.
 
@@ -46,25 +56,33 @@ If true, the PopUp will be destroyed when closed.
 
 ### options
 
-> **options**: [`PopUpOptions`](PopUpOptions.md)
+```ts
+options: PopUpOptions;
+```
 
 The options for the PopUp.
 
 ### overlay?
 
-> `optional` **overlay**: [`Content`](Content.md)
+```ts
+optional overlay: Content;
+```
 
 The overlay content for the PopUp.
 
 ### shown
 
-> **shown**: `boolean`
+```ts
+shown: boolean;
+```
 
 Indicates whether the PopUp is shown.
 
 ### toggleOverlay()
 
-> **toggleOverlay**: (`id`, `content`?) => `void`
+```ts
+toggleOverlay: (id: string, content?: Content) => void;
+```
 
 Toggles the overlay content for the PopUp.
 

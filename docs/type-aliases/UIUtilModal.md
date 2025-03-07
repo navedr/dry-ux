@@ -6,9 +6,19 @@
 
 # Type Alias: UIUtilModal
 
-> **UIUtilModal**: `object`
+```ts
+type UIUtilModal = {
+  create: (id: string, options: PopUpOptions) => PopUp;
+  getCurrent: () => PopUp;
+  instances: {};
+  show: (options: PopUpOptions) => PopUp;
+  showActions: (options: Omit<PopUpOptions, "actions">, actions: PopUpAction[]) => PopUp;
+  showAlert: (content: Content, onClose?: PopUpOptions["onClose"]) => PopUp;
+  showConfirm: (options: Omit<PopUpOptions, "actions">, onYes: () => void, onNo?: () => void) => PopUp;
+};
+```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:178](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/ui-utils/UIUtil.interface.ts#L178)
+Defined in: [src/ui-utils/UIUtil.interface.ts:178](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/ui-utils/UIUtil.interface.ts#L178)
 
 Represents a utility for managing UI modals.
 
@@ -16,7 +26,9 @@ Represents a utility for managing UI modals.
 
 ### create()
 
-> **create**: (`id`, `options`) => [`PopUp`](PopUp.md)
+```ts
+create: (id: string, options: PopUpOptions) => PopUp;
+```
 
 Creates a unique (by id) modal.
 
@@ -42,7 +54,9 @@ The created PopUp.
 
 ### getCurrent()
 
-> **getCurrent**: () => [`PopUp`](PopUp.md)
+```ts
+getCurrent: () => PopUp;
+```
 
 Gets the current modal instance.
 
@@ -54,17 +68,23 @@ The current PopUp.
 
 ### instances
 
-> **instances**: `object`
+```ts
+instances: {};
+```
 
 Dictionary of modal instances in memory.
 
 #### Index Signature
 
-\[`id`: `string`\]: [`PopUpInstance`](PopUpInstance.md)
+```ts
+[id: string]: PopUpInstance
+```
 
 ### show()
 
-> **show**: (`options`) => [`PopUp`](PopUp.md)
+```ts
+show: (options: PopUpOptions) => PopUp;
+```
 
 Creates a non-unique modal.
 
@@ -84,7 +104,9 @@ The created PopUp.
 
 ### showActions()
 
-> **showActions**: (`options`, `actions`) => [`PopUp`](PopUp.md)
+```ts
+showActions: (options: Omit<PopUpOptions, "actions">, actions: PopUpAction[]) => PopUp;
+```
 
 Shows a modal with custom actions.
 
@@ -110,7 +132,9 @@ The created PopUp.
 
 ### showAlert()
 
-> **showAlert**: (`content`, `onClose`?) => [`PopUp`](PopUp.md)
+```ts
+showAlert: (content: Content, onClose?: PopUpOptions["onClose"]) => PopUp;
+```
 
 Shows an alert style modal.
 
@@ -136,7 +160,9 @@ The created PopUp.
 
 ### showConfirm()
 
-> **showConfirm**: (`options`, `onYes`, `onNo`?) => [`PopUp`](PopUp.md)
+```ts
+showConfirm: (options: Omit<PopUpOptions, "actions">, onYes: () => void, onNo?: () => void) => PopUp;
+```
 
 Shows a confirm style modal.
 

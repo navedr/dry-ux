@@ -6,9 +6,11 @@
 
 # Function: importStyleSheet()
 
-> **importStyleSheet**(`resourceUrl`): `void`
+```ts
+function importStyleSheet(resourceUrl: string): void
+```
 
-Defined in: [src/helpers/utilities.ts:46](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/utilities.ts#L46)
+Defined in: [src/helpers/utilities.ts:46](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/utilities.ts#L46)
 
 Imports a stylesheet and adds it to the head.
 

@@ -6,9 +6,11 @@
 
 # Function: formatDollar()
 
-> **formatDollar**(`amount`, `decimal_places`?): `string`
+```ts
+function formatDollar(amount: number, decimal_places?: boolean): string
+```
 
-Defined in: [src/helpers/utilities.ts:84](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/utilities.ts#L84)
+Defined in: [src/helpers/utilities.ts:84](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/utilities.ts#L84)
 
 Formats a number as a dollar amount.
 

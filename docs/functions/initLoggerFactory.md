@@ -6,9 +6,13 @@
 
 # Function: initLoggerFactory()
 
-> **initLoggerFactory**(`path`): `object`
+```ts
+function initLoggerFactory(path: string): {
+  useLogger: (name: string) => ILogger;
+}
+```
 
-Defined in: [src/helpers/logger.ts:81](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/logger.ts#L81)
+Defined in: [src/helpers/logger.ts:81](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/logger.ts#L81)
 
 Initializes a logger factory with the specified path.
 
@@ -22,13 +26,19 @@ The endpoint to which log messages will be sent.
 
 ## Returns
 
-`object`
+```ts
+{
+  useLogger: (name: string) => ILogger;
+}
+```
 
 An object containing a useLogger method to create logger instances.
 
 ### useLogger()
 
-> **useLogger**: (`name`) => [`ILogger`](../interfaces/ILogger.md)
+```ts
+useLogger: (name: string) => ILogger;
+```
 
 Creates a logger instance with the specified name.
 

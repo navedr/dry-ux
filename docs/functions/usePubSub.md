@@ -6,9 +6,14 @@
 
 # Function: usePubSub()
 
-> **usePubSub**\<`T`\>(): `object`
+```ts
+function usePubSub<T>(): {
+  usePub: () => <TName, TPayload>(event: TName, data?: TPayload) => void;
+  useSub: <TName, TPayload>(event: TName, callback: (data: TPayload) => void) => () => void;
+}
+```
 
-Defined in: [src/helpers/utilities.ts:262](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/utilities.ts#L262)
+Defined in: [src/helpers/utilities.ts:262](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/utilities.ts#L262)
 
 Hook to publish and subscribe to custom events.
 
@@ -18,13 +23,20 @@ Hook to publish and subscribe to custom events.
 
 ## Returns
 
-`object`
+```ts
+{
+  usePub: () => <TName, TPayload>(event: TName, data?: TPayload) => void;
+  useSub: <TName, TPayload>(event: TName, callback: (data: TPayload) => void) => () => void;
+}
+```
 
 An object containing the usePub and useSub hooks.
 
 ### usePub()
 
-> **usePub**: () => \<`TName`, `TPayload`\>(`event`, `data`?) => `void`
+```ts
+usePub: () => <TName, TPayload>(event: TName, data?: TPayload) => void;
+```
 
 Publishes a custom event with the specified name and data.
 
@@ -54,7 +66,9 @@ Publishes a custom event with the specified name and data.
 
 ### useSub()
 
-> **useSub**: \<`TName`, `TPayload`\>(`event`, `callback`) => () => `void`
+```ts
+useSub: <TName, TPayload>(event: TName, callback: (data: TPayload) => void) => () => void;
+```
 
 Subscribes to a custom event with the specified name and calls the callback when the event is triggered.
 
@@ -78,7 +92,7 @@ The name of the event to subscribe to.
 
 ##### callback
 
-(`data`) => `void`
+(`data`: `TPayload`) => `void`
 
 The function to call when the event is triggered.
 

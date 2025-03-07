@@ -6,9 +6,11 @@
 
 # Function: insertUrlParam()
 
-> **insertUrlParam**(`key`, `value`): `void`
+```ts
+function insertUrlParam(key: string, value: any): void
+```
 
-Defined in: [src/helpers/utilities.ts:156](https://github.com/navedr/dry-ux/blob/b8fe047776f9e9943b5ac8e30a3dd152faaba227/src/helpers/utilities.ts#L156)
+Defined in: [src/helpers/utilities.ts:156](https://github.com/navedr/dry-ux/blob/fa9fb1e7600855fffa8e3918bf7bfc6bfd8c02b5/src/helpers/utilities.ts#L156)
 
 Inserts a URL parameter.
 
