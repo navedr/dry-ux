@@ -12,7 +12,7 @@
     "prepub:npm": "npm run format && npm run build && npm run update:version",
     "publish:npm": "npm run prepub:npm && npm publish",
     "pack": "npm run build && npm pack --pack-destination pack/",
-    "docs": "typedoc --options typedoc.json"
+    "docs": "typedoc --options typedoc.json && cd test && npm run build:test && cp -r proddist ../htmldocs/demo"
   },
   "repository": {
     "type": "git",

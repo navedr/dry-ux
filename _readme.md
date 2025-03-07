@@ -12,3 +12,5 @@ Key features of **dry-ux** include:
 - **Validation Helpers**: Utility functions to handle common validation tasks.
 
 For a detailed overview of all available classes, interfaces, type aliases, variables, and functions, refer to the [API Documentation](https://navedr.github.io/dry-ux/).
+
+Check out the [demo](https://navedr.github.io/dry-ux/demo) for live examples.

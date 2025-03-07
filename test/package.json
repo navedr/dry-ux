@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "rimraf ./dist && webpack --mode development --watch",
-    "build:test": "rimraf ./dist && webpack --config webpack.prod.js"
+    "build:test": "rimraf ./proddist && webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
