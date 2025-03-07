@@ -1,6 +1,6 @@
 ## dry-ux
 
-[![Build Test App](https://github.com/navedr/dry-ux/actions/workflows/test.webpack.yml/badge.svg)](https://github.com/navedr/dry-ux/actions/workflows/test.webpack.yml)
+[//]: # ([![Build Test App]&#40;https://github.com/navedr/dry-ux/actions/workflows/test.webpack.yml/badge.svg&#41;]&#40;https://github.com/navedr/dry-ux/actions/workflows/test.webpack.yml&#41;)
 
 **dry-ux** is a comprehensive utility library designed for React applications. It offers a collection of reusable components, hooks, and utilities aimed at enhancing the development experience. The library includes features such as deferred rendering, error boundaries, loaders, storage utilities, and validation helpers. By promoting a DRY (Don't Repeat Yourself) approach, **dry-ux** helps developers avoid redundancy and streamline their codebase.
 

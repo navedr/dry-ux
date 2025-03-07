@@ -10,7 +10,7 @@
 function Input(props: InputHTMLAttributes<HTMLInputElement> & IEnhancedProps & RefAttributes<HTMLInputElement>): ReactElement<any, string | JSXElementConstructor<any>>
 ```
 
-Defined in: [src/enhanced-inputs/HTMLInputs.tsx:29](https://github.com/navedr/dry-ux/blob/e875b26275714d870ae7637bd802b35e75633e0b/src/enhanced-inputs/HTMLInputs.tsx#L29)
+Defined in: [src/enhanced-inputs/HTMLInputs.tsx:29](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/enhanced-inputs/HTMLInputs.tsx#L29)
 
 Forwarded ref input component with enhancements.
 

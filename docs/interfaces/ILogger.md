@@ -6,7 +6,7 @@
 
 # Interface: ILogger
 
-Defined in: [src/helpers/logger.ts:4](https://github.com/navedr/dry-ux/blob/e875b26275714d870ae7637bd802b35e75633e0b/src/helpers/logger.ts#L4)
+Defined in: [src/helpers/logger.ts:4](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/helpers/logger.ts#L4)
 
 Interface representing a logger with various logging methods.
 
@@ -18,7 +18,7 @@ Interface representing a logger with various logging methods.
 debug(...message: any[]): void
 ```
 
-Defined in: [src/helpers/logger.ts:21](https://github.com/navedr/dry-ux/blob/e875b26275714d870ae7637bd802b35e75633e0b/src/helpers/logger.ts#L21)
+Defined in: [src/helpers/logger.ts:21](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/helpers/logger.ts#L21)
 
 Logs a message with the debug level.
 
@@ -42,7 +42,7 @@ The message to log.
 error(...message: any[]): void
 ```
 
-Defined in: [src/helpers/logger.ts:15](https://github.com/navedr/dry-ux/blob/e875b26275714d870ae7637bd802b35e75633e0b/src/helpers/logger.ts#L15)
+Defined in: [src/helpers/logger.ts:15](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/helpers/logger.ts#L15)
 
 Logs a message with the error level.
 
@@ -66,7 +66,7 @@ The message to log.
 log(...message: any[]): void
 ```
 
-Defined in: [src/helpers/logger.ts:9](https://github.com/navedr/dry-ux/blob/e875b26275714d870ae7637bd802b35e75633e0b/src/helpers/logger.ts#L9)
+Defined in: [src/helpers/logger.ts:9](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/helpers/logger.ts#L9)
 
 Logs a message with the info level.
 
@@ -90,7 +90,7 @@ The message to log.
 warn(...message: any[]): void
 ```
 
-Defined in: [src/helpers/logger.ts:27](https://github.com/navedr/dry-ux/blob/e875b26275714d870ae7637bd802b35e75633e0b/src/helpers/logger.ts#L27)
+Defined in: [src/helpers/logger.ts:27](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/helpers/logger.ts#L27)
 
 Logs a message with the warn level.
 

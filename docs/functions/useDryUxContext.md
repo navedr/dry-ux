@@ -10,7 +10,7 @@
 function useDryUxContext(): IUIUtilProviderState
 ```
 
-Defined in: [src/ui-utils/UIUtilProvider.tsx:84](https://github.com/navedr/dry-ux/blob/e875b26275714d870ae7637bd802b35e75633e0b/src/ui-utils/UIUtilProvider.tsx#L84)
+Defined in: [src/ui-utils/UIUtilProvider.tsx:84](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/ui-utils/UIUtilProvider.tsx#L84)
 
 Hook to use the UIUtil context.
 
