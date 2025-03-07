@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / preventDefault
+[dry-ux](../README.md) / preventDefault
 
 # Function: preventDefault()
 
@@ -10,7 +10,7 @@
 function preventDefault(handler?: (event: any) => void): (event: any) => void
 ```
 
-Defined in: [src/helpers/utilities.ts:7](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/helpers/utilities.ts#L7)
+Defined in: [src/helpers/utilities.ts:7](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/helpers/utilities.ts#L7)
 
 Returns a function that will call the given handler and prevent the default event behavior.
 

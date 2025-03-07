@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / fnWithAuthCheck
+[dry-ux](../README.md) / fnWithAuthCheck
 
 # Function: fnWithAuthCheck()
 
@@ -13,7 +13,7 @@ function fnWithAuthCheck(
 authRedirectUrl: string): Promise<void>
 ```
 
-Defined in: [src/helpers/utilities.ts:106](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/helpers/utilities.ts#L106)
+Defined in: [src/helpers/utilities.ts:106](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/helpers/utilities.ts#L106)
 
 Calls the authCheckUrl to check if the user is authenticated. The URL should return a JSON response with
 just `true` or `false` to indicate if the user is authenticated. If user is authenticated, it will call the

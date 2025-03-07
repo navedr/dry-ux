@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / PopUp
+[dry-ux](../README.md) / PopUp
 
 # Type Alias: PopUp
 
@@ -21,7 +21,7 @@ type PopUp = {
 };
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:11](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/ui-utils/UIUtil.interface.ts#L11)
+Defined in: [src/ui-utils/UIUtil.interface.ts:11](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/ui-utils/UIUtil.interface.ts#L11)
 
 Represents a PopUp with methods to control its visibility and content.
 

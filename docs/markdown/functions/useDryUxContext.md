@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / useDryUxContext
+[dry-ux](../README.md) / useDryUxContext
 
 # Function: useDryUxContext()
 
@@ -10,7 +10,7 @@
 function useDryUxContext(): IUIUtilProviderState
 ```
 
-Defined in: [src/ui-utils/UIUtilProvider.tsx:84](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/ui-utils/UIUtilProvider.tsx#L84)
+Defined in: [src/ui-utils/UIUtilProvider.tsx:84](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/ui-utils/UIUtilProvider.tsx#L84)
 
 Hook to use the UIUtil context.
 

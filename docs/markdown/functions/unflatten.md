@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / unflatten
+[dry-ux](../README.md) / unflatten
 
 # Function: unflatten()
 
@@ -10,7 +10,7 @@
 function unflatten(target: any, opts?: UnflattenOptions): any
 ```
 
-Defined in: [src/helpers/flat.ts:81](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/helpers/flat.ts#L81)
+Defined in: [src/helpers/flat.ts:81](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/helpers/flat.ts#L81)
 
 Unflattens an object with the paths for keys.
 

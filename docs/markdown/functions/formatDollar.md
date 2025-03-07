@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / formatDollar
+[dry-ux](../README.md) / formatDollar
 
 # Function: formatDollar()
 
@@ -10,7 +10,7 @@
 function formatDollar(amount: number, decimal_places?: boolean): string
 ```
 
-Defined in: [src/helpers/utilities.ts:84](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/helpers/utilities.ts#L84)
+Defined in: [src/helpers/utilities.ts:84](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/helpers/utilities.ts#L84)
 
 Formats a number as a dollar amount.
 

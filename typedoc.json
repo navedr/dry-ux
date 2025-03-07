@@ -3,10 +3,12 @@
     "entryPoints": ["./src/index.ts"],
     "externalPattern": ["node_modules/**"],
     "plugin": ["typedoc-plugin-markdown"],
+    "readme": "_readme.md",
     "excludeExternals": true,
     "useCodeBlocks": true,
     "expandObjects": true,
     "expandParameters": true,
+    "mergeReadme": true,
     "indexFormat": "table",
     "entryModule": "index",
     "outputs": [

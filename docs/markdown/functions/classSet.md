@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / classSet
+[dry-ux](../README.md) / classSet
 
 # Function: classSet()
 
@@ -10,7 +10,7 @@
 function classSet(classNames: any): string
 ```
 
-Defined in: [src/helpers/classSet.js:17](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/helpers/classSet.js#L17)
+Defined in: [src/helpers/classSet.js:17](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/helpers/classSet.js#L17)
 
 Copyright 2013 Facebook, Inc.
 

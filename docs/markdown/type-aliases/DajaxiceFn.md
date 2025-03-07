@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / DajaxiceFn
+[dry-ux](../README.md) / DajaxiceFn
 
 # Type Alias: DajaxiceFn()\<TArgs\>
 
@@ -10,7 +10,7 @@
 type DajaxiceFn<TArgs> = <TResult>(args: ArgType<TArgs>) => Promise<TResult>;
 ```
 
-Defined in: [src/dajaxice/Proxy.interface.ts:49](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/dajaxice/Proxy.interface.ts#L49)
+Defined in: [src/dajaxice/Proxy.interface.ts:49](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/dajaxice/Proxy.interface.ts#L49)
 
 Represents a Dajaxice function.
 

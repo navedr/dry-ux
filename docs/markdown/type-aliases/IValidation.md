@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / IValidation
+[dry-ux](../README.md) / IValidation
 
 # Type Alias: IValidation
 
@@ -10,6 +10,6 @@
 type IValidation = boolean | string;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:6](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/interface.ts#L6)
+Defined in: [src/enhanced-inputs/interface.ts:6](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/interface.ts#L6)
 
 Type alias for validation, which can be a boolean or a string.

@@ -2,11 +2,11 @@
 
 ***
 
-[dry-ux](../globals.md) / ILogger
+[dry-ux](../README.md) / ILogger
 
 # Interface: ILogger
 
-Defined in: [src/helpers/logger.ts:4](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/helpers/logger.ts#L4)
+Defined in: [src/helpers/logger.ts:4](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/helpers/logger.ts#L4)
 
 Interface representing a logger with various logging methods.
 
@@ -18,7 +18,7 @@ Interface representing a logger with various logging methods.
 debug(...message: any[]): void
 ```
 
-Defined in: [src/helpers/logger.ts:21](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/helpers/logger.ts#L21)
+Defined in: [src/helpers/logger.ts:21](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/helpers/logger.ts#L21)
 
 Logs a message with the debug level.
 
@@ -42,7 +42,7 @@ The message to log.
 error(...message: any[]): void
 ```
 
-Defined in: [src/helpers/logger.ts:15](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/helpers/logger.ts#L15)
+Defined in: [src/helpers/logger.ts:15](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/helpers/logger.ts#L15)
 
 Logs a message with the error level.
 
@@ -66,7 +66,7 @@ The message to log.
 log(...message: any[]): void
 ```
 
-Defined in: [src/helpers/logger.ts:9](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/helpers/logger.ts#L9)
+Defined in: [src/helpers/logger.ts:9](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/helpers/logger.ts#L9)
 
 Logs a message with the info level.
 
@@ -90,7 +90,7 @@ The message to log.
 warn(...message: any[]): void
 ```
 
-Defined in: [src/helpers/logger.ts:27](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/helpers/logger.ts#L27)
+Defined in: [src/helpers/logger.ts:27](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/helpers/logger.ts#L27)
 
 Logs a message with the warn level.
 

@@ -2,11 +2,11 @@
 
 ***
 
-[dry-ux](../globals.md) / Element
+[dry-ux](../README.md) / Element
 
 # Class: Element
 
-Defined in: [src/enhanced-inputs/Validaition.ts:8](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L8)
+Defined in: [src/enhanced-inputs/Validaition.ts:8](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L8)
 
 Class representing a generic DOM element with utility methods for manipulation and validation.
 
@@ -18,7 +18,7 @@ Class representing a generic DOM element with utility methods for manipulation a
 new Element(native: HTMLElement): Element
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:13](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L13)
+Defined in: [src/enhanced-inputs/Validaition.ts:13](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L13)
 
 Creates an instance of Element.
 
@@ -42,7 +42,7 @@ The native HTML element.
 native: HTMLElement;
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:13](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L13)
+Defined in: [src/enhanced-inputs/Validaition.ts:13](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L13)
 
 The native HTML element.
 
@@ -56,7 +56,7 @@ The native HTML element.
 get nativeInput(): InputElement
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:111](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L111)
+Defined in: [src/enhanced-inputs/Validaition.ts:111](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L111)
 
 Gets the native input element.
 
@@ -74,7 +74,7 @@ The native input element.
 addClass(className: string): void
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:96](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L96)
+Defined in: [src/enhanced-inputs/Validaition.ts:96](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L96)
 
 Adds a class to the element.
 
@@ -98,7 +98,7 @@ The class name to add.
 after(html: string): void
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:88](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L88)
+Defined in: [src/enhanced-inputs/Validaition.ts:88](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L88)
 
 Inserts HTML after the element.
 
@@ -122,7 +122,7 @@ The HTML to insert.
 attr(attribute: string): string
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:55](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L55)
+Defined in: [src/enhanced-inputs/Validaition.ts:55](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L55)
 
 Gets the value of an attribute.
 
@@ -144,7 +144,7 @@ Gets the value of an attribute.
 data(attribute: string): string
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:45](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L45)
+Defined in: [src/enhanced-inputs/Validaition.ts:45](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L45)
 
 Gets the value of a data attribute.
 
@@ -170,7 +170,7 @@ The value of the data attribute.
 hasClass(className: string): boolean
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:28](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L28)
+Defined in: [src/enhanced-inputs/Validaition.ts:28](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L28)
 
 Checks if the element has a specific class.
 
@@ -196,7 +196,7 @@ True if the element has the class, false otherwise.
 next(): Element
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:80](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L80)
+Defined in: [src/enhanced-inputs/Validaition.ts:80](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L80)
 
 Gets the next sibling element.
 
@@ -214,7 +214,7 @@ The next sibling element.
 parents(selector: string): Element
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:72](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L72)
+Defined in: [src/enhanced-inputs/Validaition.ts:72](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L72)
 
 Gets the closest ancestor element that matches the selector.
 
@@ -240,7 +240,7 @@ The closest ancestor element.
 remove(): void
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:103](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L103)
+Defined in: [src/enhanced-inputs/Validaition.ts:103](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L103)
 
 Removes the element from the DOM.
 
@@ -256,7 +256,7 @@ Removes the element from the DOM.
 removeClass(className: string): void
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:36](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L36)
+Defined in: [src/enhanced-inputs/Validaition.ts:36](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L36)
 
 Removes a specific class from the element.
 
@@ -280,7 +280,7 @@ The class name to remove.
 val(): string
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:19](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L19)
+Defined in: [src/enhanced-inputs/Validaition.ts:19](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L19)
 
 Gets the value of the input element.
 
@@ -298,7 +298,7 @@ The value of the input element.
 visible(): boolean
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:63](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/Validaition.ts#L63)
+Defined in: [src/enhanced-inputs/Validaition.ts:63](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/Validaition.ts#L63)
 
 Checks if the element is visible.
 

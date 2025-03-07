@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / Select
+[dry-ux](../README.md) / Select
 
 # Function: Select()
 
@@ -10,7 +10,7 @@
 function Select(props: InputHTMLAttributes<HTMLSelectElement> & IEnhancedProps & RefAttributes<HTMLInputElement>): ReactElement<any, string | JSXElementConstructor<any>>
 ```
 
-Defined in: [src/enhanced-inputs/HTMLInputs.tsx:43](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/enhanced-inputs/HTMLInputs.tsx#L43)
+Defined in: [src/enhanced-inputs/HTMLInputs.tsx:43](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/enhanced-inputs/HTMLInputs.tsx#L43)
 
 Forwarded ref select component with enhancements.
 

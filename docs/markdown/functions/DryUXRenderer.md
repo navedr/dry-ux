@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / DryUXRenderer
+[dry-ux](../README.md) / DryUXRenderer
 
 # Function: DryUXRenderer()
 
@@ -10,7 +10,7 @@
 function DryUXRenderer(props: PropsWithChildren<UIUtilRendererProps>, context?: any): ReactElement<any, any>
 ```
 
-Defined in: [src/ui-utils/UIUtilRenderer.tsx:21](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/ui-utils/UIUtilRenderer.tsx#L21)
+Defined in: [src/ui-utils/UIUtilRenderer.tsx:21](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/ui-utils/UIUtilRenderer.tsx#L21)
 
 UIUtilRenderer component that renders modals based on the UIUtil context.
 

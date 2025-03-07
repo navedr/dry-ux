@@ -2,11 +2,11 @@
 
 ***
 
-[dry-ux](../globals.md) / ErrorBoundary
+[dry-ux](../README.md) / ErrorBoundary
 
 # Class: ErrorBoundary
 
-Defined in: [src/error/ErrorBoundary.tsx:42](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/error/ErrorBoundary.tsx#L42)
+Defined in: [src/error/ErrorBoundary.tsx:42](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/error/ErrorBoundary.tsx#L42)
 
 A React component that acts as an error boundary to catch JavaScript errors anywhere in its child component tree.
 It displays a fallback UI when an error is caught.
@@ -23,7 +23,7 @@ It displays a fallback UI when an error is caught.
 new ErrorBoundary(props: IErrorBoundaryProps): ErrorBoundary
 ```
 
-Defined in: [src/error/ErrorBoundary.tsx:43](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/error/ErrorBoundary.tsx#L43)
+Defined in: [src/error/ErrorBoundary.tsx:43](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/error/ErrorBoundary.tsx#L43)
 
 #### Parameters
 
@@ -49,7 +49,7 @@ React.PureComponent<IErrorBoundaryProps, IErrorBoundaryInnerState>.constructor
 componentDidCatch(error: Error, info: ErrorInfo): void
 ```
 
-Defined in: [src/error/ErrorBoundary.tsx:62](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/error/ErrorBoundary.tsx#L62)
+Defined in: [src/error/ErrorBoundary.tsx:62](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/error/ErrorBoundary.tsx#L62)
 
 Handles the error and updates the state.
 
@@ -85,7 +85,7 @@ React.PureComponent.componentDidCatch
 render(): Element
 ```
 
-Defined in: [src/error/ErrorBoundary.tsx:70](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/error/ErrorBoundary.tsx#L70)
+Defined in: [src/error/ErrorBoundary.tsx:70](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/error/ErrorBoundary.tsx#L70)
 
 Renders the component.
 
@@ -111,7 +111,7 @@ static getDerivedStateFromError(error: Error): {
 }
 ```
 
-Defined in: [src/error/ErrorBoundary.tsx:53](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/error/ErrorBoundary.tsx#L53)
+Defined in: [src/error/ErrorBoundary.tsx:53](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/error/ErrorBoundary.tsx#L53)
 
 Updates the state with the error.
 

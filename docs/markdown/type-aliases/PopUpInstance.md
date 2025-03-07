@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / PopUpInstance
+[dry-ux](../README.md) / PopUpInstance
 
 # Type Alias: PopUpInstance
 
@@ -16,7 +16,7 @@ type PopUpInstance = {
 };
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:67](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/ui-utils/UIUtil.interface.ts#L67)
+Defined in: [src/ui-utils/UIUtil.interface.ts:67](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/ui-utils/UIUtil.interface.ts#L67)
 
 Represents an instance of a PopUp.
 

@@ -2,7 +2,7 @@
 
 ***
 
-[dry-ux](../globals.md) / importStyleSheet
+[dry-ux](../README.md) / importStyleSheet
 
 # Function: importStyleSheet()
 
@@ -10,7 +10,7 @@
 function importStyleSheet(resourceUrl: string): void
 ```
 
-Defined in: [src/helpers/utilities.ts:46](https://github.com/navedr/dry-ux/blob/86c22f6b530b5213bb68b86926f9eb34d851fb9f/src/helpers/utilities.ts#L46)
+Defined in: [src/helpers/utilities.ts:46](https://github.com/navedr/dry-ux/blob/3bb4f59fc510052cb6c7925e1f6422bb71eb4aa4/src/helpers/utilities.ts#L46)
 
 Imports a stylesheet and adds it to the head.
 
