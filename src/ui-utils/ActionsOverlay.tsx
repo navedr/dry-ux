@@ -24,7 +24,8 @@ export const ActionsOverlay: React.FC<{
                 fontWeight: "bold",
                 fontSize: 18,
                 paddingLeft: 5,
-            }}>
+            }}
+        >
             {title}
         </div>
         <hr style={{ margin: 5 }} />
@@ -47,7 +48,8 @@ export const ActionsOverlay: React.FC<{
                     onClick={() => {
                         action.onClick?.();
                         action.closeOnClick && hide();
-                    }}>
+                    }}
+                >
                     {action.content}
                 </Button>
             ))}

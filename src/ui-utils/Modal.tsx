@@ -143,7 +143,8 @@ const Modal: React.FC<ModalProps> = ({
                     } else {
                         triggerClick();
                     }
-                }}>
+                }}
+            >
                 {content}
             </Button>
         ));
@@ -158,7 +159,8 @@ const Modal: React.FC<ModalProps> = ({
             keyboard={false}
             className={modalCssClass}
             backdropClassName={"dry-ux-modal-backdrop"}
-            backdrop={"static"}>
+            backdrop={"static"}
+        >
             {overlay && (
                 <div className={"dry-ux-overlay"}>
                     <div className={"dry-ux-overlay-content"}>{overlay}</div>
