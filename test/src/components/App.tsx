@@ -5,6 +5,7 @@ import { DryUXProvider, DryUXRenderer, ErrorBoundary, useDimensions } from "../.
 import "../css/site.css";
 import Content from "./Content";
 import LargeContent from "./LargeContent";
+import "../../../src/styles/helper.css";
 
 // https://urre.me/writings/test-local-npm-packages/
 

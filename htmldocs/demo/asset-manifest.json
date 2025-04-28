@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "main.e5db2272.js",
+    "main.js": "main.2904e3dd.js",
     "runtime.js": "runtime.11969c84.js",
     "vendor.js": "vendor.27ba761a.js",
     "index.html": "index.html",
-    "main.e5db2272.js.map": "main.e5db2272.js.map",
+    "main.2904e3dd.js.map": "main.2904e3dd.js.map",
     "runtime.11969c84.js.map": "runtime.11969c84.js.map",
     "vendor.27ba761a.js.map": "vendor.27ba761a.js.map"
   },
   "entrypoints": [
-    "main.e5db2272.js",
+    "main.2904e3dd.js",
     "runtime.11969c84.js",
     "vendor.27ba761a.js"
   ]

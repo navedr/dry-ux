@@ -13,7 +13,7 @@ function importScript(
 placement: "body" | "head"): Promise<void>
 ```
 
-Defined in: [src/helpers/utilities.ts:18](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/helpers/utilities.ts#L18)
+Defined in: [src/helpers/utilities.ts:18](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/helpers/utilities.ts#L18)
 
 Imports a script and returns a promise that resolves when the script is loaded.
 

@@ -74,6 +74,10 @@ export interface IDajaxiceProxy<TModule> {
          * The URL to redirect to if not authenticated.
          */
         redirectUrl: string;
+        /**
+         * The method to call if the authentication check fails.
+         */
+        onError?: (error: any) => void;
     };
     /**
      * The error handler function.

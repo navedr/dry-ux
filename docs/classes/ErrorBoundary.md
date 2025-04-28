@@ -6,7 +6,7 @@
 
 # Class: ErrorBoundary
 
-Defined in: [src/error/ErrorBoundary.tsx:42](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/error/ErrorBoundary.tsx#L42)
+Defined in: [src/error/ErrorBoundary.tsx:42](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/error/ErrorBoundary.tsx#L42)
 
 A React component that acts as an error boundary to catch JavaScript errors anywhere in its child component tree.
 It displays a fallback UI when an error is caught.
@@ -23,7 +23,7 @@ It displays a fallback UI when an error is caught.
 new ErrorBoundary(props: IErrorBoundaryProps): ErrorBoundary
 ```
 
-Defined in: [src/error/ErrorBoundary.tsx:43](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/error/ErrorBoundary.tsx#L43)
+Defined in: [src/error/ErrorBoundary.tsx:43](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/error/ErrorBoundary.tsx#L43)
 
 #### Parameters
 
@@ -178,7 +178,7 @@ React.PureComponent.contextType
 componentDidCatch(error: Error, info: ErrorInfo): void
 ```
 
-Defined in: [src/error/ErrorBoundary.tsx:62](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/error/ErrorBoundary.tsx#L62)
+Defined in: [src/error/ErrorBoundary.tsx:62](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/error/ErrorBoundary.tsx#L62)
 
 Handles the error and updates the state.
 
@@ -499,7 +499,7 @@ React.PureComponent.getSnapshotBeforeUpdate
 render(): Element
 ```
 
-Defined in: [src/error/ErrorBoundary.tsx:70](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/error/ErrorBoundary.tsx#L70)
+Defined in: [src/error/ErrorBoundary.tsx:70](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/error/ErrorBoundary.tsx#L70)
 
 Renders the component.
 
@@ -754,7 +754,7 @@ static getDerivedStateFromError(error: Error): {
 }
 ```
 
-Defined in: [src/error/ErrorBoundary.tsx:53](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/error/ErrorBoundary.tsx#L53)
+Defined in: [src/error/ErrorBoundary.tsx:53](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/error/ErrorBoundary.tsx#L53)
 
 Updates the state with the error.
 

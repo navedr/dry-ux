@@ -29,7 +29,9 @@ export class DajaxiceCall<TModule, TReturn> {
             if (skip?.authCheck || !authCheck) {
                 this.callApi();
             } else {
-                fnWithAuthCheck(this.callApi, authCheck.url, authCheck.redirectUrl).catch(this.handleError);
+                fnWithAuthCheck(this.callApi, authCheck.url, authCheck.redirectUrl).catch(
+                    authCheck.onError || this.handleError,
+                );
             }
         } else {
             this.deferred.reject(new Error(`The method ${this.method} does not exist in the module ${this.module}`));

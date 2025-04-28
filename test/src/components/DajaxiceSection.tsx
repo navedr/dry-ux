@@ -46,8 +46,7 @@ const DajaxiceSection = () => {
     }, []);
 
     return (
-        <Section>
-            <h3>Dajaxice</h3>
+        <Section title={"Dajaxice"}>
             <button
                 className={"btn btn-primary"}
                 onClick={() =>

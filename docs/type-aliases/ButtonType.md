@@ -10,6 +10,6 @@
 type ButtonType = "primary" | "secondary" | "info" | "success" | "warning" | "danger";
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:62](https://github.com/navedr/dry-ux/blob/f464198215bbdbf8f80dadda55a7d0d7eeb0411c/src/ui-utils/UIUtil.interface.ts#L62)
+Defined in: [src/ui-utils/UIUtil.interface.ts:62](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/ui-utils/UIUtil.interface.ts#L62)
 
 Type alias for button types.
