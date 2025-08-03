@@ -6,7 +6,7 @@
 
 # Class: Element
 
-Defined in: [src/enhanced-inputs/Validaition.ts:8](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L8)
+Defined in: src/enhanced-inputs/Element.ts:6
 
 Class representing a generic DOM element with utility methods for manipulation and validation.
 
@@ -18,7 +18,7 @@ Class representing a generic DOM element with utility methods for manipulation a
 new Element(native: HTMLElement): Element
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:13](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L13)
+Defined in: src/enhanced-inputs/Element.ts:11
 
 Creates an instance of Element.
 
@@ -42,7 +42,7 @@ The native HTML element.
 native: HTMLElement;
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:13](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L13)
+Defined in: src/enhanced-inputs/Element.ts:11
 
 The native HTML element.
 
@@ -56,7 +56,7 @@ The native HTML element.
 get nativeInput(): InputElement
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:111](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L111)
+Defined in: src/enhanced-inputs/Element.ts:110
 
 Gets the native input element.
 
@@ -74,7 +74,7 @@ The native input element.
 addClass(className: string): void
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:96](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L96)
+Defined in: src/enhanced-inputs/Element.ts:95
 
 Adds a class to the element.
 
@@ -98,7 +98,7 @@ The class name to add.
 after(html: string): void
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:88](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L88)
+Defined in: src/enhanced-inputs/Element.ts:87
 
 Inserts HTML after the element.
 
@@ -122,7 +122,7 @@ The HTML to insert.
 attr(attribute: string): string
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:55](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L55)
+Defined in: src/enhanced-inputs/Element.ts:54
 
 Gets the value of an attribute.
 
@@ -132,9 +132,13 @@ Gets the value of an attribute.
 
 `string`
 
+The attribute name.
+
 #### Returns
 
 `string`
+
+The value of the attribute or null if not found.
 
 ***
 
@@ -144,7 +148,7 @@ Gets the value of an attribute.
 data(attribute: string): string
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:45](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L45)
+Defined in: src/enhanced-inputs/Element.ts:43
 
 Gets the value of a data attribute.
 
@@ -170,7 +174,7 @@ The value of the data attribute.
 hasClass(className: string): boolean
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:28](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L28)
+Defined in: src/enhanced-inputs/Element.ts:26
 
 Checks if the element has a specific class.
 
@@ -196,7 +200,7 @@ True if the element has the class, false otherwise.
 next(): Element
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:80](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L80)
+Defined in: src/enhanced-inputs/Element.ts:79
 
 Gets the next sibling element.
 
@@ -214,7 +218,7 @@ The next sibling element.
 parents(selector: string): Element
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:72](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L72)
+Defined in: src/enhanced-inputs/Element.ts:71
 
 Gets the closest ancestor element that matches the selector.
 
@@ -240,7 +244,7 @@ The closest ancestor element.
 remove(): void
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:103](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L103)
+Defined in: src/enhanced-inputs/Element.ts:102
 
 Removes the element from the DOM.
 
@@ -256,7 +260,7 @@ Removes the element from the DOM.
 removeClass(className: string): void
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:36](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L36)
+Defined in: src/enhanced-inputs/Element.ts:34
 
 Removes a specific class from the element.
 
@@ -280,7 +284,7 @@ The class name to remove.
 val(): string
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:19](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L19)
+Defined in: src/enhanced-inputs/Element.ts:17
 
 Gets the value of the input element.
 
@@ -298,7 +302,7 @@ The value of the input element.
 visible(): boolean
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:63](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L63)
+Defined in: src/enhanced-inputs/Element.ts:62
 
 Checks if the element is visible.
 
@@ -307,3 +311,133 @@ Checks if the element is visible.
 `boolean`
 
 True if the element is visible, false otherwise.
+
+***
+
+### byClassName()
+
+```ts
+static byClassName(className: string): Element[]
+```
+
+Defined in: src/enhanced-inputs/Element.ts:157
+
+Finds all elements with the specified class name.
+
+#### Parameters
+
+##### className
+
+`string`
+
+The class name to match.
+
+#### Returns
+
+[`Element`](Element.md)[]
+
+An array of Element instances.
+
+***
+
+### byId()
+
+```ts
+static byId(id: string): Element
+```
+
+Defined in: src/enhanced-inputs/Element.ts:119
+
+Finds an element by its ID.
+
+#### Parameters
+
+##### id
+
+`string`
+
+The ID of the element to find.
+
+#### Returns
+
+[`Element`](Element.md)
+
+The Element instance if found, null otherwise.
+
+***
+
+### bySelector()
+
+```ts
+static bySelector(selector: string): Element
+```
+
+Defined in: src/enhanced-inputs/Element.ts:129
+
+Finds the first element matching the CSS selector.
+
+#### Parameters
+
+##### selector
+
+`string`
+
+The CSS selector to match.
+
+#### Returns
+
+[`Element`](Element.md)
+
+The Element instance if found, null otherwise.
+
+***
+
+### bySelectorAll()
+
+```ts
+static bySelectorAll(selector: string): Element[]
+```
+
+Defined in: src/enhanced-inputs/Element.ts:139
+
+Finds all elements matching the CSS selector.
+
+#### Parameters
+
+##### selector
+
+`string`
+
+The CSS selector to match.
+
+#### Returns
+
+[`Element`](Element.md)[]
+
+An array of Element instances.
+
+***
+
+### byTagName()
+
+```ts
+static byTagName(tagName: string): Element[]
+```
+
+Defined in: src/enhanced-inputs/Element.ts:148
+
+Finds all elements with the specified tag name.
+
+#### Parameters
+
+##### tagName
+
+`string`
+
+The tag name to match.
+
+#### Returns
+
+[`Element`](Element.md)[]
+
+An array of Element instances.

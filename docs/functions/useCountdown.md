@@ -10,7 +10,7 @@
 function useCountdown(seconds: number, onExpiry: () => void): number
 ```
 
-Defined in: [src/helpers/utilities.ts:64](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/helpers/utilities.ts#L64)
+Defined in: [src/helpers/utilities.ts:64](https://github.com/navedr/dry-ux/blob/709faf84d0a46bbe07884742afd585685ac19a7a/src/helpers/utilities.ts#L64)
 
 Creates a countdown timer that will call the onExpiry function when the timer expires.
 

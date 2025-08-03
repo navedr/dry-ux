@@ -16,7 +16,7 @@ type PopUpInstance = {
 };
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:67](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/ui-utils/UIUtil.interface.ts#L67)
+Defined in: [src/ui-utils/UIUtil.interface.ts:67](https://github.com/navedr/dry-ux/blob/709faf84d0a46bbe07884742afd585685ac19a7a/src/ui-utils/UIUtil.interface.ts#L67)
 
 Represents an instance of a PopUp.
 

@@ -6,7 +6,7 @@
 
 # Class: Validation
 
-Defined in: [src/enhanced-inputs/Validaition.ts:146](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L146)
+Defined in: [src/enhanced-inputs/Validaition.ts:35](https://github.com/navedr/dry-ux/blob/709faf84d0a46bbe07884742afd585685ac19a7a/src/enhanced-inputs/Validaition.ts#L35)
 
 Class representing form validation.
 
@@ -18,7 +18,7 @@ Class representing form validation.
 new Validation(options?: ValidationOptions): Validation
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:154](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L154)
+Defined in: [src/enhanced-inputs/Validaition.ts:43](https://github.com/navedr/dry-ux/blob/709faf84d0a46bbe07884742afd585685ac19a7a/src/enhanced-inputs/Validaition.ts#L43)
 
 Creates an instance of Validation.
 
@@ -42,7 +42,7 @@ The options for configuring the validation.
 bindToValueChanges(input: string | HTMLElement): void
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:169](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L169)
+Defined in: [src/enhanced-inputs/Validaition.ts:58](https://github.com/navedr/dry-ux/blob/709faf84d0a46bbe07884742afd585685ac19a7a/src/enhanced-inputs/Validaition.ts#L58)
 
 Binds the form to value changes for validation.
 
@@ -69,7 +69,7 @@ validateForm<T>(): {
 }
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:178](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L178)
+Defined in: [src/enhanced-inputs/Validaition.ts:67](https://github.com/navedr/dry-ux/blob/709faf84d0a46bbe07884742afd585685ac19a7a/src/enhanced-inputs/Validaition.ts#L67)
 
 Validates the entire form.
 
@@ -111,7 +111,7 @@ validateInput(input: string | HTMLElement): {
 }
 ```
 
-Defined in: [src/enhanced-inputs/Validaition.ts:195](https://github.com/navedr/dry-ux/blob/2307d10e08d1eae1fe225a5cfa75f0bf24715180/src/enhanced-inputs/Validaition.ts#L195)
+Defined in: [src/enhanced-inputs/Validaition.ts:84](https://github.com/navedr/dry-ux/blob/709faf84d0a46bbe07884742afd585685ac19a7a/src/enhanced-inputs/Validaition.ts#L84)
 
 Validates a specific input element.
 
