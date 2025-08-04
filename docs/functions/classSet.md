@@ -10,7 +10,7 @@
 function classSet(classNames: any): string
 ```
 
-Defined in: [src/helpers/classSet.js:17](https://github.com/navedr/dry-ux/blob/709faf84d0a46bbe07884742afd585685ac19a7a/src/helpers/classSet.js#L17)
+Defined in: [src/helpers/classSet.js:17](https://github.com/navedr/dry-ux/blob/caab991ee97f6aeffaf134cbc4d98e0b18f2cf6b/src/helpers/classSet.js#L17)
 
 Copyright 2013 Facebook, Inc.
 

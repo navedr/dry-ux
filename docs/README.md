@@ -54,6 +54,7 @@ Check out the [demo](https://navedr.github.io/dry-ux/demo) for live examples.
 | [Content](type-aliases/Content.md) | Type alias for content, which can be a JSX element or a string. |
 | [DajaxiceFn](type-aliases/DajaxiceFn.md) | Represents a Dajaxice function. |
 | [InputAttributes](type-aliases/InputAttributes.md) | Type alias for input attributes, extending HTML input, select, and textarea attributes. |
+| [InputElement](type-aliases/InputElement.md) | - |
 | [IValidation](type-aliases/IValidation.md) | Type alias for validation, which can be a boolean or a string. |
 | [PopUp](type-aliases/PopUp.md) | Represents a PopUp with methods to control its visibility and content. |
 | [PopUpAction](type-aliases/PopUpAction.md) | Represents an action for a PopUp. |

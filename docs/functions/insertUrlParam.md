@@ -10,7 +10,7 @@
 function insertUrlParam(key: string, value: any): void
 ```
 
-Defined in: [src/helpers/utilities.ts:156](https://github.com/navedr/dry-ux/blob/709faf84d0a46bbe07884742afd585685ac19a7a/src/helpers/utilities.ts#L156)
+Defined in: [src/helpers/utilities.ts:156](https://github.com/navedr/dry-ux/blob/caab991ee97f6aeffaf134cbc4d98e0b18f2cf6b/src/helpers/utilities.ts#L156)
 
 Inserts a URL parameter.
 

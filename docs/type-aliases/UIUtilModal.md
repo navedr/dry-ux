@@ -18,7 +18,7 @@ type UIUtilModal = {
 };
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:178](https://github.com/navedr/dry-ux/blob/709faf84d0a46bbe07884742afd585685ac19a7a/src/ui-utils/UIUtil.interface.ts#L178)
+Defined in: [src/ui-utils/UIUtil.interface.ts:178](https://github.com/navedr/dry-ux/blob/caab991ee97f6aeffaf134cbc4d98e0b18f2cf6b/src/ui-utils/UIUtil.interface.ts#L178)
 
 Represents a utility for managing UI modals.
 

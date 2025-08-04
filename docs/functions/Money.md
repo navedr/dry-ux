@@ -14,7 +14,7 @@ function Money(props: PropsWithChildren<{
 }>, context?: any): ReactElement<any, any>
 ```
 
-Defined in: [src/ui-utils/Money.tsx:7](https://github.com/navedr/dry-ux/blob/709faf84d0a46bbe07884742afd585685ac19a7a/src/ui-utils/Money.tsx#L7)
+Defined in: [src/ui-utils/Money.tsx:7](https://github.com/navedr/dry-ux/blob/caab991ee97f6aeffaf134cbc4d98e0b18f2cf6b/src/ui-utils/Money.tsx#L7)
 
 Renders a formatted dollar amount with a dollar sign and parentheses if the amount is negative.
 

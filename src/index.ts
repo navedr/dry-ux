@@ -18,4 +18,4 @@ export { Validation } from "./enhanced-inputs/Validaition";
 export { Viewport } from "./ui-utils/ViewportDetect";
 export * from "./enhanced-inputs/HTMLInputs";
 export * from "./enhanced-inputs/interface";
-export { Element } from "./enhanced-inputs/Element";
+export { Element, InputElement } from "./enhanced-inputs/Element";
