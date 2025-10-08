@@ -10,7 +10,7 @@
 function formatDollar(amount: number, decimal_places?: boolean): string
 ```
 
-Defined in: [src/helpers/utilities.ts:84](https://github.com/navedr/dry-ux/blob/caab991ee97f6aeffaf134cbc4d98e0b18f2cf6b/src/helpers/utilities.ts#L84)
+Defined in: [src/helpers/utilities.ts:84](https://github.com/navedr/dry-ux/blob/05824901684f5086b63edd3699fcdb1704ab19f9/src/helpers/utilities.ts#L84)
 
 Formats a number as a dollar amount.
 

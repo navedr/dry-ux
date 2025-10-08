@@ -7,10 +7,10 @@
 # Function: insertUrlParam()
 
 ```ts
-function insertUrlParam(key: string, value: any): void
+function insertUrlParam(key: any, value: any): void
 ```
 
-Defined in: [src/helpers/utilities.ts:156](https://github.com/navedr/dry-ux/blob/caab991ee97f6aeffaf134cbc4d98e0b18f2cf6b/src/helpers/utilities.ts#L156)
+Defined in: [src/helpers/utilities.ts:156](https://github.com/navedr/dry-ux/blob/05824901684f5086b63edd3699fcdb1704ab19f9/src/helpers/utilities.ts#L156)
 
 Inserts a URL parameter.
 
@@ -18,7 +18,7 @@ Inserts a URL parameter.
 
 ### key
 
-`string`
+`any`
 
 The key of the parameter.
 

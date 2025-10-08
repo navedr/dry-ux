@@ -10,7 +10,7 @@
 function unflatten(target: any, opts?: UnflattenOptions): any
 ```
 
-Defined in: [src/helpers/flat.ts:81](https://github.com/navedr/dry-ux/blob/caab991ee97f6aeffaf134cbc4d98e0b18f2cf6b/src/helpers/flat.ts#L81)
+Defined in: [src/helpers/flat.ts:81](https://github.com/navedr/dry-ux/blob/05824901684f5086b63edd3699fcdb1704ab19f9/src/helpers/flat.ts#L81)
 
 Unflattens an object with the paths for keys.
 

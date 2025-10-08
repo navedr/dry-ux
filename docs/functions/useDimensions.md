@@ -13,7 +13,9 @@ function useDimensions(ref?: MutableRefObject<HTMLElement>): {
 }
 ```
 
-Defined in: [src/helpers/utilities.ts:310](https://github.com/navedr/dry-ux/blob/caab991ee97f6aeffaf134cbc4d98e0b18f2cf6b/src/helpers/utilities.ts#L310)
+Defined in: [src/helpers/utilities.ts:314](https://github.com/navedr/dry-ux/blob/05824901684f5086b63edd3699fcdb1704ab19f9/src/helpers/utilities.ts#L314)
+
+Hook to get dimensions of an element or the viewport.
 
 ## Parameters
 

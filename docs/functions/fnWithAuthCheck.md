@@ -13,7 +13,7 @@ function fnWithAuthCheck(
 authRedirectUrl: string): Promise<void>
 ```
 
-Defined in: [src/helpers/utilities.ts:106](https://github.com/navedr/dry-ux/blob/caab991ee97f6aeffaf134cbc4d98e0b18f2cf6b/src/helpers/utilities.ts#L106)
+Defined in: [src/helpers/utilities.ts:106](https://github.com/navedr/dry-ux/blob/05824901684f5086b63edd3699fcdb1704ab19f9/src/helpers/utilities.ts#L106)
 
 Calls the authCheckUrl to check if the user is authenticated. The URL should return a JSON response with
 just `true` or `false` to indicate if the user is authenticated. If user is authenticated, it will call the

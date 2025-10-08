@@ -153,7 +153,7 @@ export const toHashCode = (input: string): number => {
  * @param key The key of the parameter.
  * @param value The value of the parameter.
  */
-export const insertUrlParam = (key: string, value: any) => {
+export const insertUrlParam = (key: any, value: any) => {
     if (history.pushState) {
         let searchParams = new URLSearchParams(window.location.search);
         searchParams.set(key, value);
@@ -307,6 +307,10 @@ export const usePubSub = <T>() => {
     return { usePub, useSub };
 };
 
+/**
+ * Hook to get dimensions of an element or the viewport.
+ * @param ref
+ */
 export const useDimensions = (ref?: React.MutableRefObject<HTMLElement>) => {
     const [size, setSize] = React.useState<{ width: number; height: number }>({ width: 0, height: 0 });
 
@@ -327,4 +331,26 @@ export const useDimensions = (ref?: React.MutableRefObject<HTMLElement>) => {
     }, [ref, handleResize]);
 
     return size;
+};
+
+/**
+ * Hook to get and set URL search parameters.
+ * @template T The type of the URL parameters.
+ * @returns An object containing the current URL parameters and a function to set a parameter.
+ */
+export const useSearchParams = <T>() => {
+    const [params, setParams] = React.useState<T>(getUrlParams<T>());
+
+    /**
+     * Sets a URL parameter and updates the state.
+     */
+    const setParam = React.useCallback(<TKey extends keyof T, TValue extends T[TKey]>(key: TKey, value: TValue) => {
+        insertUrlParam(key, value);
+        setParams(getUrlParams<T>());
+    }, []);
+
+    return {
+        params,
+        setParam,
+    };
 };

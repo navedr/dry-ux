@@ -98,7 +98,8 @@ Check out the [demo](https://navedr.github.io/dry-ux/demo) for live examples.
 | [tryParseJson](functions/tryParseJson.md) | Parses a JSON string and returns the corresponding object. |
 | [unflatten](functions/unflatten.md) | Unflattens an object with the paths for keys. |
 | [useCountdown](functions/useCountdown.md) | Creates a countdown timer that will call the onExpiry function when the timer expires. |
-| [useDimensions](functions/useDimensions.md) | - |
+| [useDimensions](functions/useDimensions.md) | Hook to get dimensions of an element or the viewport. |
 | [useDryUxContext](functions/useDryUxContext.md) | Hook to use the UIUtil context. |
 | [useIsVisible](functions/useIsVisible.md) | Hook to check if an element is visible in the viewport. |
 | [usePubSub](functions/usePubSub.md) | Hook to publish and subscribe to custom events. |
+| [useSearchParams](functions/useSearchParams.md) | Hook to get and set URL search parameters. |
