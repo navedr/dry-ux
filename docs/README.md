@@ -75,6 +75,7 @@ Check out the [demo](https://navedr.github.io/dry-ux/demo) for live examples.
 | ------ | ------ |
 | [classSet](functions/classSet.md) | Copyright 2013 Facebook, Inc. |
 | [DajaxiceProxy](functions/DajaxiceProxy.md) | This function is used to create a type safe proxy for the Dajaxice functions. |
+| [deleteUrlParam](functions/deleteUrlParam.md) | Deletes a URL parameter. |
 | [DryUXProvider](functions/DryUXProvider.md) | DryUXProvider component that provides UI utilities and optionally renders a UIUtilRenderer. |
 | [DryUXRenderer](functions/DryUXRenderer.md) | UIUtilRenderer component that renders modals based on the UIUtil context. |
 | [ErrorScreen](functions/ErrorScreen.md) | A React component that displays an error screen with a message and a button to go back to the home page. |

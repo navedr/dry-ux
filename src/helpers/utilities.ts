@@ -169,6 +169,25 @@ export const insertUrlParam = (key: any, value: any) => {
 };
 
 /**
+ * Deletes a URL parameter.
+ * @param key
+ */
+export const deleteUrlParam = (key: any) => {
+    if (history.pushState) {
+        let searchParams = new URLSearchParams(window.location.search);
+        searchParams.delete(key);
+        let newUrl =
+            window.location.protocol +
+            "//" +
+            window.location.host +
+            window.location.pathname +
+            "?" +
+            searchParams.toString();
+        window.history.pushState({ path: newUrl }, "", newUrl);
+    }
+};
+
+/**
  * Inserts multiple URL parameters.
  * @param params An object containing key-value pairs of parameters.
  */
@@ -349,8 +368,17 @@ export const useSearchParams = <T>() => {
         setParams(getUrlParams<T>());
     }, []);
 
+    /**
+     * Clears one or more URL parameters and updates the state.
+     */
+    const clearParams = React.useCallback(<TKey extends keyof T>(...keys: TKey[]) => {
+        keys.forEach(key => deleteUrlParam(key));
+        setParams(getUrlParams<T>());
+    }, []);
+
     return {
         params,
         setParam,
+        clearParams,
     };
 };

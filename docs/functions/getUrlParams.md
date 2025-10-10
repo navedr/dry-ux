@@ -10,7 +10,7 @@
 function getUrlParams<T>(): T
 ```
 
-Defined in: [src/helpers/utilities.ts:182](https://github.com/navedr/dry-ux/blob/05824901684f5086b63edd3699fcdb1704ab19f9/src/helpers/utilities.ts#L182)
+Defined in: [src/helpers/utilities.ts:201](https://github.com/navedr/dry-ux/blob/357842b7190c45081ec89f2dfed62dd2067eff7b/src/helpers/utilities.ts#L201)
 
 Retrieves URL parameters as an object.
 

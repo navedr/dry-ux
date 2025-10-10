@@ -10,7 +10,7 @@
 function flatten(target: any, opts?: FlattenOptions): {}
 ```
 
-Defined in: [src/helpers/flat.ts:36](https://github.com/navedr/dry-ux/blob/05824901684f5086b63edd3699fcdb1704ab19f9/src/helpers/flat.ts#L36)
+Defined in: [src/helpers/flat.ts:36](https://github.com/navedr/dry-ux/blob/357842b7190c45081ec89f2dfed62dd2067eff7b/src/helpers/flat.ts#L36)
 
 Flattens an object with the paths for keys.
 

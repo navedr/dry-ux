@@ -10,7 +10,7 @@
 function tryParseJson<T>(json: string, errorValue: {}): {}
 ```
 
-Defined in: [src/helpers/utilities.ts:230](https://github.com/navedr/dry-ux/blob/05824901684f5086b63edd3699fcdb1704ab19f9/src/helpers/utilities.ts#L230)
+Defined in: [src/helpers/utilities.ts:249](https://github.com/navedr/dry-ux/blob/357842b7190c45081ec89f2dfed62dd2067eff7b/src/helpers/utilities.ts#L249)
 
 Parses a JSON string and returns the corresponding object.
 

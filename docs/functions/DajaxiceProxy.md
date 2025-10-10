@@ -10,7 +10,7 @@
 function DajaxiceProxy<TModule>(config: IDajaxiceProxy<TModule>): TModule
 ```
 
-Defined in: [src/dajaxice/DajaxiceProxy.ts:9](https://github.com/navedr/dry-ux/blob/05824901684f5086b63edd3699fcdb1704ab19f9/src/dajaxice/DajaxiceProxy.ts#L9)
+Defined in: [src/dajaxice/DajaxiceProxy.ts:9](https://github.com/navedr/dry-ux/blob/357842b7190c45081ec89f2dfed62dd2067eff7b/src/dajaxice/DajaxiceProxy.ts#L9)
 
 This function is used to create a type safe proxy for the Dajaxice functions.
 

@@ -8,12 +8,13 @@
 
 ```ts
 function useSearchParams<T>(): {
+  clearParams: <TKey>(...keys: TKey[]) => void;
   params: T;
   setParam: <TKey, TValue>(key: TKey, value: TValue) => void;
 }
 ```
 
-Defined in: [src/helpers/utilities.ts:341](https://github.com/navedr/dry-ux/blob/05824901684f5086b63edd3699fcdb1704ab19f9/src/helpers/utilities.ts#L341)
+Defined in: [src/helpers/utilities.ts:360](https://github.com/navedr/dry-ux/blob/357842b7190c45081ec89f2dfed62dd2067eff7b/src/helpers/utilities.ts#L360)
 
 Hook to get and set URL search parameters.
 
@@ -27,12 +28,33 @@ The type of the URL parameters.
 
 ```ts
 {
+  clearParams: <TKey>(...keys: TKey[]) => void;
   params: T;
   setParam: <TKey, TValue>(key: TKey, value: TValue) => void;
 }
 ```
 
 An object containing the current URL parameters and a function to set a parameter.
+
+### clearParams()
+
+```ts
+clearParams: <TKey>(...keys: TKey[]) => void;
+```
+
+#### Type Parameters
+
+• **TKey** *extends* `string` \| `number` \| `symbol`
+
+#### Parameters
+
+##### keys
+
+...`TKey`[]
+
+#### Returns
+
+`void`
 
 ### params
 
