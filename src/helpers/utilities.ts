@@ -359,13 +359,16 @@ export const useDimensions = (ref?: React.MutableRefObject<HTMLElement>) => {
  */
 export const useSearchParams = <T>() => {
     const [params, setParams] = React.useState<T>(getUrlParams<T>());
+    const crossHookEventName = "dry-ux-use-search-params-update";
+    const { usePub, useSub } = usePubSub<{ [crossHookEventName]: void }>();
+    const publish = usePub();
 
     /**
      * Sets a URL parameter and updates the state.
      */
     const setParam = React.useCallback(<TKey extends keyof T, TValue extends T[TKey]>(key: TKey, value: TValue) => {
         insertUrlParam(key, value);
-        setParams(getUrlParams<T>());
+        publish(crossHookEventName);
     }, []);
 
     /**
@@ -373,8 +376,10 @@ export const useSearchParams = <T>() => {
      */
     const clearParams = React.useCallback(<TKey extends keyof T>(...keys: TKey[]) => {
         keys.forEach(key => deleteUrlParam(key));
-        setParams(getUrlParams<T>());
+        publish(crossHookEventName);
     }, []);
+
+    useSub(crossHookEventName, () => setParams(getUrlParams<T>()));
 
     return {
         params,

@@ -10,7 +10,7 @@
 function ErrorScreen(props: unknown): ReactElement<any, string | JSXElementConstructor<any>>
 ```
 
-Defined in: [src/error/ErrorScreen.tsx:7](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/error/ErrorScreen.tsx#L7)
+Defined in: [src/error/ErrorScreen.tsx:7](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/error/ErrorScreen.tsx#L7)
 
 A React component that displays an error screen with a message and a button to go back to the home page.
 

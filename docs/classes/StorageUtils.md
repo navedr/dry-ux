@@ -6,7 +6,7 @@
 
 # Class: StorageUtils
 
-Defined in: [src/helpers/utilities.ts:120](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/helpers/utilities.ts#L120)
+Defined in: [src/helpers/utilities.ts:120](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/helpers/utilities.ts#L120)
 
 Utility class for storage-related operations.
 
@@ -30,7 +30,7 @@ new StorageUtils(): StorageUtils
 static isStorageAvailable(): boolean
 ```
 
-Defined in: [src/helpers/utilities.ts:125](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/helpers/utilities.ts#L125)
+Defined in: [src/helpers/utilities.ts:125](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/helpers/utilities.ts#L125)
 
 Checks if the storage is available.
 

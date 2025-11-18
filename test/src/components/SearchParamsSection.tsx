@@ -2,10 +2,12 @@ import * as React from "react";
 import Section from "./Section";
 import { useSearchParams } from "../../../src";
 
-const SearchParamsSection = () => {
-    const { params, setParam, clearParams } = useSearchParams<{ time: number }>();
+const SearchParamsSectionInner: React.FC<{ index: number }> = ({ index }) => {
+    const { params, setParam, clearParams } = useSearchParams<{
+        time: number;
+    }>();
     return (
-        <Section title={"Search Params"}>
+        <Section title={`Search Params ${index}`}>
             Params: {params.time || "Not set"}
             <br />
             <button className={"btn btn-primary"} onClick={() => setParam("time", Date.now())}>
@@ -17,5 +19,12 @@ const SearchParamsSection = () => {
         </Section>
     );
 };
+
+const SearchParamsSection = () => (
+    <>
+        <SearchParamsSectionInner index={1} />
+        <SearchParamsSectionInner index={2} />
+    </>
+);
 
 export default SearchParamsSection;

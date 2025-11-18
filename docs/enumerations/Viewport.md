@@ -6,7 +6,7 @@
 
 # Enumeration: Viewport
 
-Defined in: [src/ui-utils/ViewportDetect.tsx:8](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/ui-utils/ViewportDetect.tsx#L8)
+Defined in: [src/ui-utils/ViewportDetect.tsx:8](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/ui-utils/ViewportDetect.tsx#L8)
 
 Enum representing different viewport sizes.
 
@@ -18,7 +18,7 @@ Enum representing different viewport sizes.
 LG: "lg";
 ```
 
-Defined in: [src/ui-utils/ViewportDetect.tsx:16](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/ui-utils/ViewportDetect.tsx#L16)
+Defined in: [src/ui-utils/ViewportDetect.tsx:16](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/ui-utils/ViewportDetect.tsx#L16)
 
 Large viewport size. (desktops)
 
@@ -30,7 +30,7 @@ Large viewport size. (desktops)
 MD: "md";
 ```
 
-Defined in: [src/ui-utils/ViewportDetect.tsx:14](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/ui-utils/ViewportDetect.tsx#L14)
+Defined in: [src/ui-utils/ViewportDetect.tsx:14](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/ui-utils/ViewportDetect.tsx#L14)
 
 Medium viewport size. (tablets)
 
@@ -42,7 +42,7 @@ Medium viewport size. (tablets)
 SM: "sm";
 ```
 
-Defined in: [src/ui-utils/ViewportDetect.tsx:12](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/ui-utils/ViewportDetect.tsx#L12)
+Defined in: [src/ui-utils/ViewportDetect.tsx:12](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/ui-utils/ViewportDetect.tsx#L12)
 
 Small viewport size. (phones)
 
@@ -54,6 +54,6 @@ Small viewport size. (phones)
 XS: "xs";
 ```
 
-Defined in: [src/ui-utils/ViewportDetect.tsx:10](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/ui-utils/ViewportDetect.tsx#L10)
+Defined in: [src/ui-utils/ViewportDetect.tsx:10](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/ui-utils/ViewportDetect.tsx#L10)
 
 Extra small viewport size. (phones with smaller display)

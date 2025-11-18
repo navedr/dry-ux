@@ -14,7 +14,7 @@ function RenderWhenVisible(props: PropsWithChildren<{
 }>, context?: any): ReactElement<any, any>
 ```
 
-Defined in: [src/ui-utils/RenderWhenVisible.tsx:11](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/ui-utils/RenderWhenVisible.tsx#L11)
+Defined in: [src/ui-utils/RenderWhenVisible.tsx:11](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/ui-utils/RenderWhenVisible.tsx#L11)
 
 A React component that renders its children only when they become visible in the viewport.
 
