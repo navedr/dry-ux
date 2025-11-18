@@ -13,7 +13,7 @@ function usePubSub<T>(): {
 }
 ```
 
-Defined in: [src/helpers/utilities.ts:281](https://github.com/navedr/dry-ux/blob/357842b7190c45081ec89f2dfed62dd2067eff7b/src/helpers/utilities.ts#L281)
+Defined in: [src/helpers/utilities.ts:281](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/helpers/utilities.ts#L281)
 
 Hook to publish and subscribe to custom events.
 

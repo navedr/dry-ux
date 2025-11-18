@@ -7,26 +7,18 @@
 # Function: Money()
 
 ```ts
-function Money(props: PropsWithChildren<{
-  amount: number;
-  currency: string;
-  decimal_places: boolean;
-}>, context?: any): ReactElement<any, any>
+function Money(props: PropsWithChildren<MoneyProps>, context?: any): ReactElement<any, any>
 ```
 
-Defined in: [src/ui-utils/Money.tsx:7](https://github.com/navedr/dry-ux/blob/357842b7190c45081ec89f2dfed62dd2067eff7b/src/ui-utils/Money.tsx#L7)
+Defined in: [src/ui-utils/Money.tsx:39](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/ui-utils/Money.tsx#L39)
 
-Renders a formatted dollar amount with a dollar sign and parentheses if the amount is negative.
+Renders a formatted dollar amount with a currency symbol and parentheses if the amount is negative.
 
 ## Parameters
 
 ### props
 
-`PropsWithChildren`\<\{
-  `amount`: `number`;
-  `currency`: `string`;
-  `decimal_places`: `boolean`;
- \}\>
+`PropsWithChildren`\<`MoneyProps`\>
 
 ### context?
 

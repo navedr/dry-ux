@@ -89,7 +89,7 @@ Check out the [demo](https://navedr.github.io/dry-ux/demo) for live examples.
 | [Input](functions/Input.md) | Forwarded ref input component with enhancements. |
 | [insertUrlParam](functions/insertUrlParam.md) | Inserts a URL parameter. |
 | [insertUrlParams](functions/insertUrlParams.md) | Inserts multiple URL parameters. |
-| [Money](functions/Money.md) | Renders a formatted dollar amount with a dollar sign and parentheses if the amount is negative. |
+| [Money](functions/Money.md) | Renders a formatted dollar amount with a currency symbol and parentheses if the amount is negative. |
 | [preventDefault](functions/preventDefault.md) | Returns a function that will call the given handler and prevent the default event behavior. |
 | [RenderWhenVisible](functions/RenderWhenVisible.md) | A React component that renders its children only when they become visible in the viewport. |
 | [Select](functions/Select.md) | Forwarded ref select component with enhancements. |
