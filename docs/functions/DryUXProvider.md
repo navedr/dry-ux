@@ -10,7 +10,7 @@
 function DryUXProvider(props: PropsWithChildren<IDryUXProviderProps>, context?: any): ReactElement<any, any>
 ```
 
-Defined in: [src/provider.tsx:34](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/provider.tsx#L34)
+Defined in: [src/provider.tsx:34](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/provider.tsx#L34)
 
 DryUXProvider component that provides UI utilities and optionally renders a UIUtilRenderer.
 

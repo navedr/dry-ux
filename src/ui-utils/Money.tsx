@@ -49,7 +49,7 @@ export const Money: React.FC<MoneyProps> = React.memo(
         const isNegative = amount < 0;
         const converted = `${currency}${formatDollar(Math.abs(amount), decimal_places)}`;
         return (
-            <span style={{ ...(isNegative ? { color: negativeColor, ...negativeStyles } : positiveStyles), ...styles }}>
+            <span style={{ ...styles, ...(isNegative ? { color: negativeColor, ...negativeStyles } : positiveStyles) }}>
                 {isNegative ? `(${converted})` : converted}
             </span>
         );

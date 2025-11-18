@@ -6,7 +6,7 @@
 
 # Interface: IValidations
 
-Defined in: [src/enhanced-inputs/interface.ts:25](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L25)
+Defined in: [src/enhanced-inputs/interface.ts:25](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L25)
 
 Interface representing various validation rules for a field.
 
@@ -18,7 +18,7 @@ Interface representing various validation rules for a field.
 optional compare: IValueValidation<string>;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:57](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L57)
+Defined in: [src/enhanced-inputs/interface.ts:57](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L57)
 
 Compares the field with another field specified by its ID.
 
@@ -30,7 +30,7 @@ Compares the field with another field specified by its ID.
 optional date: IValidation;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:53](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L53)
+Defined in: [src/enhanced-inputs/interface.ts:53](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L53)
 
 Indicates if the field should be validated as a date.
 
@@ -42,7 +42,7 @@ Indicates if the field should be validated as a date.
 optional digits: IValidation;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:49](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L49)
+Defined in: [src/enhanced-inputs/interface.ts:49](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L49)
 
 Indicates if the field should be validated as digits.
 
@@ -54,7 +54,7 @@ Indicates if the field should be validated as digits.
 optional disallowedDaysOfWeek: number[];
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:85](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L85)
+Defined in: [src/enhanced-inputs/interface.ts:85](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L85)
 
 Disallowed days of the week for the field.
 
@@ -66,7 +66,7 @@ Disallowed days of the week for the field.
 optional email: IValidation;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:45](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L45)
+Defined in: [src/enhanced-inputs/interface.ts:45](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L45)
 
 Indicates if the field should be validated as an email.
 
@@ -78,7 +78,7 @@ Indicates if the field should be validated as an email.
 optional errorRef: string;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:93](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L93)
+Defined in: [src/enhanced-inputs/interface.ts:93](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L93)
 
 JQuery selector of the element to add the error after.
 
@@ -90,7 +90,7 @@ JQuery selector of the element to add the error after.
 optional maxDate: IValueValidation<Date>;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:77](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L77)
+Defined in: [src/enhanced-inputs/interface.ts:77](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L77)
 
 Maximum date validation for the field.
 
@@ -102,7 +102,7 @@ Maximum date validation for the field.
 optional maxLength: IValueValidation<number>;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:69](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L69)
+Defined in: [src/enhanced-inputs/interface.ts:69](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L69)
 
 Maximum length validation for the field.
 
@@ -114,7 +114,7 @@ Maximum length validation for the field.
 optional maxValue: IValueValidation<number>;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:73](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L73)
+Defined in: [src/enhanced-inputs/interface.ts:73](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L73)
 
 Maximum value validation for the field.
 
@@ -126,7 +126,7 @@ Maximum value validation for the field.
 optional minDate: IValueValidation<Date>;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:81](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L81)
+Defined in: [src/enhanced-inputs/interface.ts:81](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L81)
 
 Minimum date validation for the field.
 
@@ -138,7 +138,7 @@ Minimum date validation for the field.
 optional minDigitsLength: IValueValidation<number>;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:65](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L65)
+Defined in: [src/enhanced-inputs/interface.ts:65](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L65)
 
 Minimum digits length validation for the field.
 
@@ -150,7 +150,7 @@ Minimum digits length validation for the field.
 optional minLength: IValueValidation<number>;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:61](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L61)
+Defined in: [src/enhanced-inputs/interface.ts:61](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L61)
 
 Minimum length validation for the field.
 
@@ -162,7 +162,7 @@ Minimum length validation for the field.
 optional money: IValidation;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:37](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L37)
+Defined in: [src/enhanced-inputs/interface.ts:37](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L37)
 
 Indicates if the field should be validated as a monetary value.
 
@@ -174,7 +174,7 @@ Indicates if the field should be validated as a monetary value.
 optional number: IValidation;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:33](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L33)
+Defined in: [src/enhanced-inputs/interface.ts:33](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L33)
 
 Indicates if the field should be validated as a number.
 
@@ -186,7 +186,7 @@ Indicates if the field should be validated as a number.
 optional positiveNumber: IValidation;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:41](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L41)
+Defined in: [src/enhanced-inputs/interface.ts:41](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L41)
 
 Indicates if the field should be validated as a positive number.
 
@@ -198,7 +198,7 @@ Indicates if the field should be validated as a positive number.
 optional required: IValidation;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:29](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L29)
+Defined in: [src/enhanced-inputs/interface.ts:29](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L29)
 
 Indicates if the field is required.
 
@@ -210,6 +210,6 @@ Indicates if the field is required.
 optional validateHidden: boolean;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:89](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/enhanced-inputs/interface.ts#L89)
+Defined in: [src/enhanced-inputs/interface.ts:89](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/enhanced-inputs/interface.ts#L89)
 
 Indicates if the field should be validated even if it is hidden.

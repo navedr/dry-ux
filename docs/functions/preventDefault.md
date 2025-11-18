@@ -10,7 +10,7 @@
 function preventDefault(handler?: (event: any) => void): (event: any) => void
 ```
 
-Defined in: [src/helpers/utilities.ts:7](https://github.com/navedr/dry-ux/blob/d471fef188d66717871d62bb2d6968695a9977c6/src/helpers/utilities.ts#L7)
+Defined in: [src/helpers/utilities.ts:7](https://github.com/navedr/dry-ux/blob/fe5e7a8c63b87cc39fd5f77cac09ec0c59566f52/src/helpers/utilities.ts#L7)
 
 Returns a function that will call the given handler and prevent the default event behavior.
 
