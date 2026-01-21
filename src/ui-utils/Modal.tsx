@@ -44,6 +44,14 @@ export type ModalProps = {
          */
         onClose?: (modal: Pick<PopUpOptions, "title" | "trackingId">) => void;
     };
+    /**
+     * Provider ID
+     */
+    providerId?: string;
+    /**
+     * Debug flag
+     */
+    debug?: boolean;
 };
 
 /**
@@ -74,7 +82,9 @@ const Modal: React.FC<ModalProps> = ({
         },
     },
     config: { defaultModalStyles = false, styles = {}, centered: globalCentered, onOpen, onClose: globalOnClose },
-}) => {
+    providerId,
+    debug,
+}: ModalProps): JSX.Element => {
     const isCentered = centered ?? globalCentered;
 
     const applyStyles = React.useCallback(() => {
@@ -92,9 +102,11 @@ const Modal: React.FC<ModalProps> = ({
 
     React.useEffect(() => {
         if (shown) {
+            debug && console.log(`[Modal] Opened modal`, { id, providerId });
             applyStyles();
             onOpen?.({ title, trackingId });
         } else {
+            debug && console.log(`[Modal] Closed modal`, { id, providerId });
             globalOnClose?.({ title, trackingId });
         }
     }, [shown, width, defaultModalStyles]);

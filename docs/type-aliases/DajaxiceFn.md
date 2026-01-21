@@ -10,7 +10,7 @@
 type DajaxiceFn<TArgs> = <TResult>(args: ArgType<TArgs>) => Promise<TResult>;
 ```
 
-Defined in: [src/dajaxice/Proxy.interface.ts:49](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/dajaxice/Proxy.interface.ts#L49)
+Defined in: [src/dajaxice/Proxy.interface.ts:49](https://github.com/navedr/dry-ux/blob/cdfbca6e45c9f21b1dc121cf539d6ad14e9cbd46/src/dajaxice/Proxy.interface.ts#L49)
 
 Represents a Dajaxice function.
 

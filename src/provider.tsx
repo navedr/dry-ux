@@ -23,6 +23,14 @@ interface IDryUXProviderProps {
      * The children elements to be rendered within the provider.
      */
     children: React.ReactNode;
+    /**
+     * Optional identifier for the provider.
+     */
+    id?: string;
+    /**
+     * If true, enables debug mode.
+     */
+    debug?: boolean;
 }
 
 /**
@@ -32,10 +40,10 @@ interface IDryUXProviderProps {
  * @returns {JSX.Element} The DryUXProvider component.
  */
 export const DryUXProvider: React.FC<IDryUXProviderProps> = React.memo(
-    ({ children, noRenderer = false, rendererProps, viewportDetect }) => (
-        <UIUtilProvider viewportDetect={viewportDetect}>
+    ({ children, noRenderer = false, rendererProps, viewportDetect, id, debug }) => (
+        <UIUtilProvider viewportDetect={viewportDetect} id={id} debug={debug}>
             {children}
-            {!noRenderer && <UIUtilRenderer {...rendererProps} />}
+            {!noRenderer && <UIUtilRenderer {...rendererProps} id={id} debug={debug} />}
         </UIUtilProvider>
     ),
 );

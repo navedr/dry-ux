@@ -10,6 +10,6 @@
 type Content = JSX.Element | string;
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:6](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/ui-utils/UIUtil.interface.ts#L6)
+Defined in: [src/ui-utils/UIUtil.interface.ts:6](https://github.com/navedr/dry-ux/blob/cdfbca6e45c9f21b1dc121cf539d6ad14e9cbd46/src/ui-utils/UIUtil.interface.ts#L6)
 
 Type alias for content, which can be a JSX element or a string.

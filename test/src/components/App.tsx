@@ -29,7 +29,7 @@ const App = React.memo(() => {
 
     return (
         <ErrorBoundary>
-            <DryUXProvider noRenderer viewportDetect>
+            <DryUXProvider noRenderer viewportDetect id={"test-app"} debug>
                 <div className={"container"}>
                     <div className="row">
                         <div className="col-12">
@@ -50,7 +50,7 @@ const App = React.memo(() => {
                             <Content />
                         </div>
                     </div>
-                    <DryUXRenderer modalConfig={{ defaultModalStyles: true, centered }} />
+                    <DryUXRenderer modalConfig={{ defaultModalStyles: true, centered }} debug id={"test-app"} />
                 </div>
             </DryUXProvider>
         </ErrorBoundary>

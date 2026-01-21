@@ -1,6 +1,6 @@
 {
   "name": "dry-ux",
-  "version": "1.79.0",
+  "version": "1.81.0",
   "description": "",
   "main": "dist/index",
   "scripts": {

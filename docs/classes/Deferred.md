@@ -6,7 +6,7 @@
 
 # Class: Deferred\<T\>
 
-Defined in: [src/helpers/utilities.ts:213](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/helpers/utilities.ts#L213)
+Defined in: [src/helpers/utilities.ts:213](https://github.com/navedr/dry-ux/blob/cdfbca6e45c9f21b1dc121cf539d6ad14e9cbd46/src/helpers/utilities.ts#L213)
 
 A class representing a deferred promise.
 
@@ -22,7 +22,7 @@ A class representing a deferred promise.
 new Deferred<T>(): Deferred<T>
 ```
 
-Defined in: [src/helpers/utilities.ts:221](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/helpers/utilities.ts#L221)
+Defined in: [src/helpers/utilities.ts:221](https://github.com/navedr/dry-ux/blob/cdfbca6e45c9f21b1dc121cf539d6ad14e9cbd46/src/helpers/utilities.ts#L221)
 
 #### Returns
 
@@ -36,7 +36,7 @@ Defined in: [src/helpers/utilities.ts:221](https://github.com/navedr/dry-ux/blob
 readonly promise: Promise<T>;
 ```
 
-Defined in: [src/helpers/utilities.ts:219](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/helpers/utilities.ts#L219)
+Defined in: [src/helpers/utilities.ts:219](https://github.com/navedr/dry-ux/blob/cdfbca6e45c9f21b1dc121cf539d6ad14e9cbd46/src/helpers/utilities.ts#L219)
 
 The promise object.
 
@@ -50,7 +50,7 @@ The promise object.
 get reject(): (error: any) => void
 ```
 
-Defined in: [src/helpers/utilities.ts:238](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/helpers/utilities.ts#L238)
+Defined in: [src/helpers/utilities.ts:238](https://github.com/navedr/dry-ux/blob/cdfbca6e45c9f21b1dc121cf539d6ad14e9cbd46/src/helpers/utilities.ts#L238)
 
 Rejects the promise with the given error.
 
@@ -78,7 +78,7 @@ Rejects the promise with the given error.
 get resolve(): (result: T) => void
 ```
 
-Defined in: [src/helpers/utilities.ts:231](https://github.com/navedr/dry-ux/blob/68b33ffc82c025d784a7039e48e60acf27bc7ece/src/helpers/utilities.ts#L231)
+Defined in: [src/helpers/utilities.ts:231](https://github.com/navedr/dry-ux/blob/cdfbca6e45c9f21b1dc121cf539d6ad14e9cbd46/src/helpers/utilities.ts#L231)
 
 Resolves the promise with the given result.
 

@@ -98,11 +98,24 @@ type ModalId = (typeof modalId)[keyof typeof modalId];
 /**
  * UIUtilProvider component that provides UI utilities to its children.
  */
-export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boolean }, IUIUtilProviderState> {
+export class UIUtilProvider extends React.PureComponent<
+    { viewportDetect?: boolean; id?: string; debug?: boolean },
+    IUIUtilProviderState
+> {
     private readonly loader = Loader.getInstance();
+
+    private log = (message: string, data?: object) => {
+        if (this.props.debug) {
+            console.log(`[UIUtilProvider:${this.props.id || "default"}] ${message}`, data || "");
+        }
+    };
 
     constructor(props) {
         super(props);
+
+        if (props.debug) {
+            console.log(`[UIUtilProvider:${props.id || "default"}] Initializing`, { id: props.id, debug: props.debug });
+        }
 
         this.state = {
             ...defaultState,
@@ -119,6 +132,7 @@ export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boole
     get modalDefaults() {
         return {
             ...defaultState.modal,
+            instances: {}, // Create fresh instances object for each provider
             create: this.createModal.bind(this),
             show: (options: PopUpOptions) => this.createModal(modalId.modal, options),
             getCurrent: () => {
@@ -160,20 +174,24 @@ export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boole
     get customLoaderDefaults() {
         return {
             ...defaultState.customLoader,
-            show: () =>
+            show: () => {
+                this.log("customLoader.show()");
                 this.setState({
                     customLoader: {
                         ...this.state.customLoader,
                         shown: true,
                     },
-                }),
-            hide: () =>
+                });
+            },
+            hide: () => {
+                this.log("customLoader.hide()");
                 this.setState({
                     customLoader: {
                         ...this.state.customLoader,
                         shown: false,
                     },
-                }),
+                });
+            },
         };
     }
 
@@ -183,8 +201,14 @@ export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boole
     get loaderDefaults() {
         return {
             ...defaultState.loader,
-            show: () => this.loader.show(),
-            hide: () => this.loader.hide(),
+            show: () => {
+                this.log("loader.show()");
+                this.loader.show();
+            },
+            hide: () => {
+                this.log("loader.hide()");
+                this.loader.hide();
+            },
         };
     }
 
@@ -194,6 +218,7 @@ export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boole
     get promptDefaults() {
         return {
             ...defaultState.prompt,
+            instances: {}, // Create fresh instances object for each provider
             getCurrent: () => {
                 const {
                     prompt: { instances },
@@ -212,12 +237,15 @@ export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boole
      * @param {boolean} [destroyOnClose=false] - Whether to destroy the modal on close.
      */
     toggleModalInstance: PopUpInstance["handleClose"] = (id: ModalId, shown: boolean, destroyOnClose = false) => {
+        this.log("toggleModalInstance", { id, shown, destroyOnClose });
+
         const {
             modal: { instances },
         } = this.state;
         const instance = instances[id];
 
         if (!instance) {
+            this.log("toggleModalInstance: instance not found", { id });
             return;
         }
 
@@ -248,6 +276,8 @@ export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boole
      * @param {Content} [content] - The content to display in the overlay.
      */
     toggleModalOverlay: PopUpInstance["toggleOverlay"] = (id: ModalId, content?: Content) => {
+        this.log("toggleModalOverlay", { id, hasContent: !!content });
+
         const {
             modal: { instances },
         } = this.state;
@@ -266,6 +296,8 @@ export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boole
      * @param {ModalId} id - The ID of the modal.
      */
     removeModalInstance(id: ModalId) {
+        this.log("removeModalInstance", { id });
+
         const {
             modal: { instances },
         } = this.state;
@@ -352,6 +384,8 @@ export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boole
      * @returns {PopUp} The created modal instance.
      */
     createModal(id: ModalId, options: PopUpOptions): PopUp {
+        this.log("createModal", { id, options });
+
         const {
             modal: { instances },
         } = this.state;
@@ -381,6 +415,11 @@ export class UIUtilProvider extends React.PureComponent<{ viewportDetect?: boole
      * @returns {JSX.Element} The rendered component.
      */
     render() {
+        this.log("render", {
+            modalInstances: Object.keys(this.state.modal.instances),
+            customLoaderShown: this.state.customLoader.shown,
+        });
+
         return (
             <UIUtilContext.Provider value={this.state}>
                 {this.props.children}
