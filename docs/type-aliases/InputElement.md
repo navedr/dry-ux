@@ -10,4 +10,4 @@
 type InputElement = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:1](https://github.com/navedr/dry-ux/blob/cdfbca6e45c9f21b1dc121cf539d6ad14e9cbd46/src/enhanced-inputs/Element.ts#L1)
+Defined in: [src/enhanced-inputs/Element.ts:1](https://github.com/navedr/dry-ux/blob/c3f082bb58dc69d96710e667142bd8e834bb969c/src/enhanced-inputs/Element.ts#L1)

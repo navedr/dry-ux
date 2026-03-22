@@ -140,17 +140,11 @@ export class Element {
      * @param once Whether the event should only fire once.
      * @returns A function to remove the event listener, or undefined if the element is not suitable for events.
      */
-    public addEventListener(type: string, handler: (e: Event) => void, once?: boolean): () => void | undefined {
-        if (
-            (this.nativeInput instanceof HTMLInputElement ||
-                this.nativeInput instanceof HTMLSelectElement ||
-                this.nativeInput instanceof HTMLTextAreaElement) &&
-            !!type
-        ) {
-            const abortController = new AbortController();
-            this.nativeInput.addEventListener("change", handler, { once, signal: abortController.signal });
-            return abortController.abort;
-        }
+    public addEventListener(type: string, handler: (e: any) => void, once?: boolean): () => void | undefined {
+        if (!type) return;
+        const abortController = new AbortController();
+        this.native.addEventListener(type, handler, { once, signal: abortController.signal });
+        return () => abortController.abort();
     }
 
     /**
@@ -169,7 +163,7 @@ export class Element {
      * @param once Whether the event should only fire once.
      * @returns A function to remove the event listener.
      */
-    public click(handler: (e: Event) => void, once?: boolean) {
+    public click(handler: (e: MouseEvent) => void, once?: boolean) {
         return this.addEventListener("click", handler, once);
     }
 
@@ -179,7 +173,7 @@ export class Element {
      * @param once Whether the event should only fire once.
      * @returns A function to remove the event listener.
      */
-    public focus(handler: (e: Event) => void, once?: boolean) {
+    public focus(handler: (e: FocusEvent) => void, once?: boolean) {
         return this.addEventListener("focus", handler, once);
     }
 
@@ -189,7 +183,7 @@ export class Element {
      * @param once Whether the event should only fire once.
      * @returns A function to remove the event listener.
      */
-    public blur(handler: (e: Event) => void, once?: boolean) {
+    public blur(handler: (e: FocusEvent) => void, once?: boolean) {
         return this.addEventListener("blur", handler, once);
     }
 

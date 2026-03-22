@@ -10,7 +10,7 @@
 function toHashCode(input: string): number
 ```
 
-Defined in: [src/helpers/utilities.ts:141](https://github.com/navedr/dry-ux/blob/cdfbca6e45c9f21b1dc121cf539d6ad14e9cbd46/src/helpers/utilities.ts#L141)
+Defined in: [src/helpers/utilities.ts:141](https://github.com/navedr/dry-ux/blob/c3f082bb58dc69d96710e667142bd8e834bb969c/src/helpers/utilities.ts#L141)
 
 Converts a string to a hash code.
 
