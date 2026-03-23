@@ -74,6 +74,7 @@ Check out the [demo](https://navedr.github.io/dry-ux/demo) for live examples.
 | Function | Description |
 | ------ | ------ |
 | [classSet](functions/classSet.md) | Copyright 2013 Facebook, Inc. |
+| [CurrencyInput](functions/CurrencyInput.md) | **NOTE**: Exotic components are not callable. |
 | [DajaxiceProxy](functions/DajaxiceProxy.md) | This function is used to create a type safe proxy for the Dajaxice functions. |
 | [deleteUrlParam](functions/deleteUrlParam.md) | Deletes a URL parameter. |
 | [DryUXProvider](functions/DryUXProvider.md) | DryUXProvider component that provides UI utilities and optionally renders a UIUtilRenderer. |
