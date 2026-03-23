@@ -28,6 +28,7 @@ export const CurrencyInput = React.forwardRef<HTMLInputElement, CurrencyInputPro
         const initialRaw = toRaw(value ?? defaultValue ?? "");
         const [rawValue, setRawValue] = React.useState(initialRaw);
         const [isFocused, setIsFocused] = React.useState(false);
+        const hiddenRef = React.useRef<HTMLInputElement>(null);
         const isControlled = value !== undefined;
 
         // Sync rawValue when controlled value changes
@@ -52,8 +53,11 @@ export const CurrencyInput = React.forwardRef<HTMLInputElement, CurrencyInputPro
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const raw = toRaw(e.target.value);
             setRawValue(raw);
+            // Sync hidden input immediately so DOM reads in onChange see the new value
+            if (hiddenRef.current) {
+                hiddenRef.current.value = raw;
+            }
             if (onChange) {
-                // Provide the raw numeric value to the parent's onChange
                 const syntheticEvent = {
                     ...e,
                     target: { ...e.target, value: raw, name },
@@ -73,7 +77,13 @@ export const CurrencyInput = React.forwardRef<HTMLInputElement, CurrencyInputPro
                     onBlur={handleBlur}
                     onChange={handleChange}
                 />
-                <input type="hidden" name={name} value={rawValue} />
+                <input
+                    ref={hiddenRef}
+                    type="hidden"
+                    name={name}
+                    value={rawValue}
+                    className="validate validate-hidden"
+                />
             </>
         );
     },

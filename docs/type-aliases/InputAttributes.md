@@ -10,6 +10,6 @@
 type InputAttributes = InputHTMLAttributes<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>;
 ```
 
-Defined in: [src/enhanced-inputs/interface.ts:129](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/interface.ts#L129)
+Defined in: [src/enhanced-inputs/interface.ts:129](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/interface.ts#L129)
 
 Type alias for input attributes, extending HTML input, select, and textarea attributes.

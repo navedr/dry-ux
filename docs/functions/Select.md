@@ -10,7 +10,7 @@
 function Select(props: InputHTMLAttributes<HTMLSelectElement> & IEnhancedProps & RefAttributes<HTMLInputElement>): ReactElement<any, string | JSXElementConstructor<any>>
 ```
 
-Defined in: [src/enhanced-inputs/HTMLInputs.tsx:43](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/HTMLInputs.tsx#L43)
+Defined in: [src/enhanced-inputs/HTMLInputs.tsx:43](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/HTMLInputs.tsx#L43)
 
 Forwarded ref select component with enhancements.
 

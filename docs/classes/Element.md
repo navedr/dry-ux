@@ -6,7 +6,7 @@
 
 # Class: Element
 
-Defined in: [src/enhanced-inputs/Element.ts:6](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L6)
+Defined in: [src/enhanced-inputs/Element.ts:6](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L6)
 
 Class representing a generic DOM element with utility methods for manipulation and validation.
 
@@ -18,7 +18,7 @@ Class representing a generic DOM element with utility methods for manipulation a
 new Element(native: HTMLElement): Element
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:12](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L12)
+Defined in: [src/enhanced-inputs/Element.ts:12](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L12)
 
 Creates an instance of Element.
 
@@ -44,7 +44,7 @@ The native HTML element.
 get native(): HTMLElement
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:20](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L20)
+Defined in: [src/enhanced-inputs/Element.ts:20](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L20)
 
 Gets the native HTML element.
 
@@ -64,7 +64,7 @@ The native HTML element.
 get nativeInput(): InputElement
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:132](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L132)
+Defined in: [src/enhanced-inputs/Element.ts:132](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L132)
 
 Gets the native input element.
 
@@ -82,7 +82,7 @@ The native input element.
 addClass(className: string): void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:117](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L117)
+Defined in: [src/enhanced-inputs/Element.ts:117](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L117)
 
 Adds a class to the element.
 
@@ -109,7 +109,7 @@ addEventListener(
    once?: boolean): () => void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:143](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L143)
+Defined in: [src/enhanced-inputs/Element.ts:143](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L143)
 
 Adds an event listener to the element.
 
@@ -151,7 +151,7 @@ A function to remove the event listener, or undefined if the element is not suit
 after(html: string): void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:109](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L109)
+Defined in: [src/enhanced-inputs/Element.ts:109](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L109)
 
 Inserts HTML after the element.
 
@@ -175,7 +175,7 @@ The HTML to insert.
 attr(attribute: string): string
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:76](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L76)
+Defined in: [src/enhanced-inputs/Element.ts:76](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L76)
 
 Gets the value of an attribute.
 
@@ -201,7 +201,7 @@ The value of the attribute or null if not found.
 blur(handler: (e: FocusEvent) => void, once?: boolean): () => void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:186](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L186)
+Defined in: [src/enhanced-inputs/Element.ts:186](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L186)
 
 Adds a blur event listener to the element.
 
@@ -237,7 +237,7 @@ A function to remove the event listener.
 byClassName(className: string): Element[]
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:309](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L309)
+Defined in: [src/enhanced-inputs/Element.ts:309](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L309)
 
 Finds all elements with the specified class name within this element's scope.
 
@@ -263,7 +263,7 @@ An array of Element instances.
 byId(id: string): Element
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:227](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L227)
+Defined in: [src/enhanced-inputs/Element.ts:227](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L227)
 
 Finds an element by its ID within this element's scope.
 
@@ -289,7 +289,7 @@ The Element instance if found, null otherwise.
 bySelector(selector: string): Element
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:248](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L248)
+Defined in: [src/enhanced-inputs/Element.ts:248](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L248)
 
 Finds the first element matching the CSS selector within this element's scope.
 
@@ -315,7 +315,7 @@ The Element instance if found, null otherwise.
 bySelectorAll(selector: string): Element[]
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:269](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L269)
+Defined in: [src/enhanced-inputs/Element.ts:269](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L269)
 
 Finds all elements matching the CSS selector within this element's scope.
 
@@ -341,7 +341,7 @@ An array of Element instances.
 byTagName(tagName: string): Element[]
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:289](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L289)
+Defined in: [src/enhanced-inputs/Element.ts:289](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L289)
 
 Finds all elements with the specified tag name within this element's scope.
 
@@ -367,7 +367,7 @@ An array of Element instances.
 change(handler: (e: Event) => void, once?: boolean): () => void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:156](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L156)
+Defined in: [src/enhanced-inputs/Element.ts:156](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L156)
 
 Adds a change event listener to the element.
 
@@ -403,7 +403,7 @@ A function to remove the event listener.
 click(handler: (e: MouseEvent) => void, once?: boolean): () => void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:166](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L166)
+Defined in: [src/enhanced-inputs/Element.ts:166](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L166)
 
 Adds a click event listener to the element.
 
@@ -439,7 +439,7 @@ A function to remove the event listener.
 data(attribute: string): string
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:65](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L65)
+Defined in: [src/enhanced-inputs/Element.ts:65](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L65)
 
 Gets the value of a data attribute.
 
@@ -465,7 +465,7 @@ The value of the data attribute.
 empty(): void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:39](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L39)
+Defined in: [src/enhanced-inputs/Element.ts:39](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L39)
 
 Clears the inner content of element by setting it to an empty string.
 
@@ -481,7 +481,7 @@ Clears the inner content of element by setting it to an empty string.
 focus(handler: (e: FocusEvent) => void, once?: boolean): () => void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:176](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L176)
+Defined in: [src/enhanced-inputs/Element.ts:176](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L176)
 
 Adds a focus event listener to the element.
 
@@ -517,7 +517,7 @@ A function to remove the event listener.
 hasClass(className: string): boolean
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:48](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L48)
+Defined in: [src/enhanced-inputs/Element.ts:48](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L48)
 
 Checks if the element has a specific class.
 
@@ -543,7 +543,7 @@ True if the element has the class, false otherwise.
 keydown(handler: (e: KeyboardEvent) => void, once?: boolean): () => void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:196](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L196)
+Defined in: [src/enhanced-inputs/Element.ts:196](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L196)
 
 Adds a keydown event listener to the element.
 
@@ -579,7 +579,7 @@ A function to remove the event listener.
 keyup(handler: (e: KeyboardEvent) => void, once?: boolean): () => void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:206](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L206)
+Defined in: [src/enhanced-inputs/Element.ts:206](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L206)
 
 Adds a keyup event listener to the element.
 
@@ -615,7 +615,7 @@ A function to remove the event listener.
 next(): Element
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:101](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L101)
+Defined in: [src/enhanced-inputs/Element.ts:101](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L101)
 
 Gets the next sibling element.
 
@@ -633,7 +633,7 @@ The next sibling element.
 parents(selector: string): Element
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:93](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L93)
+Defined in: [src/enhanced-inputs/Element.ts:93](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L93)
 
 Gets the closest ancestor element that matches the selector.
 
@@ -659,7 +659,7 @@ The closest ancestor element.
 remove(): void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:124](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L124)
+Defined in: [src/enhanced-inputs/Element.ts:124](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L124)
 
 Removes the element from the DOM.
 
@@ -675,7 +675,7 @@ Removes the element from the DOM.
 removeClass(className: string): void
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:56](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L56)
+Defined in: [src/enhanced-inputs/Element.ts:56](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L56)
 
 Removes a specific class from the element.
 
@@ -699,7 +699,7 @@ The class name to remove.
 val(value?: string): string
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:32](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L32)
+Defined in: [src/enhanced-inputs/Element.ts:32](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L32)
 
 Gets or sets the value of the input element.
 
@@ -728,7 +728,7 @@ The value of the input element.
 visible(): boolean
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:84](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L84)
+Defined in: [src/enhanced-inputs/Element.ts:84](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L84)
 
 Checks if the element is visible.
 
@@ -746,7 +746,7 @@ True if the element is visible, false otherwise.
 static byClassName(className: string): Element[]
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:300](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L300)
+Defined in: [src/enhanced-inputs/Element.ts:300](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L300)
 
 Finds all elements with the specified class name.
 When called as static method: searches entire document.
@@ -774,7 +774,7 @@ An array of Element instances.
 static byId(id: string): Element
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:217](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L217)
+Defined in: [src/enhanced-inputs/Element.ts:217](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L217)
 
 Finds an element by its ID.
 When called as static method: searches entire document.
@@ -802,7 +802,7 @@ The Element instance if found, null otherwise.
 static bySelector(selector: string): Element
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:238](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L238)
+Defined in: [src/enhanced-inputs/Element.ts:238](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L238)
 
 Finds the first element matching the CSS selector.
 When called as static method: searches entire document.
@@ -830,7 +830,7 @@ The Element instance if found, null otherwise.
 static bySelectorAll(selector: string): Element[]
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:260](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L260)
+Defined in: [src/enhanced-inputs/Element.ts:260](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L260)
 
 Finds all elements matching the CSS selector.
 When called as static method: searches entire document.
@@ -858,7 +858,7 @@ An array of Element instances.
 static byTagName(tagName: string): Element[]
 ```
 
-Defined in: [src/enhanced-inputs/Element.ts:280](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/Element.ts#L280)
+Defined in: [src/enhanced-inputs/Element.ts:280](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/Element.ts#L280)
 
 Finds all elements with the specified tag name.
 When called as static method: searches entire document.

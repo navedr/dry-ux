@@ -10,7 +10,7 @@
 function TextArea(props: InputHTMLAttributes<HTMLTextAreaElement> & IEnhancedProps & RefAttributes<HTMLInputElement>): ReactElement<any, string | JSXElementConstructor<any>>
 ```
 
-Defined in: [src/enhanced-inputs/HTMLInputs.tsx:57](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/enhanced-inputs/HTMLInputs.tsx#L57)
+Defined in: [src/enhanced-inputs/HTMLInputs.tsx:57](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/enhanced-inputs/HTMLInputs.tsx#L57)
 
 Forwarded ref textarea component with enhancements.
 

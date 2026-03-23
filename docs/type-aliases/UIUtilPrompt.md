@@ -10,6 +10,6 @@
 type UIUtilPrompt = Pick<UIUtilModal, "showConfirm" | "showActions" | "instances" | "getCurrent">;
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:248](https://github.com/navedr/dry-ux/blob/653068cbd5657fa7d27abfb6d04d3cd5bbabaf69/src/ui-utils/UIUtil.interface.ts#L248)
+Defined in: [src/ui-utils/UIUtil.interface.ts:248](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/ui-utils/UIUtil.interface.ts#L248)
 
 Type alias for UIUtilPrompt, which includes specific methods from UIUtilModal.
