@@ -59,6 +59,19 @@
     left: 50%!important;
 }
 
+.dry-ux-modal.draggable .modal-dialog {
+    transform: none!important;
+}
+
+.dry-ux-modal.draggable .modal-header {
+    cursor: move;
+    user-select: none;
+}
+
+.dry-ux-modal.draggable .modal-header.dragging {
+    cursor: move;
+}
+
 .dry-ux-modal-backdrop {
     position: fixed!important;
     top: 0!important;

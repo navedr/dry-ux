@@ -14,7 +14,7 @@ function useSearchParams<T>(): {
 }
 ```
 
-Defined in: [src/helpers/utilities.ts:360](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/helpers/utilities.ts#L360)
+Defined in: [src/helpers/utilities.ts:360](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/helpers/utilities.ts#L360)
 
 Hook to get and set URL search parameters.
 

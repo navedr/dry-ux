@@ -167,6 +167,10 @@ export type PopUpOptions = {
      */
     trackingId?: string;
     /**
+     * If true, the modal can be dragged by the title bar.
+     */
+    draggable?: boolean;
+    /**
      * If true, the modal will be shown.
      */
     actions?: PopUpAction[];

@@ -6,6 +6,7 @@ import CustomLoaderSection from "./CustomLoaderSection";
 import DajaxiceSection from "./DajaxiceSection";
 import DomSection from "./DomSection";
 import SearchParamsSection from "./SearchParamsSection";
+import CurrencyInputSection from "./CurrencyInputSection";
 
 const Content = React.memo(() => {
     const { modal, loader, customLoader, prompt, viewport } = useDryUxContext();
@@ -22,6 +23,8 @@ const Content = React.memo(() => {
             <DomSection viewport={viewport} width={width} height={height} />
             <hr />
             <SearchParamsSection />
+            <hr />
+            <CurrencyInputSection />
         </div>
     );
 });

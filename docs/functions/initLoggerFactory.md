@@ -12,7 +12,7 @@ function initLoggerFactory(path: string): {
 }
 ```
 
-Defined in: [src/helpers/logger.ts:81](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/helpers/logger.ts#L81)
+Defined in: [src/helpers/logger.ts:81](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/helpers/logger.ts#L81)
 
 Initializes a logger factory with the specified path.
 

@@ -4,6 +4,7 @@ import { PopUpInstance, PopUpOptions } from "./UIUtil.interface";
 import "../styles/modal.css";
 import { classSet } from "../helpers/classSet";
 import { ActionsOverlay } from "./ActionsOverlay";
+import { useDraggable } from "./useDraggable";
 
 /**
  * Props for the Modal component.
@@ -78,6 +79,7 @@ const Modal: React.FC<ModalProps> = ({
             titleCloseBtn = true,
             centered,
             trackingId,
+            draggable,
             actions = [],
         },
     },
@@ -86,6 +88,10 @@ const Modal: React.FC<ModalProps> = ({
     debug,
 }: ModalProps): JSX.Element => {
     const isCentered = centered ?? globalCentered;
+    const isDraggable = !!draggable && !!title;
+    const draggableClass = isDraggable ? `dry-ux-draggable-${id}` : "";
+
+    useDraggable(isDraggable, shown, `dry-ux-draggable-${id}`);
 
     const applyStyles = React.useCallback(() => {
         document.querySelectorAll(".modal-dialog").forEach((el: HTMLDivElement) => {
@@ -122,6 +128,8 @@ const Modal: React.FC<ModalProps> = ({
     const modalCssClass = classSet({
         "dry-ux-modal": true,
         centered: isCentered,
+        draggable: isDraggable,
+        [draggableClass]: isDraggable,
         [cssClass]: true,
         "default-styles": defaultModalStyles,
     });

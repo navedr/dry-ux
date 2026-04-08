@@ -36,6 +36,16 @@ const ModalSection = ({ modal }) => {
                 }),
         },
         {
+            label: "Draggable Modal",
+            onClick: () =>
+                modal.show({
+                    content: <div>Grab the title bar and drag the modal around!</div>,
+                    title: "Drag me by the title bar",
+                    width: 400,
+                    draggable: true,
+                }),
+        },
+        {
             label: "Alert",
             onClick: () => modal.showAlert("This is an alert dialog!"),
         },

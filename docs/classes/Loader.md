@@ -6,7 +6,7 @@
 
 # Class: Loader
 
-Defined in: [src/ui-utils/Loader.ts:6](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/ui-utils/Loader.ts#L6)
+Defined in: [src/ui-utils/Loader.ts:6](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/Loader.ts#L6)
 
 A singleton class that manages the display of a fullscreen loader spinner.
 
@@ -20,7 +20,7 @@ A singleton class that manages the display of a fullscreen loader spinner.
 get element(): HTMLElement
 ```
 
-Defined in: [src/ui-utils/Loader.ts:28](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/ui-utils/Loader.ts#L28)
+Defined in: [src/ui-utils/Loader.ts:28](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/Loader.ts#L28)
 
 Gets the loader element from the DOM.
 
@@ -38,7 +38,7 @@ The loader element.
 hide(): void
 ```
 
-Defined in: [src/ui-utils/Loader.ts:43](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/ui-utils/Loader.ts#L43)
+Defined in: [src/ui-utils/Loader.ts:43](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/Loader.ts#L43)
 
 Hides the loader by setting its visibility to hidden.
 
@@ -54,7 +54,7 @@ Hides the loader by setting its visibility to hidden.
 show(): void
 ```
 
-Defined in: [src/ui-utils/Loader.ts:35](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/ui-utils/Loader.ts#L35)
+Defined in: [src/ui-utils/Loader.ts:35](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/Loader.ts#L35)
 
 Shows the loader by setting its visibility to visible.
 
@@ -70,7 +70,7 @@ Shows the loader by setting its visibility to visible.
 static getInstance(): Loader
 ```
 
-Defined in: [src/ui-utils/Loader.ts:17](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/ui-utils/Loader.ts#L17)
+Defined in: [src/ui-utils/Loader.ts:17](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/Loader.ts#L17)
 
 Returns the singleton instance of the Loader class.
 

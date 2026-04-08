@@ -14,6 +14,7 @@ type PopUpOptions = {
   content: Content;
   cssClass: string;
   destroyOnClose: boolean;
+  draggable: boolean;
   footerContent: Content;
   onClose: () => void;
   title: Content;
@@ -23,7 +24,7 @@ type PopUpOptions = {
 };
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:124](https://github.com/navedr/dry-ux/blob/2ed1bb7ac0a9150be049a361e362d3b6cb1af90a/src/ui-utils/UIUtil.interface.ts#L124)
+Defined in: [src/ui-utils/UIUtil.interface.ts:124](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/UIUtil.interface.ts#L124)
 
 Represents the options for a PopUp.
 
@@ -76,6 +77,14 @@ optional destroyOnClose: boolean;
 ```
 
 If true, the modal will be destroyed when it is closed.
+
+### draggable?
+
+```ts
+optional draggable: boolean;
+```
+
+If true, the modal can be dragged by the title bar.
 
 ### footerContent?
 
