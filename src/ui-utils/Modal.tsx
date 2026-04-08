@@ -37,6 +37,10 @@ export type ModalProps = {
          */
         centered?: boolean;
         /**
+         * If true, modals with a title bar can be dragged.
+         */
+        draggable?: boolean;
+        /**
          * Callback function to be called when the modal is opened.
          */
         onOpen?: (modal: Pick<PopUpOptions, "title" | "trackingId">) => void;
@@ -83,12 +87,19 @@ const Modal: React.FC<ModalProps> = ({
             actions = [],
         },
     },
-    config: { defaultModalStyles = false, styles = {}, centered: globalCentered, onOpen, onClose: globalOnClose },
+    config: {
+        defaultModalStyles = false,
+        styles = {},
+        centered: globalCentered,
+        draggable: globalDraggable,
+        onOpen,
+        onClose: globalOnClose,
+    },
     providerId,
     debug,
 }: ModalProps): JSX.Element => {
     const isCentered = centered ?? globalCentered;
-    const isDraggable = !!draggable && !!title;
+    const isDraggable = !!(draggable ?? globalDraggable) && !!title;
     const draggableClass = isDraggable ? `dry-ux-draggable-${id}` : "";
 
     useDraggable(isDraggable, shown, `dry-ux-draggable-${id}`);

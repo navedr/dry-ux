@@ -10,7 +10,7 @@
 function useIsVisible(ref: MutableRefObject<any>): boolean
 ```
 
-Defined in: [src/helpers/utilities.ts:262](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/helpers/utilities.ts#L262)
+Defined in: [src/helpers/utilities.ts:262](https://github.com/navedr/dry-ux/blob/e34f02294bed8063878733ae26807418e87c8b35/src/helpers/utilities.ts#L262)
 
 Hook to check if an element is visible in the viewport.
 

@@ -10,6 +10,6 @@
 const DryUXContext: Context<IUIUtilProviderState>;
 ```
 
-Defined in: [src/ui-utils/UIUtilProvider.tsx:77](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/UIUtilProvider.tsx#L77)
+Defined in: [src/ui-utils/UIUtilProvider.tsx:77](https://github.com/navedr/dry-ux/blob/e34f02294bed8063878733ae26807418e87c8b35/src/ui-utils/UIUtilProvider.tsx#L77)
 
 React context for UI utilities.

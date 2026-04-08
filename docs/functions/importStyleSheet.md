@@ -10,7 +10,7 @@
 function importStyleSheet(resourceUrl: string): void
 ```
 
-Defined in: [src/helpers/utilities.ts:46](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/helpers/utilities.ts#L46)
+Defined in: [src/helpers/utilities.ts:46](https://github.com/navedr/dry-ux/blob/e34f02294bed8063878733ae26807418e87c8b35/src/helpers/utilities.ts#L46)
 
 Imports a stylesheet and adds it to the head.
 

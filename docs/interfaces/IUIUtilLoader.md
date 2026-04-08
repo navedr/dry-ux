@@ -6,7 +6,7 @@
 
 # Interface: IUIUtilLoader
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:234](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/UIUtil.interface.ts#L234)
+Defined in: [src/ui-utils/UIUtil.interface.ts:234](https://github.com/navedr/dry-ux/blob/e34f02294bed8063878733ae26807418e87c8b35/src/ui-utils/UIUtil.interface.ts#L234)
 
 Represents a loader utility.
 
@@ -18,7 +18,7 @@ Represents a loader utility.
 hide: () => void;
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:246](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/UIUtil.interface.ts#L246)
+Defined in: [src/ui-utils/UIUtil.interface.ts:246](https://github.com/navedr/dry-ux/blob/e34f02294bed8063878733ae26807418e87c8b35/src/ui-utils/UIUtil.interface.ts#L246)
 
 Hides the loader.
 
@@ -34,7 +34,7 @@ Hides the loader.
 show: () => void;
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:242](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/UIUtil.interface.ts#L242)
+Defined in: [src/ui-utils/UIUtil.interface.ts:242](https://github.com/navedr/dry-ux/blob/e34f02294bed8063878733ae26807418e87c8b35/src/ui-utils/UIUtil.interface.ts#L242)
 
 Shows the loader.
 
@@ -50,6 +50,6 @@ Shows the loader.
 shown: boolean;
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:238](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/UIUtil.interface.ts#L238)
+Defined in: [src/ui-utils/UIUtil.interface.ts:238](https://github.com/navedr/dry-ux/blob/e34f02294bed8063878733ae26807418e87c8b35/src/ui-utils/UIUtil.interface.ts#L238)
 
 Status of the loader.

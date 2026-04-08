@@ -24,7 +24,7 @@ type PopUpOptions = {
 };
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:124](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/UIUtil.interface.ts#L124)
+Defined in: [src/ui-utils/UIUtil.interface.ts:124](https://github.com/navedr/dry-ux/blob/e34f02294bed8063878733ae26807418e87c8b35/src/ui-utils/UIUtil.interface.ts#L124)
 
 Represents the options for a PopUp.
 

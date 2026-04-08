@@ -10,7 +10,7 @@
 function Money(props: PropsWithChildren<MoneyProps>, context?: any): ReactElement<any, any>
 ```
 
-Defined in: [src/ui-utils/Money.tsx:39](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/Money.tsx#L39)
+Defined in: [src/ui-utils/Money.tsx:39](https://github.com/navedr/dry-ux/blob/e34f02294bed8063878733ae26807418e87c8b35/src/ui-utils/Money.tsx#L39)
 
 Renders a formatted dollar amount with a currency symbol and parentheses if the amount is negative.
 

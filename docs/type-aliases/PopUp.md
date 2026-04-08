@@ -21,7 +21,7 @@ type PopUp = {
 };
 ```
 
-Defined in: [src/ui-utils/UIUtil.interface.ts:11](https://github.com/navedr/dry-ux/blob/ff308634291e901772ffb8accf10d1698e6d908e/src/ui-utils/UIUtil.interface.ts#L11)
+Defined in: [src/ui-utils/UIUtil.interface.ts:11](https://github.com/navedr/dry-ux/blob/e34f02294bed8063878733ae26807418e87c8b35/src/ui-utils/UIUtil.interface.ts#L11)
 
 Represents a PopUp with methods to control its visibility and content.
 
