@@ -9,7 +9,7 @@
     "watch": "rimraf dist/ && tsc --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "update:version": "npm version minor --no-git-tag-version",
-    "prepub:npm": "npm run format && npm run build && npm run update:version && npm run docs",
+    "prepub:npm": "npm run format && npm run build && npm run update:version",
     "publish:npm": "npm run prepub:npm && npm publish",
     "pack": "npm run build && npm pack --pack-destination pack/",
     "docs": "typedoc --options typedoc.json && cd test && npm run build:test && cp -r proddist ../htmldocs/demo",
