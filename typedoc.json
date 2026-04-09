@@ -2,7 +2,7 @@
     "$schema": "https://typedoc.org/schema.json",
     "entryPoints": ["./src/index.ts"],
     "plugin": ["typedoc-plugin-markdown"],
-    "readme": "_readme.md",
+    "readme": "README.md",
     "useCodeBlocks": true,
     "expandObjects": true,
     "expandParameters": true,
