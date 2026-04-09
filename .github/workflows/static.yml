@@ -22,7 +22,6 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -31,6 +30,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: npm install
+      - name: Install test app dependencies
+        run: cd test && npm install
+      - name: Generate docs and demo
+        run: npm run docs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
