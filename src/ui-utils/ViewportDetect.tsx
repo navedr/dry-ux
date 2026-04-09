@@ -1,6 +1,4 @@
 import * as React from "react";
-import "../styles/viewport.css";
-import { useIsVisible } from "../helpers/utilities";
 
 /**
  * Enum representing different viewport sizes.
@@ -66,54 +64,45 @@ export class CurrentViewport {
     }
 }
 
-/**
- * Component that detects the visibility of a viewport element.
- * @param {Object} props - The component props.
- * @param {Viewport} props.viewport - The viewport size.
- * @param {function(boolean): void} props.onVisibilityChange - Callback function to handle visibility change.
- * @returns {JSX.Element} The detection element.
- */
-const DetectionElement = ({
-    viewport,
-    onVisibilityChange,
-}: {
-    viewport: Viewport;
-    onVisibilityChange: (isVisible: boolean) => void;
-}) => {
-    const ref = React.useRef<HTMLDivElement>(null);
-    const isVisible = useIsVisible(ref);
-
-    React.useEffect(() => {
-        onVisibilityChange(isVisible);
-    }, [isVisible]);
-
-    return <div ref={ref} className={`dry-visible-${viewport}`}></div>;
-};
+const breakpoints: { viewport: Viewport; query: string }[] = [
+    { viewport: Viewport.XS, query: "(max-width: 767px)" },
+    { viewport: Viewport.SM, query: "(min-width: 768px) and (max-width: 991px)" },
+    { viewport: Viewport.MD, query: "(min-width: 992px) and (max-width: 1199px)" },
+    { viewport: Viewport.LG, query: "(min-width: 1200px)" },
+];
 
 /**
- * Component that detects the current viewport and triggers a callback on change.
+ * Component that detects the current viewport using matchMedia and triggers a callback on change.
  * @param {Object} props - The component props.
  * @param {function(CurrentViewport): void} props.onChange - Callback function to handle viewport change.
- * @returns {JSX.Element} The viewport detection component.
+ * @returns {null} This component renders nothing.
  */
 export const ViewportDetect: React.FC<{ onChange: (current: CurrentViewport) => void }> = React.memo(({ onChange }) => {
-    const onVisibilityChange = (viewport: Viewport, isVisible: boolean) => {
-        if (isVisible) {
-            onChange(new CurrentViewport(viewport));
-        }
-    };
+    React.useEffect(() => {
+        const listeners: { mql: MediaQueryList; handler: (e: MediaQueryListEvent | MediaQueryList) => void }[] = [];
 
-    return (
-        <>
-            {Object.keys(Viewport)
-                .map(v => Viewport[v])
-                .map((viewport: Viewport) => (
-                    <DetectionElement
-                        key={viewport}
-                        viewport={viewport}
-                        onVisibilityChange={isVisible => onVisibilityChange(viewport, isVisible)}
-                    />
-                ))}
-        </>
-    );
+        breakpoints.forEach(({ viewport, query }) => {
+            const mql = window.matchMedia(query);
+            const handler = (e: MediaQueryListEvent | MediaQueryList) => {
+                if (e.matches) {
+                    onChange(new CurrentViewport(viewport));
+                }
+            };
+
+            // Check initial state
+            handler(mql);
+
+            // Listen for changes
+            mql.addEventListener("change", handler as (e: MediaQueryListEvent) => void);
+            listeners.push({ mql, handler });
+        });
+
+        return () => {
+            listeners.forEach(({ mql, handler }) => {
+                mql.removeEventListener("change", handler as (e: MediaQueryListEvent) => void);
+            });
+        };
+    }, [onChange]);
+
+    return null;
 });

@@ -48,7 +48,7 @@ const DajaxiceSection = () => {
     return (
         <Section title={"Dajaxice"}>
             <button
-                className={"btn btn-primary"}
+                className={"btn-demo"}
                 onClick={() =>
                     Api.employee
                         .getDetails<{ name: string; id: number }>({ args: { id: 1 }, loader: true })

@@ -1,27 +1,13 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { DryUXProvider, DryUXRenderer, ErrorBoundary, useDimensions } from "../../../src";
+import { DryUXProvider, DryUXRenderer, ErrorBoundary } from "../../../src";
 import "../css/site.css";
 import Content from "./Content";
 import LargeContent from "./LargeContent";
 import "../../../src/styles/helper.css";
 
 // https://urre.me/writings/test-local-npm-packages/
-
-const Section = React.memo(({ children }) => {
-    const ref = React.useRef(null);
-    const { width, height } = useDimensions(ref);
-
-    return (
-        <section ref={ref}>
-            <div style={{ float: "right" }}>
-                {width}x{height}px
-            </div>
-            {children}
-        </section>
-    );
-});
 
 const App = React.memo(() => {
     const [centered, setCentered] = React.useState(false);
@@ -31,25 +17,30 @@ const App = React.memo(() => {
         <ErrorBoundary>
             <DryUXProvider noRenderer viewportDetect id={"test-app"} debug>
                 <div className={"container"}>
-                    <div className="row">
-                        <div className="col-12">
-                            <label>
+                    <header className={"app-header"}>
+                        <h1 className={"app-title"}>
+                            dry-ux <span className={"app-title-tag"}>playground</span>
+                        </h1>
+                        <div className={"app-controls"}>
+                            <label className={"toggle-label"}>
                                 <input type={"checkbox"} onChange={e => setCentered(e.target.checked)} />
-                                &nbsp;Centered Modals
+                                <span className={"toggle-track"} />
+                                Centered Modals
                             </label>
-                            <label>
+                            <label className={"toggle-label"}>
                                 <input type={"checkbox"} onChange={e => toggleLargeContent(e.target.checked)} />
-                                &nbsp;Large Content
+                                <span className={"toggle-track"} />
+                                Large Content
                             </label>
-                            {largeContent && (
-                                <>
-                                    <LargeContent />
-                                    <LargeContent />
-                                </>
-                            )}
-                            <Content />
                         </div>
-                    </div>
+                    </header>
+                    {largeContent && (
+                        <>
+                            <LargeContent />
+                            <LargeContent />
+                        </>
+                    )}
+                    <Content />
                     <DryUXRenderer modalConfig={{ defaultModalStyles: true, centered }} debug id={"test-app"} />
                 </div>
             </DryUXProvider>

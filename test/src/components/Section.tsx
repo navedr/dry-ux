@@ -10,31 +10,24 @@ const Section: React.FC<{
     const { width, height } = useDimensions(ref);
 
     return (
-        <section ref={ref}>
-            <div className={"pull-right"}>
-                {width}x{height}px
+        <div className={"demo-section"} ref={ref}>
+            <div className={"section-header"}>
+                {title && <h3 className={"section-title"}>{title}</h3>}
+                <span className={"section-dims"}>
+                    {width}×{height}
+                </span>
             </div>
-            {title && <h3 className={"mb0"}>{title}</h3>}
             {buttons && (
-                <table className={"table"}>
-                    <tbody>
-                        {buttons &&
-                            Array.from({ length: Math.ceil(buttons.length / 6) }).map((_, rowIndex) => (
-                                <tr key={rowIndex}>
-                                    {buttons.slice(rowIndex * 6, rowIndex * 6 + 6).map((button, index) => (
-                                        <td key={index}>
-                                            <button className={"btn btn-primary"} onClick={button.onClick}>
-                                                {button.label}
-                                            </button>
-                                        </td>
-                                    ))}
-                                </tr>
-                            ))}
-                    </tbody>
-                </table>
+                <div className={"btn-grid"}>
+                    {buttons.map((button, index) => (
+                        <button key={index} className={"btn-demo"} onClick={button.onClick}>
+                            {button.label}
+                        </button>
+                    ))}
+                </div>
             )}
             {children}
-        </section>
+        </div>
     );
 });
 
