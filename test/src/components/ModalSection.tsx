@@ -46,6 +46,33 @@ const ModalSection = ({ modal }) => {
                 }),
         },
         {
+            label: "Draggable → Opens Another",
+            onClick: () =>
+                modal.show({
+                    content: (
+                        <div>
+                            Drag me, then click the button to open a new modal.
+                            <br />
+                            <button
+                                className={"btn btn-primary mtop"}
+                                onClick={() =>
+                                    modal.show({
+                                        content: <div>This modal should open at the default position!</div>,
+                                        title: "Second Modal",
+                                        width: 400,
+                                        draggable: true,
+                                    })
+                                }>
+                                Open Another Modal
+                            </button>
+                        </div>
+                    ),
+                    title: "First Modal - Drag me first",
+                    width: 400,
+                    draggable: true,
+                }),
+        },
+        {
             label: "Alert",
             onClick: () => modal.showAlert("This is an alert dialog!"),
         },

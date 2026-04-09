@@ -8,8 +8,9 @@ import * as React from "react";
  * @param enabled - Whether dragging is enabled.
  * @param shown - Current shown state; position resets when modal reopens.
  * @param modalClass - Unique CSS class on the modal to identify it.
+ * @param modalKey - When this value changes, drag position resets (e.g. when one modal replaces another).
  */
-export const useDraggable = (enabled: boolean, shown: boolean, modalClass: string) => {
+export const useDraggable = (enabled: boolean, shown: boolean, modalClass: string, modalKey: number) => {
     const cleanupRef = React.useRef<() => void>(null);
 
     React.useEffect(() => {
@@ -74,5 +75,5 @@ export const useDraggable = (enabled: boolean, shown: boolean, modalClass: strin
                 cleanupRef.current = null;
             }
         };
-    }, [enabled, shown, modalClass]);
+    }, [enabled, shown, modalClass, modalKey]);
 };

@@ -393,6 +393,7 @@ export class UIUtilProvider extends React.PureComponent<
         instances[id] = {
             options,
             shown: false,
+            key: Date.now(),
             handleClose: this.toggleModalInstance.bind(this),
             toggleOverlay: this.toggleModalOverlay.bind(this),
         };

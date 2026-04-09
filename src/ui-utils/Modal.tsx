@@ -72,6 +72,7 @@ const Modal: React.FC<ModalProps> = ({
         toggleOverlay,
         shown,
         overlay,
+        key: instanceKey,
         options: {
             content,
             footerContent,
@@ -102,7 +103,7 @@ const Modal: React.FC<ModalProps> = ({
     const isDraggable = !!(draggable ?? globalDraggable) && !!title;
     const draggableClass = isDraggable ? `dry-ux-draggable-${id}` : "";
 
-    useDraggable(isDraggable, shown, `dry-ux-draggable-${id}`);
+    useDraggable(isDraggable, shown, `dry-ux-draggable-${id}`, instanceKey);
 
     const applyStyles = React.useCallback(() => {
         document.querySelectorAll(".modal-dialog").forEach((el: HTMLDivElement) => {

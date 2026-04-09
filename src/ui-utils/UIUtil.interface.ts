@@ -74,6 +74,10 @@ export type PopUpInstance = {
      */
     shown: boolean;
     /**
+     * @internal Unique key that changes each time the instance is created/replaced.
+     */
+    key?: number;
+    /**
      * The overlay content for the PopUp.
      */
     overlay?: Content;
