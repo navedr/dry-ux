@@ -72,6 +72,29 @@
     cursor: move;
 }
 
+.dry-ux-modal .modal-header .dry-ux-modal-header-actions {
+    float: right;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-right: 4px;
+    margin-top: -2px;
+}
+
+.dry-ux-modal .modal-header .dry-ux-modal-header-action {
+    background: none;
+    border: none;
+    padding: 2px 6px;
+    cursor: pointer;
+    line-height: 1;
+    color: inherit;
+    opacity: 0.6;
+}
+
+.dry-ux-modal .modal-header .dry-ux-modal-header-action:hover {
+    opacity: 1;
+}
+
 .dry-ux-modal-backdrop {
     position: fixed!important;
     top: 0!important;

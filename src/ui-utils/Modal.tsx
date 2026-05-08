@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Button, Modal as BootstrapModal } from "react-bootstrap";
-import { PopUpInstance, PopUpOptions } from "./UIUtil.interface";
+import { PopUpHeaderAction, PopUpInstance, PopUpOptions } from "./UIUtil.interface";
 import "../styles/modal.css";
 import { classSet } from "../helpers/classSet";
 import { ActionsOverlay } from "./ActionsOverlay";
@@ -86,6 +86,7 @@ const Modal: React.FC<ModalProps> = ({
             trackingId,
             draggable,
             actions = [],
+            headerActions = [],
         },
     },
     config: {
@@ -198,9 +199,26 @@ const Modal: React.FC<ModalProps> = ({
                     <div className={"dry-ux-overlay-content"}>{overlay}</div>
                 </div>
             )}
-            {!!title && (
+            {(!!(title) || !!headerActions?.length) && (
                 <BootstrapModal.Header closeButton={titleCloseBtn} onHide={onHide}>
-                    <BootstrapModal.Title>{title}</BootstrapModal.Title>
+                    {!!headerActions?.length && (
+                        <div className="dry-ux-modal-header-actions">
+                            {headerActions.map(
+                                ({ content: actionContent, onClick, title: actionTitle, className = "" }, index) => (
+                                    <button
+                                        key={index}
+                                        className={classSet({ "dry-ux-modal-header-action": true, [className]: !!className })}
+                                        onClick={onClick}
+                                        title={actionTitle}
+                                        type="button"
+                                    >
+                                        {actionContent}
+                                    </button>
+                                ),
+                            )}
+                        </div>
+                    )}
+                    {!!title && <BootstrapModal.Title>{title}</BootstrapModal.Title>}
                 </BootstrapModal.Header>
             )}
             <BootstrapModal.Body>{contentToRender}</BootstrapModal.Body>
