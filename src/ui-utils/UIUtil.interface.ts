@@ -97,6 +97,28 @@ export type PopUpInstance = {
 };
 
 /**
+ * Represents an action displayed in the modal header (next to the close button).
+ */
+export type PopUpHeaderAction = {
+    /**
+     * The content to display in the header action button.
+     */
+    content: Content;
+    /**
+     * Function to call when the header action is clicked.
+     */
+    onClick?: () => void;
+    /**
+     * Tooltip text for the header action button.
+     */
+    title?: string;
+    /**
+     * Additional CSS class for the header action button.
+     */
+    className?: string;
+};
+
+/**
  * Represents an action for a PopUp.
  */
 export type PopUpAction = {
@@ -178,6 +200,10 @@ export type PopUpOptions = {
      * If true, the modal will be shown.
      */
     actions?: PopUpAction[];
+    /**
+     * Actions rendered in the modal header, next to the close button.
+     */
+    headerActions?: PopUpHeaderAction[];
 };
 
 /**
