@@ -73,6 +73,27 @@ const ModalSection = ({ modal }) => {
                 }),
         },
         {
+            label: "Header Actions",
+            onClick: () =>
+                modal.show({
+                    content: <div>This modal has custom action buttons in the header next to the close button.</div>,
+                    title: "Header Actions",
+                    width: 400,
+                    headerActions: [
+                        {
+                            content: "?",
+                            title: "Help",
+                            onClick: () => alert("Help clicked!"),
+                        },
+                        {
+                            content: "⚙",
+                            title: "Settings",
+                            onClick: () => alert("Settings clicked!"),
+                        },
+                    ],
+                }),
+        },
+        {
             label: "Alert",
             onClick: () => modal.showAlert("This is an alert dialog!"),
         },
