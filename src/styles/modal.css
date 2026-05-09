@@ -72,15 +72,17 @@
     cursor: move;
 }
 
-.dry-ux-modal .modal-header .dry-ux-modal-header-actions {
+.dry-ux-modal .modal-header .dry-ux-modal-header-right {
     float: right;
     display: flex;
     align-items: center;
-    gap: 2px;
-    margin-right: 5px;
+    gap: 4px;
     margin-top: -2px;
-    font-size: 21px;
-    line-height: 1;
+}
+
+.dry-ux-modal .modal-header .dry-ux-modal-header-right .close {
+    float: none;
+    margin-top: 0;
 }
 
 .dry-ux-modal .modal-header .dry-ux-modal-header-action {
@@ -89,9 +91,10 @@
     padding: 0 3px;
     cursor: pointer;
     line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
+    color: inherit;
     opacity: 0.4;
+    display: flex;
+    align-items: center;
 }
 
 .dry-ux-modal .modal-header .dry-ux-modal-header-action:hover {

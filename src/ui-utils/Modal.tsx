@@ -200,9 +200,9 @@ const Modal: React.FC<ModalProps> = ({
                 </div>
             )}
             {(!!(title) || !!headerActions?.length) && (
-                <BootstrapModal.Header closeButton={titleCloseBtn} onHide={onHide}>
+                <BootstrapModal.Header closeButton={!headerActions?.length && titleCloseBtn} onHide={onHide}>
                     {!!headerActions?.length && (
-                        <div className="dry-ux-modal-header-actions">
+                        <div className="dry-ux-modal-header-right">
                             {headerActions.map(
                                 ({ content: actionContent, onClick, title: actionTitle, className = "" }, index) => (
                                     <button
@@ -215,6 +215,11 @@ const Modal: React.FC<ModalProps> = ({
                                         {actionContent}
                                     </button>
                                 ),
+                            )}
+                            {titleCloseBtn && (
+                                <button type="button" className="close" onClick={onHide}>
+                                    <span aria-hidden="true">×</span>
+                                </button>
                             )}
                         </div>
                     )}
