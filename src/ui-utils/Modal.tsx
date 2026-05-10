@@ -199,7 +199,7 @@ const Modal: React.FC<ModalProps> = ({
                     <div className={"dry-ux-overlay-content"}>{overlay}</div>
                 </div>
             )}
-            {(!!(title) || !!headerActions?.length) && (
+            {(!!title || !!headerActions?.length) && (
                 <BootstrapModal.Header closeButton={!headerActions?.length && titleCloseBtn} onHide={onHide}>
                     {!!headerActions?.length && (
                         <div className="dry-ux-modal-header-right">
@@ -207,7 +207,10 @@ const Modal: React.FC<ModalProps> = ({
                                 ({ content: actionContent, onClick, title: actionTitle, className = "" }, index) => (
                                     <button
                                         key={index}
-                                        className={classSet({ "dry-ux-modal-header-action": true, [className]: !!className })}
+                                        className={classSet({
+                                            "dry-ux-modal-header-action": true,
+                                            [className]: !!className,
+                                        })}
                                         onClick={onClick}
                                         title={actionTitle}
                                         type="button"

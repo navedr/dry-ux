@@ -78,6 +78,9 @@ const breakpoints: { viewport: Viewport; query: string }[] = [
  * @returns {null} This component renders nothing.
  */
 export const ViewportDetect: React.FC<{ onChange: (current: CurrentViewport) => void }> = React.memo(({ onChange }) => {
+    const onChangeRef = React.useRef(onChange);
+    onChangeRef.current = onChange;
+
     React.useEffect(() => {
         const listeners: { mql: MediaQueryList; handler: (e: MediaQueryListEvent | MediaQueryList) => void }[] = [];
 
@@ -85,14 +88,12 @@ export const ViewportDetect: React.FC<{ onChange: (current: CurrentViewport) => 
             const mql = window.matchMedia(query);
             const handler = (e: MediaQueryListEvent | MediaQueryList) => {
                 if (e.matches) {
-                    onChange(new CurrentViewport(viewport));
+                    onChangeRef.current(new CurrentViewport(viewport));
                 }
             };
 
-            // Check initial state
             handler(mql);
 
-            // Listen for changes
             mql.addEventListener("change", handler as (e: MediaQueryListEvent) => void);
             listeners.push({ mql, handler });
         });
@@ -102,7 +103,7 @@ export const ViewportDetect: React.FC<{ onChange: (current: CurrentViewport) => 
                 mql.removeEventListener("change", handler as (e: MediaQueryListEvent) => void);
             });
         };
-    }, [onChange]);
+    }, []);
 
     return null;
 });
