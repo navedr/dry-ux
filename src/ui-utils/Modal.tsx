@@ -187,7 +187,7 @@ const Modal: React.FC<ModalProps> = ({
         <BootstrapModal
             onHide={onHide}
             show={shown}
-            animation
+            animation={false}
             autoFocus
             keyboard={false}
             className={modalCssClass}
